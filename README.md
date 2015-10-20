@@ -8,7 +8,7 @@ Named after the [Library of Alexandria](https://en.wikipedia.org/wiki/Library_of
 
 Technology:
 
--	React
+-	[React](http://facebook.github.io/react/)
 
 -	ES2015 (using [Babel](http://babeljs.io)\)
 
@@ -23,6 +23,8 @@ Technology:
 -	[ESLint](http://eslint.org)
 
 -	[JSCS](http://jscs.info)
+
+-	[Autoprefixer](https://github.com/postcss/autoprefixer)
 
 Style guides:
 
@@ -78,3 +80,9 @@ Generating New Components
 `yo react-webpack:component my/name/spaced/components/name`
 
 This creates a new component, its stylesheet and a basic test case.
+
+Most of the time you will want to add:
+
+`--stateless`
+
+That makes a stateless component (pure function, no internal state).
