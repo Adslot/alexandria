@@ -1,4 +1,12 @@
-/* Overall UI Library Styles */
+// Overall UI Library Styles
 body {
-  color: purple;
+  font-family: 'Roboto', sans-serif;
+
+  h1 {
+    margin: 40px 40px 0;
+  }
+
+  .slicey-component {
+    margin: 40px;
+  }
 }

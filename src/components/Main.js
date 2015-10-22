@@ -1,12 +1,19 @@
 require('styles/App.scss');
 
 import React from 'react';
+import Slicey from 'components/alexandria/SliceyComponent';
 
 class AppComponent extends React.Component {
   render() {
+    const sliceyTestData = [
+      {label: 'positive', value: 50},
+      {label: 'negative', value: 25},
+      {label: 'info', value: 35},
+    ];
     return (
       <div className="index">
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+        <h1>Slicey</h1>
+        <Slicey dataset={sliceyTestData} donut diameter={150}/>
       </div>
     );
   }
