@@ -1,0 +1,24 @@
+$color-positive: #5bb75b;
+$color-negative: #da4f49;
+$color-info: #49afcd;
+$color-warning: #faa732;
+
+.arc-component {
+
+  &.positive {
+    fill: $color-positive;
+  }
+
+  &.negative {
+    fill: $color-negative;
+  }
+
+  &.info {
+    fill: $color-info;
+  }
+
+  &.warning,
+  &.pending {
+    fill: $color-warning;
+  }
+}

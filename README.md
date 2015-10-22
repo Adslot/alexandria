@@ -77,7 +77,7 @@ npm run copy
 Generating New Components
 -------------------------
 
-`yo react-webpack:component my/name/spaced/components/name`
+`yo react-webpack:component alexandria/component/name`
 
 This creates a new component, its stylesheet and a basic test case.
 

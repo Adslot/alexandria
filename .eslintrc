@@ -12,8 +12,9 @@
     "react"
   ],
   "rules": {
+    "id-length": [2, {"min": 2, "max": 25, "properties": "never", "exceptions": ["_"]}],
     "max-len": [1, 120, 2],
     "no-cond-assign": [2, "except-parens"],
-    "id-length": [2, {"min": 3, "max": 25, "properties": "never", "exceptions": ["_"]}]
+    "strict": [0]
   }
 }
