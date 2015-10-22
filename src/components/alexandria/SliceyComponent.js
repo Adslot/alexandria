@@ -18,7 +18,7 @@ const SliceyComponent = ({dataset, diameter, donut, marker}) => {
 
   let donutNode;
   if (donut) {
-    donutNode = <circle className="slicey-donut" r=".42" cx="0" cy="0"></circle>;
+    donutNode = <circle className="slicey-donut" r=".45" cx="0" cy="0"></circle>;
   }
 
   const getMarkerPoints = (markerValue) => {
