@@ -14,9 +14,15 @@ module.exports = function configureKarma(config) {
       mocha: {},
     },
     singleRun: true,
-    reporters: ['mocha'],
+    reporters: ['coverage', 'mocha'],
     preprocessors: {
-      'test/loadtests.js': ['webpack', 'sourcemap'],
+      'test/loadtests.js': ['webpack'],
+    },
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        {type: 'lcov', subdir: '.'},
+      ],
     },
     webpack: webpackCfg,
     webpackServer: {
