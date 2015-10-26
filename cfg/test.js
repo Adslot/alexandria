@@ -18,6 +18,13 @@ module.exports = {
         ],
       },
     ],
+    postLoaders: [
+      {
+        test: /\.js?$/,
+        exclude: /(test|node_modules)\//,
+        loader: 'istanbul-instrumenter',
+      },
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
