@@ -1,44 +1,19 @@
-'use strict';
-
 import _ from 'lodash';
 import Arc from 'components/alexandria/slicey/ArcComponent';
 import React from 'react';
 
+import {ROUND, HALF, QUARTER, getPointX, getPointY} from './slicey/DataProcessor.js';
+
 require('styles/alexandria/Slicey.scss');
 
-const SliceyComponent = ({dataset, diameter, donut, marker}) => {
-  const QUARTER = Math.PI / 2;
-  const HALF = Math.PI;
-  const ROUND = Math.PI * 2;
-  const RADIUS = 0.5;
-
-  const getPointX = (angle) => RADIUS * Math.cos(angle);
-
-  const getPointY = (angle) => RADIUS * Math.sin(angle);
-
-  let donutNode;
-  if (donut) {
-    donutNode = <circle className="slicey-donut" r=".45" cx="0" cy="0"></circle>;
-  }
-
-  const getMarkerPoints = (markerValue) => {
-    const pointOnCircle = (ROUND * markerValue) - QUARTER;
-    return `${getPointX(pointOnCircle)},${getPointY(pointOnCircle)} 0,0`;
-  };
-
-  let markerNode;
-  if (Boolean(marker)) {
-    markerNode = <polyline className="slicey-marker" points={getMarkerPoints(marker)} />;
-  }
-
+const SliceyComponent = ({dataset, diameter, children}) => {
   const filteredDataset = _.filter(dataset, (datum) => datum.value > 0);
 
   if (_.isEmpty(filteredDataset)) {
     return (
       <svg className="slicey-component" height={diameter} width={diameter}>
         <circle className="slicey-empty" r=".5" cx="0" cy="0"></circle>
-        {markerNode}
-        {donutNode}
+        {children}
       </svg>
     );
   }
@@ -73,13 +48,12 @@ const SliceyComponent = ({dataset, diameter, donut, marker}) => {
       {getArcs(filteredDataset).map((arc) => {
         return <Arc key={arc.id} data={arc}/>;
       })}
-      {markerNode}
-      {donutNode}
+      {children}
     </svg>
   );
 };
 
-SliceyComponent.displayName = 'SliceyComponent';
+SliceyComponent.displayName = 'AlexandriaSliceyComponent';
 
 SliceyComponent.propTypes = {
   dataset: React.PropTypes.arrayOf(
@@ -89,14 +63,10 @@ SliceyComponent.propTypes = {
     })
   ),
   diameter: React.PropTypes.number,
-  donut: React.PropTypes.bool,
-  marker: React.PropTypes.number,
 };
 
 SliceyComponent.defaultProps = {
   diameter: 100,
-  donut: false,
-  marker: 0,
 };
 
 export default SliceyComponent;
