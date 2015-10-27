@@ -1,5 +1,3 @@
-'use strict';
-
 import _ from 'lodash';
 import React from 'react';
 
@@ -16,7 +14,7 @@ const ArcComponent = ({data}) => {
   return <path className={`arc-component ${_.kebabCase(data.label)}`} d={dataString}></path>;
 };
 
-ArcComponent.displayName = 'SliceyArcComponent';
+ArcComponent.displayName = 'AlexandriaSliceyArcComponent';
 
 ArcComponent.propTypes = {
   data: React.PropTypes.shape({

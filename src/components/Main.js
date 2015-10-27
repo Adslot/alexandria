@@ -1,5 +1,7 @@
 require('styles/App.scss');
 
+import Donut from 'components/alexandria/slicey/DonutComponent';
+import Marker from 'components/alexandria/slicey/MarkerComponent';
 import React from 'react';
 import Slicey from 'components/alexandria/SliceyComponent';
 
@@ -13,13 +15,13 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <h1>Slicey</h1>
-        <Slicey dataset={sliceyTestData} donut diameter={150}/>
+        <Slicey dataset={sliceyTestData} diameter={150}>
+          <Marker fraction={0.2} />
+          <Donut />
+        </Slicey>
       </div>
     );
   }
 }
-
-AppComponent.defaultProps = {
-};
 
 export default AppComponent;

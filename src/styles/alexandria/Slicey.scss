@@ -1,6 +1,4 @@
 $color-background: #555;
-$color-donut: #fff;
-$color-marker: #da4f49;
 
 .slicey {
   &-component {
@@ -10,14 +8,5 @@ $color-marker: #da4f49;
   &-background,
   &-empty {
     fill: $color-background;
-  }
-
-  &-marker {
-    stroke: $color-marker;
-    stroke-width: .02;
-  }
-
-  &-donut {
-    fill: $color-donut;
   }
 }

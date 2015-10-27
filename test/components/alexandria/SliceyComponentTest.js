@@ -1,7 +1,6 @@
 /* eslint-env node, mocha */
 /* global expect */
 /* eslint no-console: 0*/
-'use strict';
 
 import createComponent from 'helpers/shallowRenderHelper';
 import SliceyComponent from 'components/alexandria/SliceyComponent.js';
@@ -26,6 +25,6 @@ describe('SliceyComponent', () => {
     expect(component.props.width).to.equal(100);
     expect(component.type).to.equal('svg');
 
-    expect(component.props.children).to.have.length(4);
+    expect(component.props.children).to.have.length(3);
   });
 });

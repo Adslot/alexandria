@@ -1,7 +1,6 @@
 /* eslint-env node, mocha */
 /* global expect */
 /* eslint no-console: 0*/
-'use strict';
 
 import createComponent from 'helpers/shallowRenderHelper';
 import ArcComponent from 'components/alexandria/slicey/ArcComponent.js';

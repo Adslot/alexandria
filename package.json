@@ -52,6 +52,7 @@
     "mocha": "^2.3.3",
     "node-sass": "^3.3.3",
     "null-loader": "^0.1.1",
+    "object-assign": "^4.0.1",
     "open": "^0.0.5",
     "phantomjs": "^1.9.18",
     "react-addons-test-utils": "^0.14.0",
