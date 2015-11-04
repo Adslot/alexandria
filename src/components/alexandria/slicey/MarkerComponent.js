@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ROUND, QUARTER, getPointX, getPointY} from './DataProcessor.js';
+import {ROUND, QUARTER, getPointX, getPointY} from './DataProcessor';
 
 require('styles/alexandria/slicey/Marker.scss');
 

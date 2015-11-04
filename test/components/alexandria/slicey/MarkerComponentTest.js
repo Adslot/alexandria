@@ -3,7 +3,7 @@
 /* eslint no-console: 0*/
 
 import createComponent from 'helpers/shallowRenderHelper';
-import MarkerComponent from 'components/alexandria/slicey/MarkerComponent.js';
+import MarkerComponent from 'components/alexandria/slicey/MarkerComponent';
 
 describe('MarkerComponent', () => {
   it('should have its component name as default className', () => {
