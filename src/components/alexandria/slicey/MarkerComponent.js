@@ -24,4 +24,4 @@ MarkerComponent.defaultProps = {
   fraction: 0,
 };
 
-export default MarkerComponent;
+module.exports = MarkerComponent;

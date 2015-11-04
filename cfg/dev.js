@@ -20,7 +20,7 @@ const config = _.merge({
 
 config.module.loaders.push({
   test: /\.(js|jsx)$/,
-  loader: 'react-hot!babel-loader',
+  loaders: ['react-hot', 'babel-loader'],
   include: path.join(__dirname, '/../src'),
 });
 
