@@ -24,4 +24,4 @@ class AppComponent extends React.Component {
   }
 }
 
-export default AppComponent;
+module.exports = AppComponent;

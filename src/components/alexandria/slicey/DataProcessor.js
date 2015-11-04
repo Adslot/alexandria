@@ -10,4 +10,4 @@ const sliceyHelpers = {
   getPointY: (angle) => RADIUS * Math.sin(angle),
 };
 
-export default sliceyHelpers;
+module.exports = sliceyHelpers;

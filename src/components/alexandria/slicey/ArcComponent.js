@@ -28,4 +28,4 @@ ArcComponent.propTypes = {
   }),
 };
 
-export default ArcComponent;
+module.exports = ArcComponent;

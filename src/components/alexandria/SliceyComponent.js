@@ -69,4 +69,4 @@ SliceyComponent.defaultProps = {
   diameter: 100,
 };
 
-export default SliceyComponent;
+module.exports = SliceyComponent;

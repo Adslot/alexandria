@@ -8,4 +8,4 @@ const DonutComponent = () => (
 
 DonutComponent.displayName = 'AlexandriaSliceyDonutComponent';
 
-export default DonutComponent;
+module.exports = DonutComponent;
