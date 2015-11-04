@@ -3,7 +3,7 @@
 /* eslint no-console: 0*/
 
 import createComponent from 'helpers/shallowRenderHelper';
-import SliceyComponent from 'components/alexandria/SliceyComponent.js';
+import SliceyComponent from 'components/alexandria/SliceyComponent';
 
 describe('SliceyComponent', () => {
   it('should have its component name as default className', () => {

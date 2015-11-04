@@ -1,6 +1,6 @@
 const RADIUS = 0.5;
 
-const sliceyHelpers = {
+const dataProcessor = {
   QUARTER: Math.PI / 2,
   HALF: Math.PI,
   ROUND: Math.PI * 2,
@@ -10,4 +10,4 @@ const sliceyHelpers = {
   getPointY: (angle) => RADIUS * Math.sin(angle),
 };
 
-module.exports = sliceyHelpers;
+module.exports = dataProcessor;
