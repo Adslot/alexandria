@@ -1,0 +1,34 @@
+{
+  "name": "alexandria",
+  "description": "A UI component library. By Adslot",
+  "main": "dist/alexandria-main.js",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
+  },
+  "authors": [
+    {
+      "name": "Adslot",
+      "email": "team@adslot.com",
+      "homepage": "https://adslot.com"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "UI",
+    "Library",
+    "components"
+  ],
+  "homepage": "https://github.com/Adslot/alexandria",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "src"
+  ]
+}
