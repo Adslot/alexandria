@@ -21,25 +21,17 @@ const config = _.merge(baseConfig, {
       commonjs: 'react',
       amd: 'react',
     },
-    "react-dom": {
-      root: 'ReactDOM',
-      commonjs2: 'ReactDOM',
-      commonjs: 'ReactDOM',
-      amd: 'ReactDOM',
-    },
   },
   entry: {
-    slicey: path.join(alexandriaPath, '/SliceyComponent.js'),
-    marker: path.join(alexandriaPath, '/slicey/MarkerComponent.js'),
-    donut: path.join(alexandriaPath, '/slicey/DonutComponent.js'),
+    main: path.join(alexandriaPath, '/components-main.js'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'alexandria-[name].js',
     libraryTarget: 'umd',
+    library: 'Alexandria',
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('alexandria-common.js'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
