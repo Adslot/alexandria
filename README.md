@@ -12,8 +12,6 @@ Technology:
 
 -	ES2015 (using [Babel](http://babeljs.io)\)
 
--	[Flow](http://flowtype.org)
-
 -	[Webpack](https://github.com/webpack/webpack)
 
 -	[SCSS](http://sass-lang.com)
@@ -53,7 +51,7 @@ npm start # or npm run serve
 
 npm run serve:dist
 
-# Just build the dist version and copy static files
+# Build the dist version
 
 npm run dist
 
@@ -68,10 +66,6 @@ npm run lint
 # Clean up the dist directory
 
 npm run clean
-
-# Just copy the static assets
-
-npm run copy
 ```
 
 Generating New Components

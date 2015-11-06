@@ -1,9 +1,9 @@
 {
-  "name": "alexandria",
-  "private": true,
-  "version": "0.0.1",
+  "name": "alexandria-adslot",
+  "private": false,
+  "version": "0.2.0",
   "description": "A UI component library. By Adslot",
-  "main": "",
+  "main": "dist/alexandria-main.js",
   "scripts": {
     "start": "node server.js --env=dev",
     "test": "karma start",
