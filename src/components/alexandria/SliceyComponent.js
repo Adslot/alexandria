@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Arc from 'components/alexandria/slicey/ArcComponent';
 import React from 'react';
-import {ROUND, HALF, QUARTER, getPointX, getPointY} from 'components/alexandria/slicey/DataProcessor.js';
+import {ROUND, HALF, QUARTER, getPointX, getPointY} from 'components/alexandria/slicey/DataProcessor';
 
 require('styles/alexandria/Slicey.scss');
 
