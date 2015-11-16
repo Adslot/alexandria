@@ -1,18 +1,27 @@
 import _ from 'lodash';
 import Arc from 'components/alexandria/slicey/ArcComponent';
+import Donut from 'components/alexandria/slicey/DonutComponent';
+import Marker from 'components/alexandria/slicey/MarkerComponent';
 import React from 'react';
 import {ROUND, HALF, QUARTER, getPointX, getPointY} from 'components/alexandria/slicey/DataProcessor';
 
 require('styles/alexandria/Slicey.scss');
 
-const SliceyComponent = ({dataset, diameter, children}) => {
+const SliceyComponent = ({dataset, diameter, donut, marker}) => {
   const filteredDataset = _.filter(dataset, (datum) => datum.value > 0);
+
+  let donutEl;
+  if (donut === true) {donutEl = <Donut />;}
+
+  let markerEl;
+  if (marker !== undefined) {markerEl = <Marker fraction={marker} />;}
 
   if (_.isEmpty(filteredDataset)) {
     return (
-      <svg className="slicey-component" height={diameter} width={diameter}>
+      <svg className="slicey-component" height={diameter} width={diameter} viewBox="-0.5 -0.5 1 1">
         <circle className="slicey-empty" r=".5" cx="0" cy="0"></circle>
-        {children}
+        {markerEl}
+        {donutEl}
       </svg>
     );
   }
@@ -47,7 +56,8 @@ const SliceyComponent = ({dataset, diameter, children}) => {
       {getArcs(filteredDataset).map((arc) => {
         return <Arc key={arc.id} data={arc}/>;
       })}
-      {children}
+      {markerEl}
+      {donutEl}
     </svg>
   );
 };
@@ -62,6 +72,8 @@ SliceyComponent.propTypes = {
     })
   ),
   diameter: React.PropTypes.number,
+  donut: React.PropTypes.bool,
+  marker: React.PropTypes.number,
 };
 
 SliceyComponent.defaultProps = {
