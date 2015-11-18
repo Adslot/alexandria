@@ -19,7 +19,7 @@ const SliceyComponent = ({dataset, diameter, donut, marker}) => {
   if (_.isEmpty(filteredDataset)) {
     return (
       <svg className="slicey-component" height={diameter} width={diameter} viewBox="-0.5 -0.5 1 1">
-        <circle className="slicey-empty" r=".5" cx="0" cy="0"></circle>
+        <circle className="slicey-empty" r=".5" cx="0" cy="0" />
         {markerEl}
         {donutEl}
       </svg>
@@ -50,12 +50,20 @@ const SliceyComponent = ({dataset, diameter, donut, marker}) => {
     });
   };
 
+  // IE Can't draw a complete circle as an arc, so swap it to a circle element.
+  let arcEls;
+  if (filteredDataset.length > 1) {
+    arcEls = getArcs(filteredDataset).map((arc) => {
+      return <Arc key={arc.id} data={arc}/>;
+    });
+  } else {
+    arcEls = <circle className={`arc-component ${_.kebabCase(filteredDataset[0].label)}`} r=".5" cx="0" cy="0" />;
+  }
+
   return (
     <svg className="slicey-component" height={diameter} width={diameter} viewBox="-0.5 -0.5 1 1">
-      <circle className="slicey-background" r=".49" cx="0" cy="0"></circle>
-      {getArcs(filteredDataset).map((arc) => {
-        return <Arc key={arc.id} data={arc}/>;
-      })}
+      <circle className="slicey-background" r=".49" cx="0" cy="0" />
+      {arcEls}
       {markerEl}
       {donutEl}
     </svg>
