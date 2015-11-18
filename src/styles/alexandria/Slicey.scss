@@ -1,12 +1,16 @@
 $color-background: #555;
+$color-gray-white: #f9f9f9;
 
 .slicey {
   &-component {
     vertical-align: top;
   }
 
-  &-background,
-  &-empty {
+  &-background {
     fill: $color-background;
+  }
+
+  &-empty {
+    fill: $color-gray-white;
   }
 }
