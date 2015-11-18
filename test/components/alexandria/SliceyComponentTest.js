@@ -48,6 +48,28 @@ describe('SliceyComponent', () => {
     expect(component.props.children[3]).to.be.undefined;
   });
 
+  it('should render a circle if there is only one arc to draw', () => {
+    const props = {
+      dataset: [{label: 'positive', value: 5}],
+    };
+    const component = createComponent(SliceyComponent, props);
+    expect(component.props.className).to.equal('slicey-component');
+    expect(component.props.height).to.equal(100);
+    expect(component.props.viewBox).to.equal('-0.5 -0.5 1 1');
+    expect(component.props.width).to.equal(100);
+    expect(component.type).to.equal('svg');
+
+    expect(component.props.children).to.have.length(4);
+
+    const arcCircle = component.props.children[1];
+    expect(arcCircle.type).to.equal('circle');
+    expect(arcCircle.props.className).to.equal('arc-component positive');
+
+    // Marker and Donut should be undefined.
+    expect(component.props.children[2]).to.be.undefined;
+    expect(component.props.children[3]).to.be.undefined;
+  });
+
   it('should render a marker on a donut with a custom diameter', () => {
     const props = {
       dataset,
