@@ -1,5 +1,4 @@
-$color-background: #555;
-$color-gray-white: #f9f9f9;
+@import '../color';
 
 .slicey {
   &-component {
@@ -7,7 +6,7 @@ $color-gray-white: #f9f9f9;
   }
 
   &-background {
-    fill: $color-background;
+    fill: $color-gray-darker;
   }
 
   &-empty {
