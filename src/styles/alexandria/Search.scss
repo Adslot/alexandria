@@ -1,0 +1,57 @@
+@import '../color';
+@import '../icon';
+
+
+.search-component {
+  $search-height: 25px;
+
+  height: $search-height;
+  line-height: $search-height;
+  position: relative;
+  width: 100%;
+
+  ::placeholder {
+    color: $color-text-placeholder;
+  }
+
+  ::-webkit-search-cancel-button,
+  ::-webkit-search-decoration {
+    appearance: none;
+  }
+
+  &-input {
+    border: 1px solid $color-border-lighter;
+    box-sizing: border-box;
+    color: $color-text;
+    font-size: 12px;
+    height: inherit;
+    margin: 0;
+    padding: 0 0 0 10px;
+    width: inherit;
+
+    &:active,
+    &:focus {
+      border-color: $color-border;
+      outline: 0; // Override UA
+    }
+  }
+
+  &-icon {
+    background-image: $icon-cancel;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: ($search-height - 2px);
+
+    &.is-empty {
+      background-image: $icon-search;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

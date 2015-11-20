@@ -1,5 +1,5 @@
-$color-donut: #fff;
+@import '../../color';
 
 .donut-component {
-  fill: $color-donut;
+  fill: $color-white;
 }

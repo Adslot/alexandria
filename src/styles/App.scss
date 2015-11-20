@@ -1,12 +1,23 @@
-// Overall UI Library Styles
+// For display of components during development.
+// This is not distributed.
+
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
 
-  h1 {
-    margin-top: 40px;
-  }
+}
 
-  .index {
-    margin: 40px;
+.index {
+  $etalon-spacing: 40px;
+
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 300px;
+  padding: 0 $etalon-spacing $etalon-spacing;
+
+  > h1 {
+    margin-bottom: $etalon-spacing;
+    margin-top: ($etalon-spacing * 2);
+
   }
 }
