@@ -1,6 +1,6 @@
-$color-marker: #da4f49;
+@import '../../color';
 
 .marker-component {
-  stroke: $color-marker;
+  stroke: $color-red;
   stroke-width: .02;
 }

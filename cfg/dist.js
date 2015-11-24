@@ -37,6 +37,7 @@ const config = _.merge(baseConfig, {
       compress: {
         warnings: false,
       },
+      sourceMap: false,
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
