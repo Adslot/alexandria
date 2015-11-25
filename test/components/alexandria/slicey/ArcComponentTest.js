@@ -6,7 +6,6 @@ import createComponent from 'helpers/shallowRenderHelper';
 import ArcComponent from 'components/alexandria/slicey/ArcComponent';
 
 describe('ArcComponent', () => {
-
   it('should have its component name as default className', () => {
     const component = createComponent(ArcComponent);
     expect(component.props.className).to.equal('arc-component');
@@ -15,7 +14,7 @@ describe('ArcComponent', () => {
   it('should render an arc for given data', () => {
     const props = {
       data: {
-        label: "Something Great",
+        label: 'Something Great',
         id: 0,
         largeArcFlag: 0,
         x1: 3.06,
