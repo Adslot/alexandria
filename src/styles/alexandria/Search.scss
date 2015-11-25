@@ -1,9 +1,9 @@
 @import '../color';
 @import '../icon';
-
+$border-lighter: 1px solid $color-border-lighter;
 
 .search-component {
-  $search-height: 25px;
+  $search-height: 26px;
 
   height: $search-height;
   line-height: $search-height;
@@ -20,7 +20,9 @@
   }
 
   &-input {
-    border: 1px solid $color-border-lighter;
+    -webkit-appearance: textfield; // For Safari.
+    border: $border-lighter;
+    border-radius: 2px;
     box-sizing: border-box;
     color: $color-text;
     font-size: 12px;
@@ -45,8 +47,8 @@
     height: 100%;
     position: absolute;
     right: 0;
-    top: 0;
-    width: ($search-height - 2px);
+    top: 1px;
+    width: $search-height;
 
     &.is-empty {
       background-image: $icon-search;

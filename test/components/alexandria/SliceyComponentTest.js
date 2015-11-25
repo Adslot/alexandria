@@ -26,8 +26,8 @@ describe('SliceyComponent', () => {
     expect(component.props.children[0].props.className).to.equal('slicey-empty');
 
     // Marker and Donut should be undefined.
-    expect(component.props.children[1]).to.be.undefined;
-    expect(component.props.children[2]).to.be.undefined;
+    expect(component.props.children[1]).to.be.an('undefined');
+    expect(component.props.children[2]).to.be.an('undefined');
   });
 
   it('should render a given dataset', () => {
@@ -44,8 +44,8 @@ describe('SliceyComponent', () => {
     expect(component.props.children).to.have.length(4);
 
     // Marker and Donut should be undefined.
-    expect(component.props.children[2]).to.be.undefined;
-    expect(component.props.children[3]).to.be.undefined;
+    expect(component.props.children[2]).to.be.an('undefined');
+    expect(component.props.children[3]).to.be.an('undefined');
   });
 
   it('should render a circle if there is only one arc to draw', () => {
@@ -66,8 +66,8 @@ describe('SliceyComponent', () => {
     expect(arcCircle.props.className).to.equal('arc-component positive');
 
     // Marker and Donut should be undefined.
-    expect(component.props.children[2]).to.be.undefined;
-    expect(component.props.children[3]).to.be.undefined;
+    expect(component.props.children[2]).to.be.an('undefined');
+    expect(component.props.children[3]).to.be.an('undefined');
   });
 
   it('should render a marker on a donut with a custom diameter', () => {

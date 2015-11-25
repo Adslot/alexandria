@@ -5,7 +5,6 @@
 import DataProcessor from 'components/alexandria/slicey/DataProcessor';
 
 describe('DataProcessor', () => {
-
   it('should export constants', () => {
     expect(DataProcessor.QUARTER).to.equal(Math.PI / 2);
     expect(DataProcessor.HALF).to.equal(Math.PI);
