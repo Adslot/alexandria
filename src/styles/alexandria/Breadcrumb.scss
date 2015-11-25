@@ -1,0 +1,22 @@
+@import '../color';
+$font-weight-light: 100;
+
+.breadcrumb-component {
+  $breadcrumb-height: 10px;
+  color: $color-link;
+  cursor: default;
+  font-size: 12px;
+  font-weight: $font-weight-light;
+  height: $breadcrumb-height;
+  line-height: $breadcrumb-height;
+
+  &-link {
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      color: $color-link-hover;
+      text-decoration: underline;
+    }
+  }
+}

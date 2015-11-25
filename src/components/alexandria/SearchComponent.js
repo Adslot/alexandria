@@ -49,7 +49,8 @@ SearchComponent.propTypes = {
 };
 
 SearchComponent.defaultProps = {
-  onQuery: (query) => new Error(`Pass an onQuery Function to Alexandria Search to receive ${query}`),
+  onQuery: (query) => {throw new Error(`Alexandria Search needs an onQuery handler to take ${query}`);},
+
   placeholder: '',
   throttleTime: 0,
 };
