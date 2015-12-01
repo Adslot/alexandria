@@ -6,7 +6,6 @@ import createComponent from 'helpers/shallowRenderHelper';
 import AlertComponent from 'components/alexandria/AlertComponent.js';
 
 describe('AlertComponent', () => {
-
   it('should render default info type', () => {
     const component = createComponent(AlertComponent);
     expect(component.props.className).to.equal('alert-component alert-component-info');
