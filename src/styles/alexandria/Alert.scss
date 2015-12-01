@@ -1,0 +1,25 @@
+@import '../color';
+
+.alert-component {
+  color: $color-text-inverse;
+  font-size: 12px;
+  line-height: 20px;
+  margin: 10px 0;
+  padding: 10px;
+
+  &-success {
+    background-color: $color-positive;
+  }
+
+  &-info {
+    background-color: $color-info;
+  }
+
+  &-warning {
+    background-color: $color-warning;
+  }
+
+  &-danger {
+    background-color: $color-negative;
+  }
+}

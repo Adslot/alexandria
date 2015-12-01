@@ -3,7 +3,7 @@ const baseConfig = require('./base');
 const path = require('path');
 const webpack = require('webpack');
 
-const alexandriaPath = path.resolve(__dirname, '../src/components/alexandria');
+const componentsPath = path.resolve(__dirname, '../src/components/');
 
 const config = _.merge(baseConfig, {
   cache: false,
@@ -23,7 +23,7 @@ const config = _.merge(baseConfig, {
     },
   },
   entry: {
-    main: path.join(alexandriaPath, '/components-main.js'),
+    main: path.join(componentsPath, '/distributionEntry.js'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
