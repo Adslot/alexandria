@@ -4,7 +4,7 @@
 
 import createComponent from 'helpers/shallowRenderHelper';
 import React from 'react';
-import SearchComponent from 'components/alexandria/SearchComponent.js';
+import SearchComponent from 'components/alexandria/SearchComponent';
 import TestUtils from 'react-addons-test-utils';
 
 describe('SearchComponent', () => {

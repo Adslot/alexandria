@@ -47,7 +47,7 @@ BreadcrumbComponent.propTypes = {
 };
 BreadcrumbComponent.defaultProps = {
   nodes: [],
-  onClick: (idToRemove) => {throw new Error(`Alexandria Breadcrumb needs an onClick handler to take ${idToRemove}`);},
+  onClick: (newActiveId) => {throw new Error(`Alexandria Breadcrumb needs an onClick handler to take ${newActiveId}`);},
 };
 
-module.exports = BreadcrumbComponent;
+export default BreadcrumbComponent;
