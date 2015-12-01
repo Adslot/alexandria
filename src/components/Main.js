@@ -1,6 +1,7 @@
 require('styles/App.scss');
 
 import _ from 'lodash';
+import Alert from 'components/alexandria/AlertComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
 import React from 'react';
 import Search from 'components/alexandria/SearchComponent';
@@ -43,14 +44,19 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
 
-        <h1>Slicey</h1>
-        <Slicey dataset={sliceyTestData} diameter={150} marker={0.2} donut />
+
+
+        <h1>Alert</h1>
+        <Alert type="success">You did it!</Alert>
+
+        <h1>Breadcrumb</h1>
+        <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick.bind(this)} />
 
         <h1>Search</h1>
         <Search placeholder="your memories" onQuery={this.searchOnQuery.bind(this)} throttleTime={200} />
 
-        <h1>Breadcrumb</h1>
-        <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick.bind(this)} />
+        <h1>Slicey</h1>
+        <Slicey dataset={sliceyTestData} diameter={150} marker={0.2} donut />
 
       </div>
     );
