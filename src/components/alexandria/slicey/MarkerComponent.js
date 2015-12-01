@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ROUND, QUARTER, getPointX, getPointY} from './DataProcessor';
+import {ROUND, QUARTER, getPointX, getPointY} from './dataProcessor';
 
 require('styles/alexandria/slicey/Marker.scss');
 
@@ -24,4 +24,4 @@ MarkerComponent.defaultProps = {
   fraction: 0,
 };
 
-module.exports = MarkerComponent;
+export default MarkerComponent;

@@ -3,6 +3,7 @@ require('styles/App.scss');
 import _ from 'lodash';
 import Alert from 'components/alexandria/AlertComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
+import Empty from 'components/alexandria/EmptyComponent';
 import React from 'react';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
@@ -22,9 +23,11 @@ class AppComponent extends React.Component {
     };
   }
 
-  breadcrumbOnClick(idToRemove) {
+  breadcrumbOnClick(newActiveId) {
     const {breadcrumbNodes} = this.state;
-    this.setState({breadcrumbNodes: breadcrumbNodes.slice(0, 1 + _.findIndex(breadcrumbNodes, {id: idToRemove}))});
+    this.setState({
+      breadcrumbNodes: breadcrumbNodes.slice(0, 1 + _.findIndex(breadcrumbNodes, {id: newActiveId})),
+    });
   }
 
   searchOnQuery(query) {
@@ -44,6 +47,8 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
 
+        <h1>Empty</h1>
+        <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
         <h1>Alert</h1>
         <Alert type="success">You did it!</Alert>
 
@@ -61,4 +66,4 @@ class AppComponent extends React.Component {
   }
 }
 
-module.exports = AppComponent;
+export default AppComponent;

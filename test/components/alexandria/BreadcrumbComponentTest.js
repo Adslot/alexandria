@@ -3,7 +3,7 @@
 /* eslint no-console: 0 */
 
 import createComponent from 'helpers/shallowRenderHelper';
-import BreadcrumbComponent from 'components/alexandria/BreadcrumbComponent.js';
+import BreadcrumbComponent from 'components/alexandria/BreadcrumbComponent';
 
 describe('BreadcrumbComponent', () => {
   let nodes;
@@ -25,13 +25,13 @@ describe('BreadcrumbComponent', () => {
   it('should render nodes', () => {
     const component = createComponent(BreadcrumbComponent, {nodes});
     expect(component.props.className).to.equal('breadcrumb-component');
-    expect(component.props.children.length).to.equal(2);
+    expect(component.props.children).to.have.length(2);
 
     const allLink = component.props.children[0];
     expect(allLink.props.className).to.equal('breadcrumb-component-link');
 
     const nodeWrapperElements = component.props.children[1];
-    expect(nodeWrapperElements.length).to.equal(nodes.length);
+    expect(nodeWrapperElements).to.have.length(nodes.length);
     nodeWrapperElements.forEach((nodeWrapperElement, index) => {
       expect(nodeWrapperElement.type).to.equal('span');
       expect(nodeWrapperElement.key).to.equal(nodes[index].id);
@@ -59,7 +59,7 @@ describe('BreadcrumbComponent', () => {
 
   it('should trigger onClick when a node is clicked', () => {
     const idsRemoved = [];
-    const onClick = (idToRemove) => idsRemoved.push(idToRemove);
+    const onClick = (newActiveId) => idsRemoved.push(newActiveId);
     const component = createComponent(BreadcrumbComponent, {nodes, onClick});
     expect(component.props.className).to.equal('breadcrumb-component');
 
