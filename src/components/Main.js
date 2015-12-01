@@ -44,8 +44,6 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
 
-
-
         <h1>Alert</h1>
         <Alert type="success">You did it!</Alert>
 
