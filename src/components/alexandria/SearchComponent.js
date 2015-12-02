@@ -55,4 +55,4 @@ SearchComponent.defaultProps = {
   throttleTime: 0,
 };
 
-module.exports = SearchComponent;
+export default SearchComponent;

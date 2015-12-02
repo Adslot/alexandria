@@ -1,0 +1,22 @@
+@import '../color';
+
+.empty-component {
+  margin: 60px auto;
+  text-align: center;
+
+  &-icon {
+    $icon-diameter: 70px;
+    background-color: $color-gray-lighter;
+    border-radius: 50%;
+    display: block;
+    height: $icon-diameter;
+    margin: 0 auto;
+    width: $icon-diameter;
+  }
+
+  &-text {
+    color: $color-text-placeholder;
+    font-size: 12px;
+    line-height: 25px;
+  }
+}

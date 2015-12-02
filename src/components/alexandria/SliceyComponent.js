@@ -3,7 +3,7 @@ import Arc from 'components/alexandria/slicey/ArcComponent';
 import Donut from 'components/alexandria/slicey/DonutComponent';
 import Marker from 'components/alexandria/slicey/MarkerComponent';
 import React from 'react';
-import {ROUND, HALF, QUARTER, getPointX, getPointY} from 'components/alexandria/slicey/DataProcessor';
+import {ROUND, HALF, QUARTER, getPointX, getPointY} from 'components/alexandria/slicey/dataProcessor';
 
 require('styles/alexandria/Slicey.scss');
 
@@ -88,4 +88,4 @@ SliceyComponent.defaultProps = {
   diameter: 100,
 };
 
-module.exports = SliceyComponent;
+export default SliceyComponent;
