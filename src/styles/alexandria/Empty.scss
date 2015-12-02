@@ -1,4 +1,5 @@
 @import '../color';
+@import '../fontSize';
 
 .empty-component {
   margin: 60px auto;
@@ -16,7 +17,7 @@
 
   &-text {
     color: $color-text-placeholder;
-    font-size: 12px;
+    font-size: $font-size-body;
     line-height: 25px;
   }
 }
