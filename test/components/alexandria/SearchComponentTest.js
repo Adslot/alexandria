@@ -1,6 +1,5 @@
 /* eslint-env node, mocha */
 /* global expect */
-/* eslint no-console: 0 */
 
 import createComponent from 'helpers/shallowRenderHelper';
 import React from 'react';

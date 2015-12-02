@@ -1,8 +1,9 @@
 @import '../color';
+@import '../fontSize';
 
 .alert-component {
   color: $color-text-inverse;
-  font-size: 12px;
+  font-size: $font-size-body;
   line-height: 20px;
   margin: 10px 0;
   padding: 10px;
