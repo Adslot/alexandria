@@ -9,8 +9,8 @@ describe('SliceyComponent', () => {
 
   beforeEach(() => {
     dataset = [
-      {label: 'positive', value: 5},
-      {label: 'negative', value: 3},
+      { label: 'positive', value: 5 },
+      { label: 'negative', value: 3 },
     ];
   });
 
@@ -49,7 +49,7 @@ describe('SliceyComponent', () => {
 
   it('should render a circle if there is only one arc to draw', () => {
     const props = {
-      dataset: [{label: 'positive', value: 5}],
+      dataset: [{ label: 'positive', value: 5 }],
     };
     const component = createComponent(SliceyComponent, props);
     expect(component.props.className).to.equal('slicey-component');

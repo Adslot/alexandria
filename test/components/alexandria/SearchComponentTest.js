@@ -26,7 +26,7 @@ describe('SearchComponent', () => {
   });
 
   it('should render using a placeholder', () => {
-    const component = createComponent(SearchComponent, {placeholder: 'your feelings'});
+    const component = createComponent(SearchComponent, { placeholder: 'your feelings' });
 
     const inputEl = component.props.children[0];
     expect(inputEl.props.placeholder).to.equal('Search your feelings');
@@ -36,12 +36,12 @@ describe('SearchComponent', () => {
     const component = createComponent(SearchComponent);
     const inputEl = component.props.children[0];
     expect(() => {
-      inputEl.props.onChange({target: {value: "Cam's Awesome Text"}});
+      inputEl.props.onChange({ target: { value: "Cam's Awesome Text" } });
     }).to.throw("Alexandria Search needs an onQuery handler to take Cam's Awesome Text");
   });
 
   it('should let the user change the value and clear the input', () => {
-    const getRenderOutputAndCheck = ({renderer, expectedText, expectedIconClass}) => {
+    const getRenderOutputAndCheck = ({ renderer, expectedText, expectedIconClass }) => {
       const componentRenderOutput = renderer.getRenderOutput();
 
       const inputEl = componentRenderOutput.props.children[0];
@@ -49,7 +49,7 @@ describe('SearchComponent', () => {
 
       const iconEl = componentRenderOutput.props.children[1];
       expect(iconEl.props.className).to.equal(expectedIconClass);
-      return {inputEl, iconEl};
+      return { inputEl, iconEl };
     };
 
     const queries = [];
@@ -58,16 +58,16 @@ describe('SearchComponent', () => {
     const renderer = TestUtils.createRenderer();
     renderer.render(<SearchComponent onQuery={testOnQuery} />);
 
-    const {inputEl} = getRenderOutputAndCheck({
+    const { inputEl } = getRenderOutputAndCheck({
       renderer,
       expectedText: '',
       expectedIconClass: 'search-component-icon is-empty',
     });
 
     // Manually invoke onChange handler via props
-    inputEl.props.onChange({target: {value: "Cam's Awesome Text"}});
+    inputEl.props.onChange({ target: { value: "Cam's Awesome Text" } });
 
-    const {iconEl} = getRenderOutputAndCheck({
+    const { iconEl } = getRenderOutputAndCheck({
       renderer,
       expectedText: "Cam's Awesome Text",
       expectedIconClass: 'search-component-icon',

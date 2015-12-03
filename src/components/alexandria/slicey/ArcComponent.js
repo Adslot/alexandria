@@ -3,7 +3,7 @@ import React from 'react';
 
 require('styles/alexandria/slicey/Arc.scss');
 
-const ArcComponent = ({data}) => {
+const ArcComponent = ({ data }) => {
   if (!data) {
     return (
       <path className="arc-component"></path>

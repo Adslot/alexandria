@@ -3,7 +3,7 @@ import React from 'react';
 
 require('styles/alexandria/TreePickerNode.scss');
 
-const TreePickerNodeComponent = ({buttonFirst, currencyFilter, includeNode, node, removeNode, selectedNodes}) => {
+const TreePickerNodeComponent = ({ buttonFirst, currencyFilter, includeNode, node, removeNode, selectedNodes }) => {
   const pathElement = (!_.isEmpty(node.path)) ?
     <span className="treepickernode-component-path">
       {node.path.reverse().join(', ')}
@@ -13,7 +13,7 @@ const TreePickerNodeComponent = ({buttonFirst, currencyFilter, includeNode, node
   const buttonElement = (
     <span className="grid-component-cell grid-component-cell-button">
       {
-        (_.some(selectedNodes, {id: node.id})) ?
+        (_.some(selectedNodes, { id: node.id })) ?
           <button onClick={removeNode.bind(null, node)}>Remove</button> :
           <button onClick={includeNode.bind(null, node)}>Include</button>
       }

@@ -6,23 +6,23 @@ require('styles/alexandria/Search.scss');
 class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = { value: '' };
 
     this.throttledOnQuery = _.throttle(
       () => props.onQuery(this.state.value),
       props.throttleTime);
   }
 
-  changeValue({target}) {
-    this.setState({value: target.value}, this.throttledOnQuery);
+  changeValue({ target }) {
+    this.setState({ value: target.value }, this.throttledOnQuery);
   }
 
   clearValue() {
-    this.changeValue({target: {value: ''}});
+    this.changeValue({ target: { value: '' } });
   }
 
   render() {
-    const {value} = this.state;
+    const { value } = this.state;
     return (
       <div className="search-component">
         <input
