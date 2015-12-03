@@ -7,6 +7,7 @@ import Empty from 'components/alexandria/EmptyComponent';
 import React from 'react';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
+import TreePickerNode from 'components/alexandria/TreePickerNodeComponent';
 
 const defaultBreadcrumbNodes = [
   {id: 'aaa-111', label: 'Australia'},
@@ -47,8 +48,16 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
 
+        <h1>TreePickerNode</h1>
+        <div className="grid-component">
+          <TreePickerNode
+              node={{id: 1, label: 'Melbourne', type: 'City', cost: 900, path: ['AU', 'VIC']}}
+          />
+        </div>
+
         <h1>Empty</h1>
         <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
+
         <h1>Alert</h1>
         <Alert type="success">You did it!</Alert>
 
