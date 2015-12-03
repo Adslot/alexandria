@@ -2,12 +2,12 @@ import React from 'react';
 
 require('styles/alexandria/Breadcrumb.scss');
 
-const BreadcrumbComponent = ({nodes, onClick}) => {
+const BreadcrumbComponent = ({ nodes, onClick }) => {
   if (nodes.length === 0) {
     return <div className="breadcrumb-component" />;
   }
 
-  const getNodeElement = ({node, isLast}) => {
+  const getNodeElement = ({ node, isLast }) => {
     return isLast ?
       <span className="breadcrumb-component-last">{node.label}</span> :
       (
@@ -25,7 +25,7 @@ const BreadcrumbComponent = ({nodes, onClick}) => {
           return (
             <span key={node.id}>
               <span> > </span>
-              {getNodeElement({node, isLast: index === nodes.length - 1})}
+              {getNodeElement({ node, isLast: index === nodes.length - 1 })}
             </span>
           );
         })

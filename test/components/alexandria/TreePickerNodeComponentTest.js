@@ -15,7 +15,7 @@ describe('TreePickerNodeComponent', () => {
   };
 
   it('should render a node with defaults', () => {
-    const component = createComponent(TreePickerNodeComponent, {node: newYorkNode});
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode });
     expect(component.props.className).to.equal('treepickernode-component');
     expect(component.type).to.equal('span');
 
@@ -55,7 +55,7 @@ describe('TreePickerNodeComponent', () => {
   });
 
   it('should render the button first when buttonFirst is true', () => {
-    const component = createComponent(TreePickerNodeComponent, {node: newYorkNode, buttonFirst: true});
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, buttonFirst: true });
     const rowElement = component.props.children;
 
     const buttonFirstCellElement = rowElement.props.children[0];
@@ -71,7 +71,7 @@ describe('TreePickerNodeComponent', () => {
 
   it('should filter cost when provided', () => {
     const currencyFilter = (value) => `€${value / 100}`;
-    const component = createComponent(TreePickerNodeComponent, {node: newYorkNode, currencyFilter});
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, currencyFilter });
     const rowElement = component.props.children;
 
     const costCellElement = rowElement.props.children[2];
@@ -82,7 +82,7 @@ describe('TreePickerNodeComponent', () => {
   it('should fire includeNode when clicking on the `include` button', () => {
     const nodes = [];
     const includeNode = (node) => nodes.push(node);
-    const component = createComponent(TreePickerNodeComponent, {node: newYorkNode, includeNode});
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, includeNode });
     const rowElement = component.props.children;
 
     const buttonLastCellElement = rowElement.props.children[3];
@@ -92,7 +92,7 @@ describe('TreePickerNodeComponent', () => {
   });
 
   it('should error on click of `include` button without includeNode handler', () => {
-    const component = createComponent(TreePickerNodeComponent, {node: newYorkNode});
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode });
     const rowElement = component.props.children;
 
     const buttonLastCellElement = rowElement.props.children[3];
@@ -110,7 +110,7 @@ describe('TreePickerNodeComponent', () => {
       cost: 400,
       path: [],
     };
-    const component = createComponent(TreePickerNodeComponent, {node});
+    const component = createComponent(TreePickerNodeComponent, { node });
     const rowElement = component.props.children;
 
     const labelWrapperCellElement = rowElement.props.children[1];
@@ -135,7 +135,7 @@ describe('TreePickerNodeComponent', () => {
 
   it('should fire removeNode when clicking on the `remove` button', () => {
     const nodes = [newYorkNode];
-    const removeNode = (node) => _.remove(nodes, {id: node.id});
+    const removeNode = (node) => _.remove(nodes, { id: node.id });
     const component = createComponent(TreePickerNodeComponent, {
       node: newYorkNode,
       removeNode,
@@ -153,7 +153,7 @@ describe('TreePickerNodeComponent', () => {
   });
 
   it('should error on click of `remove` button without removeNode handler', () => {
-    const component = createComponent(TreePickerNodeComponent, {node: newYorkNode, selectedNodes: [newYorkNode]});
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, selectedNodes: [newYorkNode] });
     const rowElement = component.props.children;
 
     const buttonLastCellElement = rowElement.props.children[3];

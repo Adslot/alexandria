@@ -10,9 +10,9 @@ import Slicey from 'components/alexandria/SliceyComponent';
 import TreePickerNode from 'components/alexandria/TreePickerNodeComponent';
 
 const defaultBreadcrumbNodes = [
-  {id: 'aaa-111', label: 'Australia'},
-  {id: 'aaa-222', label: 'Victoria'},
-  {id: 'aaa-333', label: 'Melbourne'},
+  { id: 'aaa-111', label: 'Australia' },
+  { id: 'aaa-222', label: 'Victoria' },
+  { id: 'aaa-333', label: 'Melbourne' },
 ];
 
 class AppComponent extends React.Component {
@@ -25,9 +25,9 @@ class AppComponent extends React.Component {
   }
 
   breadcrumbOnClick(newActiveId) {
-    const {breadcrumbNodes} = this.state;
+    const { breadcrumbNodes } = this.state;
     this.setState({
-      breadcrumbNodes: breadcrumbNodes.slice(0, 1 + _.findIndex(breadcrumbNodes, {id: newActiveId})),
+      breadcrumbNodes: breadcrumbNodes.slice(0, 1 + _.findIndex(breadcrumbNodes, { id: newActiveId })),
     });
   }
 
@@ -35,14 +35,14 @@ class AppComponent extends React.Component {
     console.log('Query:', query); /* eslint no-console: 0 */
 
     const breadcrumbNodes = (query === '') ? defaultBreadcrumbNodes : [];
-    this.setState({breadcrumbNodes});
+    this.setState({ breadcrumbNodes });
   }
 
   render() {
     const sliceyTestData = [
-      {label: 'positive', value: 50},
-      {label: 'negative', value: 25},
-      {label: 'info', value: 35},
+      { label: 'positive', value: 50 },
+      { label: 'negative', value: 25 },
+      { label: 'info', value: 35 },
     ];
 
     return (
@@ -51,7 +51,7 @@ class AppComponent extends React.Component {
         <h1>TreePickerNode</h1>
         <div className="grid-component">
           <TreePickerNode
-              node={{id: 1, label: 'Melbourne', type: 'City', cost: 900, path: ['AU', 'VIC']}}
+              node={{ id: 1, label: 'Melbourne', type: 'City', cost: 900, path: ['AU', 'VIC'] }}
           />
         </div>
 

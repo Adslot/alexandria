@@ -11,17 +11,17 @@ describe('AlertComponent', () => {
   });
 
   it('should render success type', () => {
-    const component = createComponent(AlertComponent, {type: 'success'});
+    const component = createComponent(AlertComponent, { type: 'success' });
     expect(component.props.className).to.equal('alert-component alert-component-success');
   });
 
   it('should render warning type', () => {
-    const component = createComponent(AlertComponent, {type: 'warning'});
+    const component = createComponent(AlertComponent, { type: 'warning' });
     expect(component.props.className).to.equal('alert-component alert-component-warning');
   });
 
   it('should render danger type', () => {
-    const component = createComponent(AlertComponent, {type: 'danger'});
+    const component = createComponent(AlertComponent, { type: 'danger' });
     expect(component.props.className).to.equal('alert-component alert-component-danger');
   });
 });
