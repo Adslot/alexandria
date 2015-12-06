@@ -14,3 +14,7 @@ node_modules
 
 # OSX Files
 .DS_Store
+
+# Editor related
+.idea/
+

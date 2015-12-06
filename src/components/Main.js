@@ -8,6 +8,11 @@ import React from 'react';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
 import TreePickerNode from 'components/alexandria/TreePickerNodeComponent';
+import Grid from 'components/alexandria/GridComponent';
+import GridHeader from 'components/alexandria/GridHeaderComponent';
+import GridRow from 'components/alexandria/GridRowComponent';
+import GridCell from 'components/alexandria/GridCellComponent';
+
 
 const defaultBreadcrumbNodes = [
   { id: 'aaa-111', label: 'Australia' },
@@ -70,6 +75,53 @@ class AppComponent extends React.Component {
         <h1>Slicey</h1>
         <Slicey dataset={sliceyTestData} diameter={150} marker={0.2} donut />
 
+        <h1>Grid</h1>
+        <Grid>
+          <GridHeader>
+            <GridCell>
+              Header
+            </GridCell>
+            <GridCell>
+              Header
+            </GridCell>
+            <GridCell>
+              Header
+            </GridCell>
+          </GridHeader>
+          <GridRow verticalCellBorder>
+            <GridCell>
+              Content
+            </GridCell>
+            <GridCell>
+              Content
+            </GridCell>
+            <GridCell>
+              Content
+            </GridCell>
+          </GridRow>
+          <GridRow>
+            <GridCell>
+              Content
+            </GridCell>
+            <GridCell>
+              Content
+            </GridCell>
+            <GridCell>
+              Content
+            </GridCell>
+          </GridRow>
+          <GridRow>
+            <GridCell>
+              Content
+            </GridCell>
+            <GridCell>
+              Content
+            </GridCell>
+            <GridCell>
+              Content
+            </GridCell>
+          </GridRow>
+        </Grid>
       </div>
     );
   }
