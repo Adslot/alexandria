@@ -1,0 +1,7 @@
+@import '../color';
+@import '../border';
+
+.grid-component-row {
+  border-bottom: $border-lighter;
+  display: flex;
+}

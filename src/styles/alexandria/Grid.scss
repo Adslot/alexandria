@@ -1,0 +1,27 @@
+@import '../color';
+@import '../fontWeight';
+@import '../fontSize';
+@import '../border';
+
+.grid-component {
+  border-left: $border-lighter;
+  border-right: $border-lighter;
+  border-top: $border-lighter;
+  display: inline-block;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  vertical-align: top;
+  width: 100%;
+
+  &-row-vertical-border {
+    .grid-component-cell {
+      border-right: $border-lighter;
+    }
+  }
+
+  &-cell {
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
