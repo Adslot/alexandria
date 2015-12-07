@@ -9,9 +9,9 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(() => {
     nodes = [
-      {id: 'a', label: 'Canada'},
-      {id: 'b', label: 'British Columbia'},
-      {id: 'c', label: 'Victoria'},
+      { id: 'a', label: 'Canada' },
+      { id: 'b', label: 'British Columbia' },
+      { id: 'c', label: 'Victoria' },
     ];
   });
 
@@ -22,7 +22,7 @@ describe('BreadcrumbComponent', () => {
   });
 
   it('should render nodes', () => {
-    const component = createComponent(BreadcrumbComponent, {nodes});
+    const component = createComponent(BreadcrumbComponent, { nodes });
     expect(component.props.className).to.equal('breadcrumb-component');
     expect(component.props.children).to.have.length(2);
 
@@ -59,7 +59,7 @@ describe('BreadcrumbComponent', () => {
   it('should trigger onClick when a node is clicked', () => {
     const idsRemoved = [];
     const onClick = (newActiveId) => idsRemoved.push(newActiveId);
-    const component = createComponent(BreadcrumbComponent, {nodes, onClick});
+    const component = createComponent(BreadcrumbComponent, { nodes, onClick });
     expect(component.props.className).to.equal('breadcrumb-component');
 
     const nodeWrapperElements = component.props.children[1];
@@ -78,7 +78,7 @@ describe('BreadcrumbComponent', () => {
   });
 
   it('should error when a node is clicked with no onClick handler', () => {
-    const component = createComponent(BreadcrumbComponent, {nodes});
+    const component = createComponent(BreadcrumbComponent, { nodes });
     const allLinkElement = component.props.children[0];
     expect(() => {
       allLinkElement.props.onClick();

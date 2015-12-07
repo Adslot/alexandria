@@ -3,7 +3,7 @@ import React from 'react';
 
 require('styles/alexandria/Empty.scss');
 
-const EmptyComponent = ({collection, icon, text}) => {
+const EmptyComponent = ({ collection, icon, text }) => {
   if (_.isEmpty(collection)) {
     return (
       <div className="empty-component">

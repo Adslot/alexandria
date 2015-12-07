@@ -3,11 +3,11 @@ import Arc from 'components/alexandria/slicey/ArcComponent';
 import Donut from 'components/alexandria/slicey/DonutComponent';
 import Marker from 'components/alexandria/slicey/MarkerComponent';
 import React from 'react';
-import {ROUND, HALF, QUARTER, getPointX, getPointY} from 'components/alexandria/slicey/dataProcessor';
+import { ROUND, HALF, QUARTER, getPointX, getPointY } from 'components/alexandria/slicey/dataProcessor';
 
 require('styles/alexandria/Slicey.scss');
 
-const SliceyComponent = ({dataset, diameter, donut, marker}) => {
+const SliceyComponent = ({ dataset, diameter, donut, marker }) => {
   const filteredDataset = _.filter(dataset, (datum) => datum.value > 0);
 
   let donutEl;

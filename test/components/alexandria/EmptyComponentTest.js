@@ -19,19 +19,19 @@ describe('EmptyComponent', () => {
   });
 
   it('should render without contents when passed a non-empty collection Array', () => {
-    const component = createComponent(EmptyComponent, {collection: [1]});
+    const component = createComponent(EmptyComponent, { collection: [1] });
     expect(component.props.className).to.equal('empty-component');
     expect(component.props.children).to.be.an('undefined');
   });
 
   it('should render without contents when passed a non-empty collection Object', () => {
-    const component = createComponent(EmptyComponent, {collection: {foo: 1}});
+    const component = createComponent(EmptyComponent, { collection: { foo: 1 } });
     expect(component.props.className).to.equal('empty-component');
     expect(component.props.children).to.be.an('undefined');
   });
 
   it('should render with custom icon and text', () => {
-    const component = createComponent(EmptyComponent, {icon: '//wherever.com', text: 'So lonely.'});
+    const component = createComponent(EmptyComponent, { icon: '//wherever.com', text: 'So lonely.' });
     expect(component.props.className).to.equal('empty-component');
 
     const imgElement = component.props.children[0];

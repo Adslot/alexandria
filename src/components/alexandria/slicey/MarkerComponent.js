@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {ROUND, QUARTER, getPointX, getPointY} from './dataProcessor';
+import { ROUND, QUARTER, getPointX, getPointY } from './dataProcessor';
 
 require('styles/alexandria/slicey/Marker.scss');
 
-const MarkerComponent = ({fraction}) => {
+const MarkerComponent = ({ fraction }) => {
   const getMarkerPoints = (markerValue) => {
     const pointOnCircle = (ROUND * markerValue) - QUARTER;
     return `${getPointX(pointOnCircle)},${getPointY(pointOnCircle)} 0,0`;
