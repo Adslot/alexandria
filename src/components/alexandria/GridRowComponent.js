@@ -1,23 +1,37 @@
 import React from 'react';
 
+import classSuffixHelper from '../../helpers/classSuffixHelper';
+
 require('styles/alexandria/GridRow.scss');
 
-const GridRowComponent = ({ verticalCellBorder, children }) => {
-  const verticalCellBorderClass = (verticalCellBorder) ? ' grid-component-row-vertical-border' : '';
+const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, children }) => {
+  const componentClass = 'grid-component-row';
+  const classesList = classSuffixHelper({
+    classSuffixes: [type],
+    suffixOptions: { horizontalBorder, short, verticalCellBorder },
+    componentClass,
+  });
 
   return (
-    <div className={`grid-component-row grid-component-row-body${verticalCellBorderClass}`}>
+    <div className={`${componentClass}${classesList}`}>
       {children}
     </div>
   );
 };
+
 GridRowComponent.displayName = 'AlexandriaGridRowComponent';
 
 GridRowComponent.propTypes = {
-  verticalCellBorder: React.PropTypes.bool,
+  horizontalBorder: React.PropTypes.bool.isRequired,
+  short: React.PropTypes.bool.isRequired,
+  type: React.PropTypes.oneOf(['body', 'header', 'subfooter', 'footer']).isRequired,
+  verticalCellBorder: React.PropTypes.bool.isRequired,
 };
 
 GridRowComponent.defaultProps = {
+  horizontalBorder: true,
+  short: false,
+  type: 'body',
   verticalCellBorder: false,
 };
 

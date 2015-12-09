@@ -1,4 +1,11 @@
+@import '../mixin';
+
 .grid-component-cell {
   flex-grow: 1;
   padding: 8px 10px;
+
+  &-stretch {
+    @include ellipse;
+    flex-basis: 100%;
+  }
 }

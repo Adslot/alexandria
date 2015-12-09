@@ -7,13 +7,14 @@
   border-left: $border-lighter;
   border-right: $border-lighter;
   border-top: $border-lighter;
+  box-sizing: border-box;
   display: inline-block;
   font-size: $font-size-body;
   font-weight: $font-weight-medium;
   vertical-align: top;
   width: 100%;
 
-  &-row-vertical-border {
+  &-row-vertical-cell-border {
     .grid-component-cell {
       border-right: $border-lighter;
     }
@@ -23,5 +24,9 @@
     &:last-child {
       border-right: 0;
     }
+  }
+
+  + .grid-component {
+    border-top: 0;
   }
 }
