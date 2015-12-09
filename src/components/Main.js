@@ -10,6 +10,7 @@ import GridRow from 'components/alexandria/GridRowComponent';
 import React from 'react';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
+import Totals from 'components/alexandria/TotalsComponent';
 import TreePickerNode from 'components/alexandria/TreePickerNodeComponent';
 
 const defaultBreadcrumbNodes = [
@@ -50,6 +51,14 @@ class AppComponent extends React.Component {
 
     return (
       <div className="index">
+
+        <h1>Totals</h1>
+        <Totals
+            toSum={[
+              { label: 'Movies Category - Medium Rectangle', value: 1000 },
+              { label: 'Selected', value: 36.80 },
+            ]}
+        />
 
         <h1>TreePickerNode</h1>
         <div className="grid-component">
