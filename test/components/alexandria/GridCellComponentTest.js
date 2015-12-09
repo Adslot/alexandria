@@ -1,7 +1,9 @@
 /* eslint-env node, mocha */
 /* global expect */
-import React from 'react';
+
 import createComponent from 'helpers/shallowRenderHelper';
+import React from 'react';
+
 import GridCellComponent from '../../../src/components/alexandria/GridCellComponent';
 
 describe('GridCellComponent', () => {
@@ -19,5 +21,29 @@ describe('GridCellComponent', () => {
     const childElement = component.props.children;
     expect(childElement.props.className).to.equal('test-class');
     expect(childElement.props.children).to.equal('Party town');
+  });
+
+  it('should apply stretch class when stretch is true', () => {
+    const component = createComponent(GridCellComponent, { stretch: true });
+    expect(component.props.className).to.equal('grid-component-cell grid-component-cell-stretch');
+  });
+
+  it('should apply extra classes when passed classSuffixes', () => {
+    const component = createComponent(GridCellComponent, { classSuffixes: ['foo', 'bar'] });
+    expect(component.props.className).to.equal([
+      'grid-component-cell',
+      'grid-component-cell-foo',
+      'grid-component-cell-bar',
+    ].join(' '));
+  });
+
+  it('should apply extra classes and stretch when passed classSuffixes and stretch', () => {
+    const component = createComponent(GridCellComponent, { stretch: true, classSuffixes: ['foo', 'bar'] });
+    expect(component.props.className).to.equal([
+      'grid-component-cell',
+      'grid-component-cell-foo',
+      'grid-component-cell-bar',
+      'grid-component-cell-stretch',
+    ].join(' '));
   });
 });
