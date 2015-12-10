@@ -17,10 +17,10 @@ describe('TreePickerNodeComponent', () => {
   it('should render a node with defaults', () => {
     const component = createComponent(TreePickerNodeComponent, { node: newYorkNode });
     expect(component.props.className).to.equal('treepickernode-component');
-    expect(component.type).to.equal('span');
+    expect(component.type).to.equal('div');
 
     const rowElement = component.props.children;
-    expect(rowElement.props.className).to.equal('grid-component-row');
+    expect(rowElement.type.name).to.equal('GridRowComponent');
 
     const buttonFirstCellElement = rowElement.props.children[0];
     expect(buttonFirstCellElement).to.be.a('null');
@@ -43,11 +43,13 @@ describe('TreePickerNodeComponent', () => {
     expect(metaDataElement.props.children[4]).to.equal(')');
 
     const costCellElement = rowElement.props.children[2];
-    expect(costCellElement.props.className).to.equal('grid-component-cell');
+    expect(costCellElement.type.name).to.equal('GridCellComponent');
     expect(costCellElement.props.children).to.equal(200);
 
     const buttonLastCellElement = rowElement.props.children[3];
-    expect(buttonLastCellElement.props.className).to.equal('grid-component-cell grid-component-cell-button');
+    expect(buttonLastCellElement.type.name).to.equal('GridCellComponent');
+    expect(buttonLastCellElement.props.classSuffixes).to.deep.equal(['button']);
+
     const buttonElement = buttonLastCellElement.props.children;
     expect(buttonElement.type).to.equal('button');
     expect(buttonElement.props.onClick).to.be.a('function');
@@ -59,7 +61,8 @@ describe('TreePickerNodeComponent', () => {
     const rowElement = component.props.children;
 
     const buttonFirstCellElement = rowElement.props.children[0];
-    expect(buttonFirstCellElement.props.className).to.equal('grid-component-cell grid-component-cell-button');
+    expect(buttonFirstCellElement.type.name).to.equal('GridCellComponent');
+    expect(buttonFirstCellElement.props.classSuffixes).to.deep.equal(['button']);
     const buttonElement = buttonFirstCellElement.props.children;
     expect(buttonElement.type).to.equal('button');
     expect(buttonElement.props.onClick).to.be.a('function');
@@ -70,12 +73,12 @@ describe('TreePickerNodeComponent', () => {
   });
 
   it('should filter cost when provided', () => {
-    const currencyFilter = (value) => `€${value / 100}`;
-    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, currencyFilter });
+    const valueFormatter = (value) => `€${value / 100}`;
+    const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, valueFormatter });
     const rowElement = component.props.children;
 
     const costCellElement = rowElement.props.children[2];
-    expect(costCellElement.props.className).to.equal('grid-component-cell');
+    expect(costCellElement.type.name).to.equal('GridCellComponent');
     expect(costCellElement.props.children).to.equal('€2');
   });
 
@@ -129,7 +132,7 @@ describe('TreePickerNodeComponent', () => {
     expect(pathElement).to.be.a('null');
 
     const costCellElement = rowElement.props.children[2];
-    expect(costCellElement.props.className).to.equal('grid-component-cell');
+    expect(costCellElement.type.name).to.equal('GridCellComponent');
     expect(costCellElement.props.children).to.equal(400);
   });
 

@@ -1,9 +1,11 @@
 import _ from 'lodash';
+import GridCell from 'components/alexandria/GridCellComponent';
+import GridRow from 'components/alexandria/GridRowComponent';
 import React, { PropTypes } from 'react';
 
 require('styles/alexandria/TreePickerNode.scss');
 
-const TreePickerNodeComponent = ({ buttonFirst, currencyFilter, includeNode, node, removeNode, selectedNodes }) => {
+const TreePickerNodeComponent = ({ buttonFirst, valueFormatter, includeNode, node, removeNode, selectedNodes }) => {
   const pathElement = (!_.isEmpty(node.path)) ?
     <span className="treepickernode-component-path">
       {node.path.reverse().join(', ')}
@@ -11,29 +13,29 @@ const TreePickerNodeComponent = ({ buttonFirst, currencyFilter, includeNode, nod
     null;
 
   const buttonElement = (
-    <span className="grid-component-cell grid-component-cell-button">
+    <GridCell classSuffixes={['button']}>
       {
         (_.some(selectedNodes, { id: node.id })) ?
           <button onClick={removeNode.bind(null, node)}>Remove</button> :
           <button onClick={includeNode.bind(null, node)}>Include</button>
       }
-    </span>
+    </GridCell>
   );
 
   return (
-    <span className="treepickernode-component">
-      <div className="grid-component-row">
+    <div className="treepickernode-component">
+      <GridRow>
         {(buttonFirst) ? buttonElement : null}
-        <span className="grid-component-cell grid-component-cell-grow">
+        <GridCell stretch>
           <span>{node.label}</span>
           <span className="treepickernode-component-metadata"> ({node.type} in {pathElement})</span>
-        </span>
-        <span className="grid-component-cell">
-          {currencyFilter(node.cost)}
-        </span>
+        </GridCell>
+        <GridCell>
+          {valueFormatter(node.cost)}
+        </GridCell>
         {(buttonFirst) ? null : buttonElement}
-      </div>
-    </span>
+      </GridRow>
+    </div>
   );
 };
 
@@ -49,7 +51,7 @@ const nodePropType = PropTypes.shape({
 
 TreePickerNodeComponent.propTypes = {
   buttonFirst: PropTypes.bool.isRequired,
-  currencyFilter: PropTypes.func.isRequired,
+  valueFormatter: PropTypes.func.isRequired,
   includeNode: PropTypes.func.isRequired,
   node: nodePropType.isRequired,
   removeNode: PropTypes.func.isRequired,
@@ -58,7 +60,7 @@ TreePickerNodeComponent.propTypes = {
 
 TreePickerNodeComponent.defaultProps = {
   buttonFirst: false,
-  currencyFilter: (value) => value,
+  valueFormatter: (value) => value,
   includeNode: (node) => {throw new Error(`Alexandria TreePickerNode needs an includeNode handler for ${node}`);},
 
   removeNode: (node) => {throw new Error(`Alexandria TreePickerNode needs a removeNode handler for ${node}`);},

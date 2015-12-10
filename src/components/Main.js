@@ -61,11 +61,9 @@ class AppComponent extends React.Component {
         />
 
         <h1>TreePickerNode</h1>
-        <div className="grid-component">
-          <TreePickerNode
-              node={{ id: 1, label: 'Melbourne', type: 'City', cost: 900, path: ['AU', 'VIC'] }}
-          />
-        </div>
+        <Grid>
+          <TreePickerNode node={{ id: 1, label: 'Melbourne', type: 'City', cost: 900, path: ['AU', 'VIC'] }} />
+        </Grid>
 
         <h1>Empty</h1>
         <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
