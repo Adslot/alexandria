@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Grid from 'components/alexandria/GridComponent';
 import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const TotalsComponent = ({ toSum, valueFormatter }) => (
   <Grid>
@@ -22,13 +22,13 @@ const TotalsComponent = ({ toSum, valueFormatter }) => (
 TotalsComponent.displayName = 'AlexandriaTotalsComponent';
 
 TotalsComponent.propTypes = {
-  toSum: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      label: React.PropTypes.string.isRequired,
-      value: React.PropTypes.number.isRequired,
+  toSum: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
     })
   ).isRequired,
-  valueFormatter: React.PropTypes.func.isRequired,
+  valueFormatter: PropTypes.func.isRequired,
 };
 
 TotalsComponent.defaultProps = {

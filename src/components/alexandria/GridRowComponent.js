@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import classSuffixHelper from '../../helpers/classSuffixHelper';
 
@@ -22,10 +22,10 @@ const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, c
 GridRowComponent.displayName = 'AlexandriaGridRowComponent';
 
 GridRowComponent.propTypes = {
-  horizontalBorder: React.PropTypes.bool.isRequired,
-  short: React.PropTypes.bool.isRequired,
-  type: React.PropTypes.oneOf(['body', 'header', 'subfooter', 'footer']).isRequired,
-  verticalCellBorder: React.PropTypes.bool.isRequired,
+  horizontalBorder: PropTypes.bool.isRequired,
+  short: PropTypes.bool.isRequired,
+  type: PropTypes.oneOf(['body', 'header', 'subfooter', 'footer']).isRequired,
+  verticalCellBorder: PropTypes.bool.isRequired,
 };
 
 GridRowComponent.defaultProps = {

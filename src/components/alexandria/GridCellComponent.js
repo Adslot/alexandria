@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import classSuffixHelper from '../../helpers/classSuffixHelper';
 
@@ -22,8 +22,8 @@ const GridCellComponent = ({ classSuffixes, stretch, children }) => {
 GridCellComponent.displayName = 'AlexandriaGridCellComponent';
 
 GridCellComponent.propTypes = {
-  classSuffixes: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-  stretch: React.PropTypes.bool.isRequired,
+  classSuffixes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  stretch: PropTypes.bool.isRequired,
 };
 
 GridCellComponent.defaultProps = {

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Search.scss');
 
@@ -43,9 +43,9 @@ class SearchComponent extends React.Component {
 }
 
 SearchComponent.propTypes = {
-  onQuery: React.PropTypes.func,
-  placeholder: React.PropTypes.string,
-  throttleTime: React.PropTypes.number,
+  onQuery: PropTypes.func,
+  placeholder: PropTypes.string,
+  throttleTime: PropTypes.number,
 };
 
 SearchComponent.defaultProps = {

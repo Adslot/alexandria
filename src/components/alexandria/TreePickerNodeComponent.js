@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/TreePickerNode.scss');
 
@@ -39,21 +39,21 @@ const TreePickerNodeComponent = ({ buttonFirst, currencyFilter, includeNode, nod
 
 TreePickerNodeComponent.displayName = 'AlexandriaTreePickerNodeComponent';
 
-const nodePropType = React.PropTypes.shape({
-  id: React.PropTypes.number.isRequired,
-  label: React.PropTypes.string.isRequired,
-  type: React.PropTypes.string.isRequired,
-  cost: React.PropTypes.number.isRequired,
-  path: React.PropTypes.arrayOf(React.PropTypes.string.isRequired).isRequired,
+const nodePropType = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  cost: PropTypes.number.isRequired,
+  path: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 });
 
 TreePickerNodeComponent.propTypes = {
-  buttonFirst: React.PropTypes.bool.isRequired,
-  currencyFilter: React.PropTypes.func.isRequired,
-  includeNode: React.PropTypes.func.isRequired,
+  buttonFirst: PropTypes.bool.isRequired,
+  currencyFilter: PropTypes.func.isRequired,
+  includeNode: PropTypes.func.isRequired,
   node: nodePropType.isRequired,
-  removeNode: React.PropTypes.func.isRequired,
-  selectedNodes: React.PropTypes.arrayOf(nodePropType).isRequired,
+  removeNode: PropTypes.func.isRequired,
+  selectedNodes: PropTypes.arrayOf(nodePropType).isRequired,
 };
 
 TreePickerNodeComponent.defaultProps = {
