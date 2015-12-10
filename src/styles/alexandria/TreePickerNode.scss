@@ -1,29 +1,11 @@
 @import '../border';
 @import '../color';
 @import '../fontSize';
-@import '../mixin';
 
 .treepickernode-component {
 
   &-metadata {
     color: $color-text-light;
-  }
-
-  // Roughing this in until the grid component has merged.
-  .grid-component-row {
-    border-bottom: $border-lighter;
-    display: flex;
-    font-size: $font-size-body;
-    line-height: 32px;
-  }
-
-  .grid-component-cell {
-    padding: 0 8px;
-  }
-
-  .grid-component-cell-grow {
-    @include ellipse;
-    flex-basis: 100%;
   }
 
   .grid-component-cell-button {
