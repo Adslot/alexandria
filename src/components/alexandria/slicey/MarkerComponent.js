@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { ROUND, QUARTER, getPointX, getPointY } from './dataProcessor';
 
@@ -18,7 +18,7 @@ const MarkerComponent = ({ fraction }) => {
 MarkerComponent.displayName = 'AlexandriaSliceyMarkerComponent';
 
 MarkerComponent.propTypes = {
-  fraction: React.PropTypes.number,
+  fraction: PropTypes.number,
 };
 MarkerComponent.defaultProps = {
   fraction: 0,

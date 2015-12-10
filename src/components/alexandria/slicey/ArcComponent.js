@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/slicey/Arc.scss');
 
@@ -17,14 +17,14 @@ const ArcComponent = ({ data }) => {
 ArcComponent.displayName = 'AlexandriaSliceyArcComponent';
 
 ArcComponent.propTypes = {
-  data: React.PropTypes.shape({
-    label: React.PropTypes.string.isRequired,
-    id: React.PropTypes.number.isRequired,
-    largeArcFlag: React.PropTypes.number.isRequired,
-    x1: React.PropTypes.number.isRequired,
-    y1: React.PropTypes.number.isRequired,
-    x2: React.PropTypes.number.isRequired,
-    y2: React.PropTypes.number.isRequired,
+  data: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    largeArcFlag: PropTypes.number.isRequired,
+    x1: PropTypes.number.isRequired,
+    y1: PropTypes.number.isRequired,
+    x2: PropTypes.number.isRequired,
+    y2: PropTypes.number.isRequired,
   }),
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Alert.scss');
 
@@ -11,7 +11,7 @@ const AlertComponent = ({ type, children }) => (
 AlertComponent.displayName = 'AlexandriaAlertComponent';
 
 AlertComponent.propTypes = {
-  type: React.PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
+  type: PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
 };
 AlertComponent.defaultProps = {
   type: 'info',

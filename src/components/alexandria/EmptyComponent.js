@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Empty.scss');
 
@@ -19,9 +19,9 @@ const EmptyComponent = ({ collection, icon, text }) => {
 EmptyComponent.displayName = 'AlexandriaEmptyComponent';
 
 EmptyComponent.propTypes = {
-  collection: React.PropTypes.any,
-  icon: React.PropTypes.string,
-  text: React.PropTypes.string,
+  collection: PropTypes.any,
+  icon: PropTypes.string,
+  text: PropTypes.string,
 };
 EmptyComponent.defaultProps = {
   collection: null,
