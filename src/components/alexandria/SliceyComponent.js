@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Arc from 'components/alexandria/slicey/ArcComponent';
 import Donut from 'components/alexandria/slicey/DonutComponent';
 import Marker from 'components/alexandria/slicey/MarkerComponent';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { ROUND, HALF, QUARTER, getPointX, getPointY } from 'components/alexandria/slicey/dataProcessor';
 
 require('styles/alexandria/Slicey.scss');
@@ -73,15 +73,15 @@ const SliceyComponent = ({ dataset, diameter, donut, marker }) => {
 SliceyComponent.displayName = 'AlexandriaSliceyComponent';
 
 SliceyComponent.propTypes = {
-  dataset: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      label: React.PropTypes.string.isRequired,
-      value: React.PropTypes.number.isRequired,
+  dataset: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
     })
   ),
-  diameter: React.PropTypes.number,
-  donut: React.PropTypes.bool,
-  marker: React.PropTypes.number,
+  diameter: PropTypes.number,
+  donut: PropTypes.bool,
+  marker: PropTypes.number,
 };
 
 SliceyComponent.defaultProps = {

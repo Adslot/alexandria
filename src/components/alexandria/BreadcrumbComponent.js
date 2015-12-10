@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Breadcrumb.scss');
 
@@ -37,13 +37,13 @@ const BreadcrumbComponent = ({ nodes, onClick }) => {
 BreadcrumbComponent.displayName = 'AlexandriaBreadcrumbComponent';
 
 BreadcrumbComponent.propTypes = {
-  nodes: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      id: React.PropTypes.string.isRequired,
-      label: React.PropTypes.string.isRequired,
+  nodes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
     })
   ),
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 };
 BreadcrumbComponent.defaultProps = {
   nodes: [],
