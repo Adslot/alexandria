@@ -17,12 +17,10 @@
   &-row-vertical-cell-border {
     .grid-component-cell {
       border-right: $border-lighter;
-    }
-  }
 
-  &-cell {
-    &:last-child {
-      border-right: 0;
+      &:last-child {
+        border-right: 0;
+      }
     }
   }
 

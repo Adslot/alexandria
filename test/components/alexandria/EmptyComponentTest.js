@@ -18,15 +18,15 @@ describe('EmptyComponent', () => {
     expect(textElement.props.children).to.equal('Nothing to show.');
   });
 
-  it('should render without contents when passed a non-empty collection Array', () => {
+  it('should render an empty div when passed a non-empty collection Array', () => {
     const component = createComponent(EmptyComponent, { collection: [1] });
-    expect(component.props.className).to.equal('empty-component');
+    expect(component.props.className).to.be.an('undefined');
     expect(component.props.children).to.be.an('undefined');
   });
 
-  it('should render without contents when passed a non-empty collection Object', () => {
+  it('should render an empty div when passed a non-empty collection Object', () => {
     const component = createComponent(EmptyComponent, { collection: { foo: 1 } });
-    expect(component.props.className).to.equal('empty-component');
+    expect(component.props.className).to.be.an('undefined');
     expect(component.props.children).to.be.an('undefined');
   });
 

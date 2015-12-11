@@ -13,6 +13,12 @@
   &-subfooter {
     background-color: $color-gray-white;
     color: $color-text-light;
+
+    .grid-component-cell {
+      &:last-child {
+        color: $color-text;
+      }
+    }
   }
 
   &-footer {
@@ -29,12 +35,5 @@
   &-horizontal-border,
   &:last-child {
     border-bottom-color: $color-border-lighter;
-  }
-}
-
-// Override &-subfooter color.
-.grid-component-cell {
-  &:last-child {
-    color: $color-text;
   }
 }

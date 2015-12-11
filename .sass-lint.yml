@@ -56,7 +56,7 @@ rules:
   hex-notation: 2
   indentation: 2
   leading-zero: 2
-  nesting-depth: 2
+  nesting-depth: [2, max-depth: 3]
   property-sort-order: 2
   quotes: 2
   shorthand-values: 2
