@@ -31,7 +31,7 @@ const TreePickerNodeComponent = ({ buttonFirst, valueFormatter, includeNode, nod
           <span className="treepickernode-component-metadata"> ({node.type} in {pathElement})</span>
         </GridCell>
         <GridCell>
-          {valueFormatter(node.cost)}
+          {valueFormatter(node.value)}
         </GridCell>
         {(buttonFirst) ? null : buttonElement}
       </GridRow>
@@ -45,7 +45,7 @@ const nodePropType = PropTypes.shape({
   id: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  cost: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
   path: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 });
 
