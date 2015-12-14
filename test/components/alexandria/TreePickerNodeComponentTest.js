@@ -10,7 +10,7 @@ describe('TreePickerNodeComponent', () => {
     id: 1,
     label: 'New York',
     type: 'City',
-    cost: 200,
+    value: 200,
     path: ['USA', 'NY'],
   };
 
@@ -42,9 +42,9 @@ describe('TreePickerNodeComponent', () => {
     expect(pathElement.props.children).to.equal('NY, USA');
     expect(metaDataElement.props.children[4]).to.equal(')');
 
-    const costCellElement = rowElement.props.children[2];
-    expect(costCellElement.type.name).to.equal('GridCellComponent');
-    expect(costCellElement.props.children).to.equal(200);
+    const valueCellElement = rowElement.props.children[2];
+    expect(valueCellElement.type.name).to.equal('GridCellComponent');
+    expect(valueCellElement.props.children).to.equal(200);
 
     const buttonLastCellElement = rowElement.props.children[3];
     expect(buttonLastCellElement.type.name).to.equal('GridCellComponent');
@@ -72,14 +72,14 @@ describe('TreePickerNodeComponent', () => {
     expect(buttonLastCellElement).to.be.a('null');
   });
 
-  it('should filter cost when provided', () => {
+  it('should filter value when provided', () => {
     const valueFormatter = (value) => `€${value / 100}`;
     const component = createComponent(TreePickerNodeComponent, { node: newYorkNode, valueFormatter });
     const rowElement = component.props.children;
 
-    const costCellElement = rowElement.props.children[2];
-    expect(costCellElement.type.name).to.equal('GridCellComponent');
-    expect(costCellElement.props.children).to.equal('€2');
+    const valueCellElement = rowElement.props.children[2];
+    expect(valueCellElement.type.name).to.equal('GridCellComponent');
+    expect(valueCellElement.props.children).to.equal('€2');
   });
 
   it('should fire includeNode when clicking on the `include` button', () => {
@@ -110,7 +110,7 @@ describe('TreePickerNodeComponent', () => {
       id: 3,
       label: 'Cameroon',
       type: 'Country',
-      cost: 400,
+      value: 400,
       path: [],
     };
     const component = createComponent(TreePickerNodeComponent, { node });
@@ -131,9 +131,9 @@ describe('TreePickerNodeComponent', () => {
     const pathElement = metaDataElement.props.children[3];
     expect(pathElement).to.be.a('null');
 
-    const costCellElement = rowElement.props.children[2];
-    expect(costCellElement.type.name).to.equal('GridCellComponent');
-    expect(costCellElement.props.children).to.equal(400);
+    const valueCellElement = rowElement.props.children[2];
+    expect(valueCellElement.type.name).to.equal('GridCellComponent');
+    expect(valueCellElement.props.children).to.equal(400);
   });
 
   it('should fire removeNode when clicking on the `remove` button', () => {

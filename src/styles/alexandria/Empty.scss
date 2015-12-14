@@ -2,8 +2,11 @@
 @import '../fontSize';
 
 .empty-component {
-  margin: 60px auto;
+  cursor: default;
+  margin: 0 auto;
+  padding: 60px;
   text-align: center;
+  user-select: none;
 
   &-icon {
     $icon-diameter: 70px;

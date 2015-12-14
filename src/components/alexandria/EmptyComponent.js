@@ -13,7 +13,7 @@ const EmptyComponent = ({ collection, icon, text }) => {
     );
   }
 
-  return <div className="empty-component" />;
+  return <div />;
 };
 
 EmptyComponent.displayName = 'AlexandriaEmptyComponent';
