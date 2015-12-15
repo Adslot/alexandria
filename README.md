@@ -1,4 +1,4 @@
-alexandria
+alexandria [![codecov.io](https://codecov.io/github/Adslot/alexandria/coverage.svg?branch=master)](https://codecov.io/github/Adslot/alexandria?branch=master)
 ==========
 
 A UI component library. By Adslot
