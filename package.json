@@ -43,7 +43,7 @@
     "codecov.io": "^0.1.6",
     "css-loader": "^0.23.0",
     "eslint": "^1.10.1",
-    "eslint-config-airbnb": "^2.0.0",
+    "eslint-config-airbnb": "^2.1.0",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^3.10.0",
     "file-loader": "^0.8.5",
