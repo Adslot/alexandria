@@ -53,7 +53,8 @@ const SelectedComponent = ({
           { label: baseItem.label, value: baseItem.value },
           { label: 'Selected', value: totalOfAverages },
         ]}
-        valueFormatter={valueFormatter} />
+        valueFormatter={valueFormatter}
+    />
 
     {_.keys(selectedNodesByRootType).map((rootTypeId) =>
       <Grid key={rootTypeId}>
@@ -71,7 +72,8 @@ const SelectedComponent = ({
               key={node.id}
               node={node}
               removeNode={removeNode.bind()}
-              selectedNodes={selectedNodesByRootType[rootTypeId]} />
+              selectedNodes={selectedNodesByRootType[rootTypeId]}
+          />
         )}
 
         <GridRow type="subfooter">
