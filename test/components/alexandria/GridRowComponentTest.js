@@ -30,7 +30,7 @@ describe('GridRowComponent', () => {
     expect(component.props.className).to.equal('grid-component-row grid-component-row-body');
   });
 
-  it('should apply short class when when short is true', () => {
+  it('should apply short class when short is true', () => {
     const component = createComponent(GridRowComponent, { short: true });
     expect(component.props.className).to.equal([
       'grid-component-row',
