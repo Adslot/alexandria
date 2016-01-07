@@ -70,16 +70,16 @@ class AppComponent extends React.Component {
 
         <h1>Totals</h1>
         <Totals
-            toSum={[
-              { label: 'Movies Category - Medium Rectangle', value: 1000 },
-              { label: 'Selected', value: 36.80 },
-            ]}
+          toSum={[
+            { label: 'Movies Category - Medium Rectangle', value: 1000 },
+            { label: 'Selected', value: 36.80 },
+          ]}
         />
 
         <h1>TreePickerSelected</h1>
         <TreePickerSelected
-            rootTypes={rootTypes}
-            selectedNodesByRootType={selectedNodesByRootType}
+          rootTypes={rootTypes}
+          selectedNodesByRootType={selectedNodesByRootType}
         />
 
         <h1>TreePickerNode</h1>

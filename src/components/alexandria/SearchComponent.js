@@ -26,16 +26,16 @@ class SearchComponent extends React.Component {
     return (
       <div className="search-component">
         <input
-            className="search-component-input"
-            name="search"
-            onChange={this.changeValue.bind(this)}
-            placeholder={`Search ${this.props.placeholder}`}
-            type="search"
-            value={value}
+          className="search-component-input"
+          name="search"
+          onChange={this.changeValue.bind(this)}
+          placeholder={`Search ${this.props.placeholder}`}
+          type="search"
+          value={value}
         />
         <div
-            className={`search-component-icon${_.isEmpty(value) ? ' is-empty' : ''}`}
-            onClick={this.clearValue.bind(this)}
+          className={`search-component-icon${_.isEmpty(value) ? ' is-empty' : ''}`}
+          onClick={this.clearValue.bind(this)}
         />
       </div>
     );

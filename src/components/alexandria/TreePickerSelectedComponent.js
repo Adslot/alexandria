@@ -49,11 +49,11 @@ const SelectedComponent = ({
   <div className="treepickerselected-component">
     <h1 className="treepickerselected-component-header">Selected</h1>
     <Totals
-        toSum={[
-          { label: baseItem.label, value: baseItem.value },
-          { label: 'Selected', value: totalOfAverages },
-        ]}
-        valueFormatter={valueFormatter}
+      toSum={[
+        { label: baseItem.label, value: baseItem.value },
+        { label: 'Selected', value: totalOfAverages },
+      ]}
+      valueFormatter={valueFormatter}
     />
 
     {_.keys(selectedNodesByRootType).map((rootTypeId) =>
@@ -66,13 +66,13 @@ const SelectedComponent = ({
 
         {selectedNodesByRootType[rootTypeId].map((node) =>
           <TreePickerNode
-              buttonFirst
-              valueFormatter={valueFormatter}
-              includeNode={includeNode.bind()}
-              key={node.id}
-              node={node}
-              removeNode={removeNode.bind()}
-              selectedNodes={selectedNodesByRootType[rootTypeId]}
+            buttonFirst
+            valueFormatter={valueFormatter}
+            includeNode={includeNode.bind()}
+            key={node.id}
+            node={node}
+            removeNode={removeNode.bind()}
+            selectedNodes={selectedNodesByRootType[rootTypeId]}
           />
         )}
 
