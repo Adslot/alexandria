@@ -8,6 +8,7 @@ import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
+import Totals from 'components/alexandria/TotalsComponent';
 
 module.exports = {
   Alert,
@@ -18,4 +19,5 @@ module.exports = {
   Grid,
   GridRow,
   GridCell,
+  Totals,
 };
