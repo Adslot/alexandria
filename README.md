@@ -8,36 +8,25 @@ Named after the [Library of Alexandria](https://en.wikipedia.org/wiki/Library_of
 
 Technology:
 
--	[React](http://facebook.github.io/react/)
-
--	ES2015 (using [Babel](http://babeljs.io)\)
-
--	[Webpack](https://github.com/webpack/webpack)
-
--	[SCSS](http://sass-lang.com)
-
--	[Yeoman](http://yeoman.io)
-
--	[ESLint](http://eslint.org)
-
--	[JSCS](http://jscs.info)
-
--	[Autoprefixer](https://github.com/postcss/autoprefixer)
-
-Style guides:
-
--	[Airbnb ES2015](https://github.com/airbnb/javascript)
-
--	[Airbnb React](https://github.com/airbnb/javascript/tree/master/react)
+- [React](http://facebook.github.io/react/)
+- ES2015 (using [Babel](http://babeljs.io)\)
+- [Webpack](https://github.com/webpack/webpack)
+- [SCSS](http://sass-lang.com)
+- [Yeoman](http://yeoman.io)
+- [ESLint](http://eslint.org)
+- [JSCS](http://jscs.info)
+- [Autoprefixer](https://github.com/postcss/autoprefixer)
 
 Development
 -----------
 
--	Clone the repo: `git clone git@github.com:Adslot/alexandria.git`
+- Take a look at our [Contributing](CONTRIBUTING.md) guidelines
 
--	Install [yeoman](http://yeoman.io) globally: `npm install -g yo`
+- Clone the repo: `git clone git@github.com:Adslot/alexandria.git`
 
--	Install NPM dependencies: `npm i`
+- Install [yeoman](http://yeoman.io) globally: `npm install -g yo`
+
+- Install NPM dependencies: `npm i`
 
 Commands
 --------
