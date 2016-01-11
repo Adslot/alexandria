@@ -11,8 +11,6 @@ import React from 'react';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
 import Totals from 'components/alexandria/TotalsComponent';
-import TreePickerNode from 'components/alexandria/TreePickerNodeComponent';
-import TreePickerSelected from 'components/alexandria/TreePickerSelectedComponent';
 
 const defaultBreadcrumbNodes = [
   { id: 'aaa-111', label: 'Australia' },
@@ -50,21 +48,6 @@ class AppComponent extends React.Component {
       { label: 'info', value: 35 },
     ];
 
-    const rootTypes = [
-      {
-        label: 'Geography',
-        id: 0,
-        icon: 'http://placehold.it/16x16',
-        emptyIcon: 'http://placehold.it/70x70',
-        isRequired: true,
-      },
-    ];
-
-    const selectedNodesByRootType = _.groupBy([
-      { id: 0, label: 'Australian Capital Territory', type: 'State', path: ['AU'], value: 1000, rootTypeId: 0 },
-      { id: 1, label: 'Northern Territory', type: 'State', path: ['AU'], value: 500, rootTypeId: 0 },
-    ], 'rootTypeId');
-
     return (
       <div className="index">
 
@@ -75,17 +58,6 @@ class AppComponent extends React.Component {
             { label: 'Selected', value: 36.80 },
           ]}
         />
-
-        <h1>TreePickerSelected</h1>
-        <TreePickerSelected
-          rootTypes={rootTypes}
-          selectedNodesByRootType={selectedNodesByRootType}
-        />
-
-        <h1>TreePickerNode</h1>
-        <Grid>
-          <TreePickerNode node={{ id: 1, label: 'Melbourne', type: 'City', value: 900, path: ['AU', 'VIC'] }} />
-        </Grid>
 
         <h1>Empty</h1>
         <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
