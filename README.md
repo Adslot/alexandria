@@ -28,6 +28,10 @@ Development
 
 - Install NPM dependencies: `npm i`
 
+- Set-up git hooks
+
+  `rm -rf .git/hooks && cd .git/ && ln -s ../scripts/git-hooks hooks && chmod +x hooks/* && cd -`
+
 Commands
 --------
 
