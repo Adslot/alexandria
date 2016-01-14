@@ -56,7 +56,7 @@ describe('BreadcrumbComponent', () => {
     });
   });
 
-  it('should trigger onClick when a node is clicked', () => {
+  it('should trigger onClick when clicking a node', () => {
     const idsRemoved = [];
     const onClick = (newActiveId) => idsRemoved.push(newActiveId);
     const component = createComponent(BreadcrumbComponent, { nodes, onClick });
@@ -77,7 +77,7 @@ describe('BreadcrumbComponent', () => {
     expect(idsRemoved).to.deep.equal(['b', 'all']);
   });
 
-  it('should error when a node is clicked with no onClick handler', () => {
+  it('should error when clicking a node with no onClick handler', () => {
     const component = createComponent(BreadcrumbComponent, { nodes });
     const allLinkElement = component.props.children[0];
     expect(() => {
