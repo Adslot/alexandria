@@ -1,5 +1,6 @@
 const path = require('path');
 
+const host = '0.0.0.0';
 const port = 8000;
 const srcPath = path.join(__dirname, '/../src');
 const publicPath = '/assets/';
@@ -17,7 +18,6 @@ const supportedBrowsers = [
 const autoprefixerConfig = `autoprefixer-loader?{browsers:["${supportedBrowsers}"]}`;
 
 module.exports = {
-  port: port,
   debug: true,
   output: {
     path: path.join(__dirname, '/../dist/assets'),
@@ -27,9 +27,10 @@ module.exports = {
   devServer: {
     contentBase: './src/',
     historyApiFallback: true,
+    host,
     hot: true,
-    port: port,
-    publicPath: publicPath,
+    port,
+    publicPath,
     noInfo: false,
   },
   resolve: {
