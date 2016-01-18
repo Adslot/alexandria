@@ -2,6 +2,7 @@ require('styles/App.scss');
 
 import _ from 'lodash';
 import Alert from 'components/alexandria/AlertComponent';
+import Avatar from 'components/alexandria/AvatarComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
 import Empty from 'components/alexandria/EmptyComponent';
 import Grid from 'components/alexandria/GridComponent';
@@ -64,6 +65,15 @@ class AppComponent extends React.Component {
 
         <h1>Alert</h1>
         <Alert type="success">You did it!</Alert>
+
+        <h1>Avatar</h1>
+        <Avatar givenName="John" surname="Smith" />
+        <Avatar givenName="John" surname="Smith" color="blue" />
+        <Avatar givenName="John" surname="Smith" color="green" />
+        <Avatar givenName="John" surname="Smith" color="red" />
+        <Avatar givenName="John" surname="Smith" color="orange" />
+        <Avatar givenName="John" surname="Smith" color="cyan" />
+        <Avatar givenName="John" surname="Smith" image="//lorempixel.com/35/35/people/7" />
 
         <h1>Breadcrumb</h1>
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick.bind(this)} />
