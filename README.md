@@ -40,9 +40,9 @@ Commands
 
 npm start # or npm run serve
 
-# Start the dev-server with the dist version
+# Start the dev-server without automatic refresh
 
-npm run serve:dist
+npm run start:cold
 
 # Build the dist version
 
