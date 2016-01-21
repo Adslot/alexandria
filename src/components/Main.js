@@ -22,6 +22,10 @@ const defaultBreadcrumbNodes = [
 class AppComponent extends React.Component {
   constructor(props) {
     super(props);
+    for (const methodName of [
+      'breadcrumbOnClick',
+      'searchOnQuery',
+    ]) {this[methodName] = this[methodName].bind(this);}
 
     this.state = {
       breadcrumbNodes: defaultBreadcrumbNodes,
@@ -76,10 +80,10 @@ class AppComponent extends React.Component {
         <Avatar givenName="John" surname="Smith" image="//lorempixel.com/35/35/people/7" />
 
         <h1>Breadcrumb</h1>
-        <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick.bind(this)} />
+        <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
         <h1>Search</h1>
-        <Search placeholder="your memories" onQuery={this.searchOnQuery.bind(this)} throttleTime={200} />
+        <Search placeholder="your memories" onQuery={this.searchOnQuery} throttleTime={200} />
 
         <h1>Slicey</h1>
         <Slicey dataset={sliceyDataset} diameter={150} marker={0.2} donut />

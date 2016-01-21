@@ -7,6 +7,10 @@ class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
+    for (const methodName of [
+      'changeValue',
+      'clearValue',
+    ]) {this[methodName] = this[methodName].bind(this);}
 
     this.throttledOnQuery = _.throttle(
       () => props.onQuery(this.state.value),
@@ -28,14 +32,14 @@ class SearchComponent extends React.Component {
         <input
           className="search-component-input"
           name="search"
-          onChange={this.changeValue.bind(this)}
+          onChange={this.changeValue}
           placeholder={`Search ${this.props.placeholder}`}
           type="search"
           value={value}
         />
         <div
           className={`search-component-icon${_.isEmpty(value) ? ' is-empty' : ''}`}
-          onClick={this.clearValue.bind(this)}
+          onClick={this.clearValue}
         />
       </div>
     );
@@ -43,9 +47,9 @@ class SearchComponent extends React.Component {
 }
 
 SearchComponent.propTypes = {
-  onQuery: PropTypes.func,
-  placeholder: PropTypes.string,
-  throttleTime: PropTypes.number,
+  onQuery: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  throttleTime: PropTypes.number.isRequired,
 };
 
 SearchComponent.defaultProps = {
