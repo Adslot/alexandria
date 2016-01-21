@@ -16,6 +16,6 @@
     "max-len": [1, 120, 2],
     "no-cond-assign": [2, "except-parens"],
     "quote-props": 0,
-    "react/jsx-no-bind": 0
+    "react/jsx-no-bind": 1
   }
 }
