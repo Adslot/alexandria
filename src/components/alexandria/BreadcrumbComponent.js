@@ -8,27 +8,29 @@ const BreadcrumbComponent = ({ nodes, onClick }) => {
   }
 
   const getNodeElement = ({ node, isLast }) => {
-    return isLast ?
-      <span className="breadcrumb-component-last">{node.label}</span> :
-      (
-        <span className="breadcrumb-component-link" onClick={() => onClick(node.id)}>
-          {node.label}
-        </span>
-      );
+    const onClickNode = () => onClick(node.id);
+    if (isLast) {
+      return (<span className="breadcrumb-component-last">{node.label}</span>);
+    }
+
+    return (
+      <span className="breadcrumb-component-link" onClick={onClickNode}>
+        {node.label}
+      </span>);
   };
+
+  const onClickAll = () => onClick('all');
 
   return (
     <div className="breadcrumb-component">
-      <span className="breadcrumb-component-link" onClick={() => onClick('all')}>All</span>
+      <span className="breadcrumb-component-link" onClick={onClickAll}>All</span>
       {
-        nodes.map((node, index) => {
-          return (
-            <span key={node.id}>
-              <span> > </span>
-              {getNodeElement({ node, isLast: index === nodes.length - 1 })}
-            </span>
-          );
-        })
+        nodes.map((node, index) =>
+          <span key={node.id}>
+            <span> > </span>
+            {getNodeElement({ node, isLast: index === nodes.length - 1 })}
+          </span>
+        )
       }
     </div>
   );
