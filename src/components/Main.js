@@ -25,11 +25,16 @@ class AppComponent extends React.Component {
     for (const methodName of [
       'breadcrumbOnClick',
       'searchOnQuery',
+      'searchOnChange',
+      'searchOnClear',
     ]) {this[methodName] = this[methodName].bind(this);}
 
     this.state = {
       breadcrumbNodes: defaultBreadcrumbNodes,
+      searchValue: '',
     };
+
+    this.throttledSearchOnQuery = _.throttle(() => this.searchOnQuery(this.state.searchValue), 200);
   }
 
   breadcrumbOnClick(newActiveId) {
@@ -37,6 +42,14 @@ class AppComponent extends React.Component {
     this.setState({
       breadcrumbNodes: breadcrumbNodes.slice(0, 1 + _.findIndex(breadcrumbNodes, { id: newActiveId })),
     });
+  }
+
+  searchOnChange(value) {
+    this.setState({ searchValue: value }, this.throttledSearchOnQuery);
+  }
+
+  searchOnClear() {
+    this.searchOnChange('');
   }
 
   searchOnQuery(query) {
@@ -83,7 +96,12 @@ class AppComponent extends React.Component {
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
         <h1>Search</h1>
-        <Search placeholder="your memories" onQuery={this.searchOnQuery} throttleTime={200} />
+        <Search
+          onChange={this.searchOnChange}
+          onClear={this.searchOnClear}
+          placeholder="Cities"
+          value={this.state.searchValue}
+        />
 
         <h1>Slicey</h1>
         <Slicey dataset={sliceyDataset} diameter={150} marker={0.2} donut />
