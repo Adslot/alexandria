@@ -2,17 +2,20 @@
 /* global expect */
 
 import createComponent from 'helpers/shallowRenderHelper';
-import React from 'react';
 import SearchComponent from 'components/alexandria/SearchComponent';
-import TestUtils from 'react-addons-test-utils';
 
 describe('SearchComponent', () => {
+  const indices = {
+    input: 0,
+    icon: 1,
+  };
+  Object.freeze(indices);
+
   it('should render using defaultProps', () => {
     const component = createComponent(SearchComponent);
-
     expect(component.props.className).to.equal('search-component');
 
-    const inputEl = component.props.children[0];
+    const inputEl = component.props.children[indices.input];
     expect(inputEl.props.className).to.equal('search-component-input');
     expect(inputEl.props.name).to.equal('search');
     expect(inputEl.props.onChange).to.be.a('function');
@@ -20,7 +23,7 @@ describe('SearchComponent', () => {
     expect(inputEl.props.type).to.equal('search');
     expect(inputEl.props.value).to.equal('');
 
-    const iconEl = component.props.children[1];
+    const iconEl = component.props.children[indices.icon];
     expect(iconEl.props.className).to.equal('search-component-icon is-empty');
     expect(iconEl.props.onClick).to.be.a('function');
   });
@@ -28,61 +31,50 @@ describe('SearchComponent', () => {
   it('should render using a placeholder', () => {
     const component = createComponent(SearchComponent, { placeholder: 'your feelings' });
 
-    const inputEl = component.props.children[0];
+    const inputEl = component.props.children[indices.input];
     expect(inputEl.props.placeholder).to.equal('Search your feelings');
   });
 
-  it('should error when the user changes the value with no onQuery handler', () => {
-    const component = createComponent(SearchComponent);
-    const inputEl = component.props.children[0];
-    expect(() => {
-      inputEl.props.onChange({ target: { value: "Cam's Awesome Text" } });
-    }).to.throw("Alexandria Search needs an onQuery handler to take Cam's Awesome Text");
+  it('should render using a value', () => {
+    const component = createComponent(SearchComponent, { value: 'needle' });
+
+    const inputEl = component.props.children[indices.input];
+    expect(inputEl.props.value).to.equal('needle');
+    const iconEl = component.props.children[indices.icon];
+    expect(iconEl.props.className).to.equal('search-component-icon');
   });
 
-  it('should let the user change the value and clear the input', () => {
-    const getRenderOutputAndCheck = ({ renderer, expectedText, expectedIconClass }) => {
-      const componentRenderOutput = renderer.getRenderOutput();
+  it('should fire onChange when the user changes the value', () => {
+    const values = [];
+    const testFunction = (value) => values.push(value);
+    const component = createComponent(SearchComponent, { onChange: testFunction });
+    const inputEl = component.props.children[indices.input];
+    inputEl.props.onChange({ target: { value: 'needle' } });
+    expect(values).to.deep.equal(['needle']);
+  });
 
-      const inputEl = componentRenderOutput.props.children[0];
-      expect(inputEl.props.value).to.equal(expectedText);
+  it('should error when the user changes the value with no onChange handler', () => {
+    const component = createComponent(SearchComponent);
+    const inputEl = component.props.children[indices.input];
+    expect(() => {
+      inputEl.props.onChange();
+    }).to.throw('Alexandria Search needs an onChange handler');
+  });
 
-      const iconEl = componentRenderOutput.props.children[1];
-      expect(iconEl.props.className).to.equal(expectedIconClass);
-      return { inputEl, iconEl };
-    };
-
-    const queries = [];
-    const testOnQuery = (query) => queries.push(query);
-
-    const renderer = TestUtils.createRenderer();
-    renderer.render(<SearchComponent onQuery={testOnQuery} />);
-
-    const { inputEl } = getRenderOutputAndCheck({
-      renderer,
-      expectedText: '',
-      expectedIconClass: 'search-component-icon is-empty',
-    });
-
-    // Manually invoke onChange handler via props
-    inputEl.props.onChange({ target: { value: "Cam's Awesome Text" } });
-
-    const { iconEl } = getRenderOutputAndCheck({
-      renderer,
-      expectedText: "Cam's Awesome Text",
-      expectedIconClass: 'search-component-icon',
-    });
-    expect(queries).to.deep.equal(["Cam's Awesome Text"]);
-
-    // Manually invoke onClick handler via props to clear the input
+  it('should fire onClear when the user clicks the icon', () => {
+    let fireCount = 0;
+    const testFunction = () => fireCount += 1;
+    const component = createComponent(SearchComponent, { onClear: testFunction });
+    const iconEl = component.props.children[indices.icon];
     iconEl.props.onClick();
+    expect(fireCount).to.equal(1);
+  });
 
-    getRenderOutputAndCheck({
-      renderer,
-      expectedText: '',
-      expectedIconClass: 'search-component-icon is-empty',
-    });
-
-    expect(queries).to.deep.equal(["Cam's Awesome Text", '']);
+  it('should error when the user clicks the icon with no onClear handler', () => {
+    const component = createComponent(SearchComponent);
+    const iconEl = component.props.children[indices.icon];
+    expect(() => {
+      iconEl.props.onClick();
+    }).to.throw('Alexandria Search needs an onClear handler');
   });
 });

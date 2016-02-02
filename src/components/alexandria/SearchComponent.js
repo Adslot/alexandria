@@ -3,60 +3,49 @@ import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Search.scss');
 
-class SearchComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
-    for (const methodName of [
-      'changeValue',
-      'clearValue',
-    ]) {this[methodName] = this[methodName].bind(this);}
+const SearchComponent = ({
+  onChange,
+  onClear,
+  placeholder,
+  value,
+}) => {
+  const onChangeBound = (event) => onChange(_.get(event, 'target.value'));
 
-    this.throttledOnQuery = _.throttle(
-      () => props.onQuery(this.state.value),
-      props.throttleTime);
-  }
+  return (
+    <div className="search-component">
+      <input
+        autoComplete="off"
+        className="search-component-input"
+        name="search"
+        onChange={onChangeBound}
+        placeholder={`Search ${placeholder}`}
+        type="search"
+        value={value}
+      />
+      <div
+        className={`search-component-icon${_.isEmpty(value) ? ' is-empty' : ''}`}
+        onClick={onClear}
+      />
+    </div>
+  );
+};
 
-  changeValue({ target }) {
-    this.setState({ value: target.value }, this.throttledOnQuery);
-  }
-
-  clearValue() {
-    this.changeValue({ target: { value: '' } });
-  }
-
-  render() {
-    const { value } = this.state;
-    return (
-      <div className="search-component">
-        <input
-          className="search-component-input"
-          name="search"
-          onChange={this.changeValue}
-          placeholder={`Search ${this.props.placeholder}`}
-          type="search"
-          value={value}
-        />
-        <div
-          className={`search-component-icon${_.isEmpty(value) ? ' is-empty' : ''}`}
-          onClick={this.clearValue}
-        />
-      </div>
-    );
-  }
-}
+SearchComponent.displayName = 'AlexandriaSearchComponent';
 
 SearchComponent.propTypes = {
-  onQuery: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
-  throttleTime: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 SearchComponent.defaultProps = {
-  onQuery: (query) => {throw new Error(`Alexandria Search needs an onQuery handler to take ${query}`);},
+  onChange: () => {throw new Error(`Alexandria Search needs an onChange handler`);},
+
+  onClear: () => {throw new Error(`Alexandria Search needs an onClear handler`);},
 
   placeholder: '',
-  throttleTime: 0,
+  value: '',
 };
 
 export default SearchComponent;
