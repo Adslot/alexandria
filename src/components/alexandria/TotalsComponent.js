@@ -6,12 +6,12 @@ import React, { PropTypes } from 'react';
 
 const TotalsComponent = ({ toSum, valueFormatter }) => (
   <Grid>
-    {toSum.map(({ label, value }, index) =>
+    {_(toSum).reject(({ isHidden: true })).map(({ label, value }, index) =>
       <GridRow short horizontalBorder={false} key={index}>
         <GridCell stretch>{label}</GridCell>
         <GridCell>{valueFormatter(value)}</GridCell>
       </GridRow>
-    )}
+    ).value()}
     <GridRow short horizontalBorder={false} type="footer">
       <GridCell stretch>Total</GridCell>
       <GridCell>{valueFormatter(_.sum(toSum, 'value'))}</GridCell>
@@ -24,8 +24,9 @@ TotalsComponent.displayName = 'AlexandriaTotalsComponent';
 TotalsComponent.propTypes = {
   toSum: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
+      label: PropTypes.string,
       value: PropTypes.number.isRequired,
+      isHidden: PropTypes.bool,
     })
   ).isRequired,
   valueFormatter: PropTypes.func.isRequired,
