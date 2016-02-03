@@ -30,6 +30,7 @@ describe('TotalsComponent', () => {
   it('should render with props', () => {
     const component = createComponent(TotalsComponent, {
       toSum: [
+        { value: 100, isHidden: true },
         { label: 'Custom Paint for Yo Whip', value: 200000 },
         { label: 'Selected', value: 50000 },
       ],
@@ -68,6 +69,6 @@ describe('TotalsComponent', () => {
     expect(totalRow.props.children[0].props.stretch).to.equal(true);
     expect(totalRow.props.children[0].props.children).to.equal('Total');
 
-    expect(totalRow.props.children[1].props.children).to.equal('€2500.00');
+    expect(totalRow.props.children[1].props.children).to.equal('€2501.00');
   });
 });

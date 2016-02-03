@@ -70,8 +70,15 @@ class AppComponent extends React.Component {
       <div className="index">
 
         <h1>Totals</h1>
+        <Grid>
+          <GridRow>
+            <GridCell stretch>In the sum but not in the Totals Component</GridCell>
+            <GridCell>10</GridCell>
+          </GridRow>
+        </Grid>
         <Totals
           toSum={[
+            { value: 10, isHidden: true },
             { label: 'Movies Category - Medium Rectangle', value: 1000 },
             { label: 'Selected', value: 36.80 },
           ]}
