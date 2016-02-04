@@ -5,6 +5,7 @@ import Alert from 'components/alexandria/AlertComponent';
 import Avatar from 'components/alexandria/AvatarComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
 import Empty from 'components/alexandria/EmptyComponent';
+import FlexSpacer from 'components/alexandria/FlexSpacerComponent';
 import Grid from 'components/alexandria/GridComponent';
 import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
@@ -69,24 +70,6 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
 
-        <h1>Totals</h1>
-        <Grid>
-          <GridRow>
-            <GridCell stretch>In the sum but not in the Totals Component</GridCell>
-            <GridCell>10</GridCell>
-          </GridRow>
-        </Grid>
-        <Totals
-          toSum={[
-            { value: 10, isHidden: true },
-            { label: 'Movies Category - Medium Rectangle', value: 1000 },
-            { label: 'Selected', value: 36.80 },
-          ]}
-        />
-
-        <h1>Empty</h1>
-        <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
-
         <h1>Alert</h1>
         <Alert type="success">You did it!</Alert>
 
@@ -102,16 +85,12 @@ class AppComponent extends React.Component {
         <h1>Breadcrumb</h1>
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
-        <h1>Search</h1>
-        <Search
-          onChange={this.searchOnChange}
-          onClear={this.searchOnClear}
-          placeholder="Cities"
-          value={this.state.searchValue}
-        />
+        <h1>Empty</h1>
+        <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
 
-        <h1>Slicey</h1>
-        <Slicey dataset={sliceyDataset} diameter={150} marker={0.2} donut />
+        <h1>FlexSpacer</h1>
+        <small>Expands to fill leftover space in a <code>display: flex;</code> container:</small>
+        <FlexSpacer />
 
         <h1>Grid</h1>
         <Grid>
@@ -149,6 +128,33 @@ class AppComponent extends React.Component {
             </GridCell>
           </GridRow>
         </Grid>
+
+        <h1>Search</h1>
+        <Search
+          onChange={this.searchOnChange}
+          onClear={this.searchOnClear}
+          placeholder="Cities"
+          value={this.state.searchValue}
+        />
+
+        <h1>Slicey</h1>
+        <Slicey dataset={sliceyDataset} diameter={150} marker={0.2} donut />
+
+        <h1>Totals</h1>
+        <Grid>
+          <GridRow>
+            <GridCell stretch>In the sum but not in the Totals Component</GridCell>
+            <GridCell>10</GridCell>
+          </GridRow>
+        </Grid>
+        <Totals
+          toSum={[
+            { value: 10, isHidden: true },
+            { label: 'Movies Category - Medium Rectangle', value: 1000 },
+            { label: 'Selected', value: 36.80 },
+          ]}
+        />
+
       </div>
     );
   }

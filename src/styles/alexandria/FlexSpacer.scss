@@ -1,0 +1,6 @@
+@import '../border';
+
+.flexspacer-component {
+  border: $border-lighter;
+  flex-grow: 1;
+}
