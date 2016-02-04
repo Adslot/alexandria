@@ -4,7 +4,7 @@ import Alert from 'components/alexandria/AlertComponent';
 import Avatar from 'components/alexandria/AvatarComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
 import Empty from 'components/alexandria/EmptyComponent';
-import FlexSpacer from 'components/alexandria/FlexSpacer';
+import FlexSpacer from 'components/alexandria/FlexSpacerComponent';
 import Grid from 'components/alexandria/GridComponent';
 import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
