@@ -22,6 +22,7 @@ const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, c
 GridRowComponent.displayName = 'AlexandriaGridRowComponent';
 
 GridRowComponent.propTypes = {
+  children: PropTypes.node,
   horizontalBorder: PropTypes.bool.isRequired,
   short: PropTypes.bool.isRequired,
   type: PropTypes.oneOf(['body', 'header', 'subfooter', 'footer']).isRequired,

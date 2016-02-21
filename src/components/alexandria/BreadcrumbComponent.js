@@ -1,3 +1,4 @@
+import BreadcrumbNodeComponent from 'components/alexandria/BreadcrumbNodeComponent';
 import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Breadcrumb.scss');
@@ -7,28 +8,22 @@ const BreadcrumbComponent = ({ nodes, onClick }) => {
     return <div className="breadcrumb-component" />;
   }
 
-  const getNodeElement = ({ node, isLast }) => {
-    const onClickNode = () => onClick(node.id);
-    if (isLast) {
-      return (<span className="breadcrumb-component-last">{node.label}</span>);
-    }
-
-    return (
-      <span className="breadcrumb-component-link" onClick={onClickNode}>
-        {node.label}
-      </span>);
-  };
-
-  const onClickAll = () => onClick('all');
-
   return (
     <div className="breadcrumb-component">
-      <span className="breadcrumb-component-link" onClick={onClickAll}>All</span>
+      <BreadcrumbNodeComponent
+        isLast={false}
+        node={{ id: 'all', label: 'All' }}
+        onClick={onClick}
+      />
       {
         nodes.map((node, index) =>
           <span key={node.id}>
             <span> > </span>
-            {getNodeElement({ node, isLast: index === nodes.length - 1 })}
+            <BreadcrumbNodeComponent
+              isLast={index === nodes.length - 1}
+              node={node}
+              onClick={onClick}
+            />
           </span>
         )
       }
@@ -39,13 +34,8 @@ const BreadcrumbComponent = ({ nodes, onClick }) => {
 BreadcrumbComponent.displayName = 'AlexandriaBreadcrumbComponent';
 
 BreadcrumbComponent.propTypes = {
-  nodes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ),
-  onClick: PropTypes.func,
+  nodes: PropTypes.arrayOf(BreadcrumbNodeComponent.propTypes.node).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 BreadcrumbComponent.defaultProps = {
   nodes: [],

@@ -86,7 +86,7 @@ class AppComponent extends React.Component {
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
         <h1>Empty</h1>
-        <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5"/>
+        <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5" />
 
         <h1>FlexSpacer</h1>
         <small>Expands to fill leftover space in a <code>display: flex;</code> container:</small>
