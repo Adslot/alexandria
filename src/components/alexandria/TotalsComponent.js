@@ -6,12 +6,15 @@ import React, { PropTypes } from 'react';
 
 const TotalsComponent = ({ toSum, valueFormatter }) => (
   <Grid>
-    {_(toSum).reject(({ isHidden: true })).map(({ label, value }, index) =>
-      <GridRow short horizontalBorder={false} key={index}>
-        <GridCell stretch>{label}</GridCell>
-        <GridCell>{valueFormatter(value)}</GridCell>
-      </GridRow>
-    ).value()}
+    {_(toSum)
+      .reject({ isHidden: true })
+      .map((item, index) =>
+        <GridRow short horizontalBorder={false} key={index}>
+          <GridCell stretch>{item.label}</GridCell>
+          <GridCell>{valueFormatter(item.value)}</GridCell>
+        </GridRow>
+      )
+      .value()}
     <GridRow short horizontalBorder={false} type="footer">
       <GridCell stretch>Total</GridCell>
       <GridCell>{valueFormatter(_.sum(toSum, 'value'))}</GridCell>

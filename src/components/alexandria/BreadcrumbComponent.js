@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import BreadcrumbNodeComponent from 'components/alexandria/BreadcrumbNodeComponent';
 import React, { PropTypes } from 'react';
 
@@ -16,7 +17,7 @@ const BreadcrumbComponent = ({ nodes, onClick }) => {
         onClick={onClick}
       />
       {
-        nodes.map((node, index) =>
+        _.map(nodes, (node, index) =>
           <span key={node.id}>
             <span> > </span>
             <BreadcrumbNodeComponent

@@ -53,7 +53,7 @@ const SliceyComponent = ({ dataset, diameter, donut, marker }) => {
   // IE Can't draw a complete circle as an arc, so swap it to a circle element.
   let arcEls;
   if (filteredDataset.length > 1) {
-    arcEls = getArcs(filteredDataset).map((arc) =>
+    arcEls = _.map(getArcs(filteredDataset), (arc) =>
       <Arc key={arc.id} data={arc} />);
   } else {
     arcEls = <circle className={`arc-component ${_.kebabCase(filteredDataset[0].label)}`} r=".5" cx="0" cy="0" />;

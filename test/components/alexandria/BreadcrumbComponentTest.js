@@ -1,6 +1,7 @@
 /* eslint-env node, mocha */
 /* global expect */
 
+import _ from 'lodash';
 import createComponent from 'helpers/shallowRenderHelper';
 import BreadcrumbComponent from 'components/alexandria/BreadcrumbComponent';
 
@@ -33,7 +34,7 @@ describe('BreadcrumbComponent', () => {
 
     const nodeWrapperElements = component.props.children[1];
     expect(nodeWrapperElements).to.have.length(nodes.length);
-    nodeWrapperElements.forEach((nodeWrapperElement, index) => {
+    _.forEach(nodeWrapperElements, (nodeWrapperElement, index) => {
       expect(nodeWrapperElement.type).to.equal('span');
       expect(nodeWrapperElement.key).to.equal(nodes[index].id);
 
