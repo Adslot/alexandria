@@ -12,6 +12,7 @@ AlertComponent.displayName = 'AlexandriaAlertComponent';
 
 AlertComponent.propTypes = {
   type: PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
+  children: PropTypes.node.isRequired,
 };
 AlertComponent.defaultProps = {
   type: 'info',

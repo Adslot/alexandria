@@ -63,7 +63,8 @@ describe('SearchComponent', () => {
 
   it('should fire onClear when the user clicks the icon', () => {
     let fireCount = 0;
-    const testFunction = () => fireCount += 1;
+    const testFunction = () => {fireCount += 1;};
+
     const component = createComponent(SearchComponent, { onClear: testFunction });
     const iconEl = component.props.children[indices.icon];
     iconEl.props.onClick();

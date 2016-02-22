@@ -22,6 +22,7 @@ const GridCellComponent = ({ classSuffixes, stretch, children }) => {
 GridCellComponent.displayName = 'AlexandriaGridCellComponent';
 
 GridCellComponent.propTypes = {
+  children: PropTypes.node,
   classSuffixes: PropTypes.arrayOf(PropTypes.string).isRequired,
   stretch: PropTypes.bool.isRequired,
 };
