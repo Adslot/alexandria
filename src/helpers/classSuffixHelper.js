@@ -15,7 +15,7 @@ const classSuffixHelper = ({ classSuffixes, suffixOptions, componentClass }) => 
 
   if (_.isEmpty(internalSuffixes)) {return '';}
 
-  return internalSuffixes.map((suffix) => ` ${componentClass}-${suffix}`).join('');
+  return _.map(internalSuffixes, (suffix) => ` ${componentClass}-${suffix}`).join('');
 };
 
 export default classSuffixHelper;

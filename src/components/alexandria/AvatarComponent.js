@@ -10,7 +10,7 @@ const AvatarComponent = ({ color, givenName, image, surname }) => {
   let className = 'avatar-component';
   if (color !== undefined) {className = `${className} ${className}-${color}`;}
 
-  const initials = `${_.head(givenName) || ''}${_.head(surname) || ''}`;
+  const initials = `${_.first(givenName) || ''}${_.first(surname) || ''}`;
 
   return (
     <div className={className} title={`${givenName || ''} ${surname || ''}`}>
