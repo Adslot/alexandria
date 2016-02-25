@@ -10,6 +10,7 @@ import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
+import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
 import Totals from 'components/alexandria/TotalsComponent';
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
   GridRow,
   Search,
   Slicey,
+  SvgSymbol,
   Totals,
 };
