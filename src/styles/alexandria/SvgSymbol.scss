@@ -1,0 +1,7 @@
+@import '../variable';
+
+.svg-symbol-component {
+  display: inline-block;
+  height: $svg-icon-size;
+  width: $svg-icon-size;
+}
