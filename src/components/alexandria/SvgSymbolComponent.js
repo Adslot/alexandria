@@ -20,7 +20,7 @@ const SvgSymbolComponent = ({ classSuffixes, href }) => {
 SvgSymbolComponent.displayName = 'AlexandriaSvgSymbolComponent';
 
 SvgSymbolComponent.propTypes = {
-  classSuffixes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  classSuffixes: PropTypes.arrayOf(PropTypes.string),
   href: PropTypes.string.isRequired,
 };
 SvgSymbolComponent.defaultProps = {

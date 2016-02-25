@@ -9,6 +9,7 @@
   text-align: center;
   user-select: none;
 
+  &-svg-symbol,
   &-icon {
     $icon-diameter: 70px;
     background-color: $color-gray-lighter;
@@ -17,6 +18,11 @@
     height: $icon-diameter;
     margin: 0 auto;
     width: $icon-diameter;
+
+    .svg-symbol-component {
+      height: $icon-diameter;
+      width: $icon-diameter;
+    }
   }
 
   &-text {

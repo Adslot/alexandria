@@ -88,6 +88,7 @@ class AppComponent extends React.Component {
 
         <h1>Empty</h1>
         <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5" />
+        <Empty collection={[]} text="I'm hungry" svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }} />
 
         <h1>FlexSpacer</h1>
         <small>Expands to fill leftover space in a <code>display: flex;</code> container:</small>
