@@ -1,7 +1,6 @@
 @import '../border';
 @import '../color';
 @import '../fontSize';
-@import '../icon';
 
 .search-component {
   $search-height: 26px;
@@ -39,22 +38,11 @@
     }
   }
 
-  &-icon {
-    background-image: $icon-cancel;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 16px;
-    cursor: pointer;
+  .svg-symbol-component {
     height: 100%;
+    padding: 0 4px;
     position: absolute;
     right: 0;
     top: 1px;
-    width: $search-height;
-
-    &.is-empty {
-      background-image: $icon-search;
-      cursor: default;
-      pointer-events: none;
-    }
   }
 }

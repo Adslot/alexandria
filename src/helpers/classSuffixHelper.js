@@ -9,7 +9,7 @@ import _ from 'lodash';
  * @return {String} the string of classes to use in the component.
  */
 const classSuffixHelper = ({ classSuffixes, suffixOptions, componentClass }) => {
-  const internalSuffixes = _.clone(classSuffixes);
+  const internalSuffixes = _.compact(classSuffixes);
 
   _.forEach(suffixOptions, (value, optionName) => { if (value) {internalSuffixes.push(_.kebabCase(optionName));} });
 

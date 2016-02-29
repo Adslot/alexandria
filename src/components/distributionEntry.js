@@ -1,5 +1,6 @@
 // Export all the components that are consumable.
 
+import svg4everybody from 'svg4everybody';
 import Alert from 'components/alexandria/AlertComponent';
 import Avatar from 'components/alexandria/AvatarComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
@@ -12,6 +13,8 @@ import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
 import Totals from 'components/alexandria/TotalsComponent';
+
+svg4everybody();
 
 module.exports = {
   Alert,

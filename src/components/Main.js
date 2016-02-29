@@ -1,19 +1,22 @@
 require('styles/App.scss');
 
 import _ from 'lodash';
-import Alert from 'components/alexandria/AlertComponent';
-import Avatar from 'components/alexandria/AvatarComponent';
-import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
-import Empty from 'components/alexandria/EmptyComponent';
-import FlexSpacer from 'components/alexandria/FlexSpacerComponent';
-import Grid from 'components/alexandria/GridComponent';
-import GridCell from 'components/alexandria/GridCellComponent';
-import GridRow from 'components/alexandria/GridRowComponent';
 import React from 'react';
-import Search from 'components/alexandria/SearchComponent';
-import Slicey from 'components/alexandria/SliceyComponent';
-import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
-import Totals from 'components/alexandria/TotalsComponent';
+
+import {
+  Alert,
+  Avatar,
+  Breadcrumb,
+  Empty,
+  FlexSpacer,
+  Grid,
+  GridCell,
+  GridRow,
+  Search,
+  Slicey,
+  SvgSymbol,
+  Totals,
+} from './distributionEntry';
 
 const defaultBreadcrumbNodes = [
   { id: 'aaa-111', label: 'Australia' },
@@ -87,8 +90,11 @@ class AppComponent extends React.Component {
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
         <h1>Empty</h1>
-        <Empty collection={[]} text="I'm hungry" icon="http://lorempixel.com/70/70/food/5" />
-        <Empty collection={[]} text="I'm hungry" svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }} />
+        <Empty
+          collection={[]}
+          text="I'm hungry"
+          svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }}
+        />
 
         <h1>FlexSpacer</h1>
         <small>Expands to fill leftover space in a <code>display: flex;</code> container:</small>
