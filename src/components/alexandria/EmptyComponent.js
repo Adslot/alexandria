@@ -1,19 +1,21 @@
 import _ from 'lodash';
-import React, { PropTypes } from 'react';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
+import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Empty.scss');
 
-const EmptyComponent = ({ collection, icon, svgSymbol, text }) => {
+const EmptyComponent = ({ collection, svgSymbol, text }) => {
+  const classSuffixes = _.isEmpty(svgSymbol.classSuffixes) ?
+    EmptyComponent.defaultProps.svgSymbol.classSuffixes :
+    svgSymbol.classSuffixes;
+
   if (_.isEmpty(collection)) {
     return (
       <div className="empty-component">
-        {svgSymbol === undefined ?
-          <img className="empty-component-icon" src={icon} /> :
-          <div className="empty-component-svg-symbol">
-            <SvgSymbol classSuffixes={svgSymbol.classSuffixes} href={svgSymbol.href} />
-          </div>
-        }
+        <SvgSymbol
+          href={svgSymbol.href}
+          classSuffixes={classSuffixes}
+        />
         <div className="empty-component-text">{text}</div>
       </div>
     );
@@ -26,13 +28,15 @@ EmptyComponent.displayName = 'AlexandriaEmptyComponent';
 
 EmptyComponent.propTypes = {
   collection: PropTypes.any,
-  icon: PropTypes.string,
   svgSymbol: PropTypes.shape(SvgSymbol.propTypes),
   text: PropTypes.string,
 };
 EmptyComponent.defaultProps = {
   collection: null,
-  icon: '//placehold.it/70x70',
+  svgSymbol: {
+    href: '/assets/svg-symbols.svg#checklist-incomplete',
+    classSuffixes: ['gray-darker', '70', 'circle'],
+  },
   text: 'Nothing to show.',
 };
 

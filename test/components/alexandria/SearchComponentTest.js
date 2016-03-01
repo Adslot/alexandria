@@ -23,9 +23,11 @@ describe('SearchComponent', () => {
     expect(inputEl.props.type).to.equal('search');
     expect(inputEl.props.value).to.equal('');
 
-    const iconEl = component.props.children[indices.icon];
-    expect(iconEl.props.className).to.equal('search-component-icon is-empty');
-    expect(iconEl.props.onClick).to.be.a('function');
+    const svgSymbolEl = component.props.children[indices.icon];
+    expect(svgSymbolEl.type.name).to.equal('SvgSymbolComponent');
+    expect(svgSymbolEl.props.href).to.equal('/assets/svg-symbols.svg#search');
+    expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['gray-light']);
+    expect(svgSymbolEl.props.onClick).to.be.an('undefined');
   });
 
   it('should render using a placeholder', () => {
@@ -40,8 +42,10 @@ describe('SearchComponent', () => {
 
     const inputEl = component.props.children[indices.input];
     expect(inputEl.props.value).to.equal('needle');
-    const iconEl = component.props.children[indices.icon];
-    expect(iconEl.props.className).to.equal('search-component-icon');
+    const svgSymbolEl = component.props.children[indices.icon];
+    expect(svgSymbolEl.type.name).to.equal('SvgSymbolComponent');
+    expect(svgSymbolEl.props.href).to.equal('/assets/svg-symbols.svg#cancel');
+    expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['gray-darker']);
   });
 
   it('should fire onChange when the user changes the value', () => {
@@ -65,17 +69,17 @@ describe('SearchComponent', () => {
     let fireCount = 0;
     const testFunction = () => {fireCount += 1;};
 
-    const component = createComponent(SearchComponent, { onClear: testFunction });
-    const iconEl = component.props.children[indices.icon];
-    iconEl.props.onClick();
+    const component = createComponent(SearchComponent, { onClear: testFunction, value: 'a' });
+    const svgSymbolEl = component.props.children[indices.icon];
+    svgSymbolEl.props.onClick();
     expect(fireCount).to.equal(1);
   });
 
   it('should error when the user clicks the icon with no onClear handler', () => {
-    const component = createComponent(SearchComponent);
-    const iconEl = component.props.children[indices.icon];
+    const component = createComponent(SearchComponent, { value: 'a' });
+    const svgSymbolEl = component.props.children[indices.icon];
     expect(() => {
-      iconEl.props.onClick();
+      svgSymbolEl.props.onClick();
     }).to.throw('Alexandria Search needs an onClear handler');
   });
 });
