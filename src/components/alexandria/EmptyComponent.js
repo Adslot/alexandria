@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
+import SvgSymbolCircle from 'components/alexandria/SvgSymbolCircleComponent';
 import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Empty.scss');
@@ -12,7 +12,7 @@ const EmptyComponent = ({ collection, svgSymbol, text }) => {
   if (_.isEmpty(collection)) {
     return (
       <div className="empty-component">
-        <SvgSymbol
+        <SvgSymbolCircle
           href={svgSymbol.href}
           classSuffixes={classSuffixes}
         />
@@ -28,7 +28,7 @@ EmptyComponent.displayName = 'AlexandriaEmptyComponent';
 
 EmptyComponent.propTypes = {
   collection: PropTypes.any,
-  svgSymbol: PropTypes.shape(SvgSymbol.propTypes),
+  svgSymbol: PropTypes.shape(SvgSymbolCircle.propTypes),
   text: PropTypes.string,
 };
 EmptyComponent.defaultProps = {

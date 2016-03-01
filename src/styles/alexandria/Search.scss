@@ -39,6 +39,7 @@
   }
 
   .svg-symbol-component {
+    box-sizing: content-box;
     height: 100%;
     padding: 0 4px;
     position: absolute;

@@ -15,6 +15,7 @@ import {
   Search,
   Slicey,
   SvgSymbol,
+  SvgSymbolCircle,
   Totals,
 } from './distributionEntry';
 
@@ -165,7 +166,13 @@ class AppComponent extends React.Component {
 
         <h1>SvgSymbol</h1>
 
+        <SvgSymbol classSuffixes={['70']} />
         <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" />
+
+        <h1>SvgSymbolCircle</h1>
+
+        <SvgSymbolCircle classSuffixes={['70']} />
+        <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" />
 
       </div>
     );

@@ -10,7 +10,7 @@ describe('EmptyComponent', () => {
     expect(component.props.className).to.equal('empty-component');
 
     const svgSymbolEl = component.props.children[0];
-    expect(svgSymbolEl.type.name).to.equal('SvgSymbolComponent');
+    expect(svgSymbolEl.type.name).to.equal('SvgSymbolCircleComponent');
     expect(svgSymbolEl.props.href).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
     expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['gray-darker', '70', 'circle']);
 
@@ -37,7 +37,7 @@ describe('EmptyComponent', () => {
     expect(component.props.className).to.equal('empty-component');
 
     const svgSymbolEl = component.props.children[0];
-    expect(svgSymbolEl.type.name).to.equal('SvgSymbolComponent');
+    expect(svgSymbolEl.type.name).to.equal('SvgSymbolCircleComponent');
     expect(svgSymbolEl.props.href).to.equal('//wherever.svg#id');
     expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['class']);
 
