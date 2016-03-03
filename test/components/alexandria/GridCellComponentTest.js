@@ -28,6 +28,17 @@ describe('GridCellComponent', () => {
     expect(component.props.className).to.equal('grid-component-cell grid-component-cell-stretch');
   });
 
+  it('should handle onClick when passed', () => {
+    let called = 0;
+    const onClick = () => {called += 1;};
+
+    const component = createComponent(GridCellComponent, { onClick });
+    expect(component.props.className).to.equal('grid-component-cell grid-component-cell-clickable');
+    expect(component.props.onClick).to.be.a('function');
+    component.props.onClick();
+    expect(called).to.equal(1);
+  });
+
   it('should apply extra classes when passed classSuffixes', () => {
     const component = createComponent(GridCellComponent, { classSuffixes: ['foo', 'bar'] });
     expect(component.props.className).to.equal([

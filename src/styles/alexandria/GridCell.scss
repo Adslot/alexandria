@@ -8,4 +8,8 @@
     @include ellipse;
     flex-basis: 100%;
   }
+
+  &-clickable {
+    cursor: pointer;
+  }
 }
