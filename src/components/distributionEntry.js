@@ -12,6 +12,7 @@ import GridRow from 'components/alexandria/GridRowComponent';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
+import SvgSymbolCircle from 'components/alexandria/SvgSymbolCircleComponent';
 import Totals from 'components/alexandria/TotalsComponent';
 
 svg4everybody();
@@ -28,5 +29,6 @@ module.exports = {
   Search,
   Slicey,
   SvgSymbol,
+  SvgSymbolCircle,
   Totals,
 };

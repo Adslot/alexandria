@@ -1,5 +1,4 @@
 @import '../color';
-@import '../function';
 @import '../variable';
 
 .svg-symbol-component {
@@ -32,22 +31,5 @@
   &-clickable {
     cursor: pointer;
     pointer-events: auto;
-  }
-
-  // Passing 'circle' into classSuffixes makes the size apply to the circle, with the icon shrunk to fit.
-  &-circle {
-    @mixin circle-size($diameter) {
-      &.svg-symbol-component-#{$diameter} {
-        $inner-diameter: ceil(sqrt(.5) * $diameter);
-        height: $inner-diameter + px;
-        padding: (($diameter - $inner-diameter) / 2) + px;
-        width: $inner-diameter + px;
-      }
-    }
-
-    @include circle-size(70);
-
-    background-color: $color-gray-lighter;
-    border-radius: 50%;
   }
 }
