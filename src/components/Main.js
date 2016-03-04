@@ -72,6 +72,8 @@ class AppComponent extends React.Component {
       { label: 'info', value: 35 },
     ];
 
+    const cellClicked = () => console.log('Cell clicked');
+
     return (
       <div className="index">
 
@@ -115,7 +117,7 @@ class AppComponent extends React.Component {
             </GridCell>
           </GridRow>
           <GridRow verticalCellBorder>
-            <GridCell>
+            <GridCell stretch>
               Content
             </GridCell>
             <GridCell>
@@ -132,8 +134,8 @@ class AppComponent extends React.Component {
             <GridCell>
               Content
             </GridCell>
-            <GridCell>
-              Content
+            <GridCell onClick={cellClicked}>
+              This Cell logs clicks.
             </GridCell>
           </GridRow>
         </Grid>
