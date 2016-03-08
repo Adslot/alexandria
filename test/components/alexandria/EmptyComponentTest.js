@@ -1,57 +1,59 @@
 /* eslint-env node, mocha */
 /* global expect */
 
-import createComponent from 'helpers/shallowRenderHelper';
+import { shallow } from 'enzyme';
 import EmptyComponent from 'components/alexandria/EmptyComponent';
+import SvgSymbolCircleComponent from 'components/alexandria/SvgSymbolCircleComponent';
+import React from 'react';
 
 describe('EmptyComponent', () => {
   it('should render with defaults', () => {
-    const component = createComponent(EmptyComponent);
-    expect(component.props.className).to.equal('empty-component');
+    const component = shallow(<EmptyComponent />);
+    expect(component.hasClass('empty-component')).to.equal(true);
 
-    const svgSymbolEl = component.props.children[0];
-    expect(svgSymbolEl.type.name).to.equal('SvgSymbolCircleComponent');
-    expect(svgSymbolEl.props.href).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
-    expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['gray-darker', '70', 'circle']);
+    const svgSymbolEl = component.find(SvgSymbolCircleComponent);
+    expect(svgSymbolEl.prop('href')).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
+    expect(svgSymbolEl.prop('classSuffixes')).to.deep.equal(['gray-darker', '70', 'circle']);
 
-    const textElement = component.props.children[1];
-    expect(textElement.props.className).to.equal('empty-component-text');
-    expect(textElement.props.children).to.equal('Nothing to show.');
+    const textElement = component.find('.empty-component-text');
+    expect(textElement.hasClass('empty-component-text')).to.equal(true);
+    expect(textElement.text()).to.equal('Nothing to show.');
   });
 
   it('should render an empty div when passed a non-empty collection Array', () => {
-    const component = createComponent(EmptyComponent, { collection: [1] });
-    expect(component.props.className).to.be.an('undefined');
-    expect(component.props.children).to.be.an('undefined');
+    const component = shallow(<EmptyComponent collection={[1]} />);
+    expect(component.prop('className')).to.be.an('undefined');
+    expect(component.children()).to.have.length(0);
   });
 
   it('should render an empty div when passed a non-empty collection Object', () => {
-    const component = createComponent(EmptyComponent, { collection: { foo: 1 } });
-    expect(component.props.className).to.be.an('undefined');
-    expect(component.props.children).to.be.an('undefined');
+    const component = shallow(<EmptyComponent collection={{ foo: 1 }} />);
+    expect(component.prop('className')).to.be.an('undefined');
+    expect(component.children()).to.have.length(0);
   });
 
   it('should render with custom SVG symbol', () => {
     const svgSymbol = { href: '//wherever.svg#id', classSuffixes: ['class'] };
-    const component = createComponent(EmptyComponent, { svgSymbol, text: 'Where is everybody?' });
-    expect(component.props.className).to.equal('empty-component');
+    const props = { svgSymbol, text: 'Where is everybody?' };
+    const component = shallow(<EmptyComponent {...props} />);
+    expect(component.hasClass('empty-component')).to.equal(true);
 
-    const svgSymbolEl = component.props.children[0];
-    expect(svgSymbolEl.type.name).to.equal('SvgSymbolCircleComponent');
-    expect(svgSymbolEl.props.href).to.equal('//wherever.svg#id');
-    expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['class']);
+    const svgSymbolEl = component.find(SvgSymbolCircleComponent);
+    expect(svgSymbolEl.prop('href')).to.equal('//wherever.svg#id');
+    expect(svgSymbolEl.prop('classSuffixes')).to.deep.equal(['class']);
 
-    const textElement = component.props.children[1];
-    expect(textElement.props.className).to.equal('empty-component-text');
-    expect(textElement.props.children).to.equal('Where is everybody?');
+    const textElement = component.find('.empty-component-text');
+    expect(textElement.hasClass('empty-component-text')).to.equal(true);
+    expect(textElement.text()).to.equal('Where is everybody?');
   });
 
   it('should render with custom SVG symbol, using default classSuffixes', () => {
     const svgSymbol = { href: '//wherever.svg#id' };
-    const component = createComponent(EmptyComponent, { svgSymbol, text: 'Where is everybody?' });
+    const component = shallow(<EmptyComponent {...{ svgSymbol }} />);
+    expect(component.hasClass('empty-component')).to.equal(true);
 
-    const svgSymbolEl = component.props.children[0];
-    expect(svgSymbolEl.props.href).to.equal('//wherever.svg#id');
-    expect(svgSymbolEl.props.classSuffixes).to.deep.equal(['gray-darker', '70', 'circle']);
+    const svgSymbolEl = component.find(SvgSymbolCircleComponent);
+    expect(svgSymbolEl.prop('href')).to.equal('//wherever.svg#id');
+    expect(svgSymbolEl.prop('classSuffixes')).to.deep.equal(['gray-darker', '70', 'circle']);
   });
 });
