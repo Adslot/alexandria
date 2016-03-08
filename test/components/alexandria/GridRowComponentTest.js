@@ -1,79 +1,58 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import createComponent from 'helpers/shallowRenderHelper';
+import classSuffixHelper from 'helpers/classSuffixHelper';
+import { shallow } from 'enzyme';
+import GridRowComponent from '../../../src/components/alexandria/GridRowComponent';
 import React from 'react';
 
-import GridRowComponent from '../../../src/components/alexandria/GridRowComponent';
-
 describe('GridRowComponent', () => {
+  const componentClass = 'grid-component-row';
+  const getClassNames = (classSuffixes) => {
+    const classNames = classSuffixHelper({ classSuffixes, componentClass });
+    return `${componentClass}${classNames}`;
+  };
+
   it('should render with defaults', () => {
-    const component = createComponent(GridRowComponent);
-    expect(component.props.className).to.equal(
-      'grid-component-row grid-component-row-body grid-component-row-horizontal-border');
-    expect(component.props.children).to.be.an('undefined');
+    const component = shallow(<GridRowComponent />);
+    expect(component.prop('className')).to.equal(getClassNames(['body', 'horizontal-border']));
+    expect(component.children()).to.have.length(0);
   });
 
   it('should pass through children', () => {
     const children = <div className="test-class">Party town</div>;
-    const component = createComponent(GridRowComponent, {}, children);
-    expect(component.props.className).to.equal(
-      'grid-component-row grid-component-row-body grid-component-row-horizontal-border');
+    const component = shallow(<GridRowComponent>{children}</GridRowComponent>);
+    expect(component.prop('className')).to.equal(getClassNames(['body', 'horizontal-border']));
 
-    const childElement = component.props.children;
-    expect(childElement.props.className).to.equal('test-class');
-    expect(childElement.props.children).to.equal('Party town');
+    const childElement = component.children();
+    expect(childElement.prop('className')).to.equal('test-class');
+    expect(childElement.text()).to.equal('Party town');
   });
 
   it('should have no horizontalBorder class when horizontalBorder is false', () => {
-    const component = createComponent(GridRowComponent, { horizontalBorder: false });
-    expect(component.props.className).to.equal('grid-component-row grid-component-row-body');
+    const component = shallow(<GridRowComponent horizontalBorder={false} />);
+    expect(component.prop('className')).to.equal(getClassNames(['body']));
   });
 
   it('should apply short class when short is true', () => {
-    const component = createComponent(GridRowComponent, { short: true });
-    expect(component.props.className).to.equal([
-      'grid-component-row',
-      'grid-component-row-body',
-      'grid-component-row-horizontal-border',
-      'grid-component-row-short',
-    ].join(' '));
+    const component = shallow(<GridRowComponent short />);
+    expect(component.prop('className')).to.equal(getClassNames(['body', 'horizontal-border', 'short']));
   });
 
   it('should apply header class instead of body when type is header', () => {
-    const component = createComponent(GridRowComponent, { type: 'header' });
-    expect(component.props.className).to.equal([
-      'grid-component-row',
-      'grid-component-row-header',
-      'grid-component-row-horizontal-border',
-    ].join(' '));
+    const component = shallow(<GridRowComponent type="header" />);
+    expect(component.prop('className')).to.equal(getClassNames(['header', 'horizontal-border']));
   });
 
   it('should apply subfooter class instead of body when type is subfooter', () => {
-    const component = createComponent(GridRowComponent, { type: 'subfooter' });
-    expect(component.props.className).to.equal([
-      'grid-component-row',
-      'grid-component-row-subfooter',
-      'grid-component-row-horizontal-border',
-    ].join(' '));
+    const component = shallow(<GridRowComponent type="subfooter" />);
+    expect(component.prop('className')).to.equal(getClassNames(['subfooter', 'horizontal-border']));
   });
 
   it('should apply footer class instead of body when type is footer', () => {
-    const component = createComponent(GridRowComponent, { type: 'footer' });
-    expect(component.props.className).to.equal([
-      'grid-component-row',
-      'grid-component-row-footer',
-      'grid-component-row-horizontal-border',
-    ].join(' '));
+    const component = shallow(<GridRowComponent type="footer" />);
+    expect(component.prop('className')).to.equal(getClassNames(['footer', 'horizontal-border']));
   });
 
   it('should apply vertical-cell-border class when verticalCellBorder is true', () => {
-    const component = createComponent(GridRowComponent, { verticalCellBorder: true });
-    expect(component.props.className).to.equal([
-      'grid-component-row',
-      'grid-component-row-body',
-      'grid-component-row-horizontal-border',
-      'grid-component-row-vertical-cell-border',
-    ].join(' '));
+    const component = shallow(<GridRowComponent verticalCellBorder />);
+    expect(component.prop('className')).to.equal(getClassNames(['body', 'horizontal-border', 'vertical-cell-border']));
   });
 });

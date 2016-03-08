@@ -5,12 +5,14 @@ import React, { PropTypes } from 'react';
 require('styles/alexandria/Breadcrumb.scss');
 
 const BreadcrumbComponent = ({ nodes, onClick }) => {
+  const baseClass = 'breadcrumb-component';
+
   if (nodes.length === 0) {
-    return <div className="breadcrumb-component" />;
+    return <div className={baseClass} />;
   }
 
   return (
-    <div className="breadcrumb-component">
+    <div className={baseClass}>
       <BreadcrumbNodeComponent
         isLast={false}
         node={{ id: 'all', label: 'All' }}
@@ -18,8 +20,8 @@ const BreadcrumbComponent = ({ nodes, onClick }) => {
       />
       {
         _.map(nodes, (node, index) =>
-          <span key={node.id}>
-            <span> > </span>
+          <span className={`${baseClass}-node`} key={node.id}>
+            <span className={`${baseClass}-node-divider`}> > </span>
             <BreadcrumbNodeComponent
               isLast={index === nodes.length - 1}
               node={node}

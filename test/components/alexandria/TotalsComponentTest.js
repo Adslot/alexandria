@@ -1,74 +1,76 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import createComponent from 'helpers/shallowRenderHelper';
+import { shallow } from 'enzyme';
+import GridCellComponent from 'components/alexandria/GridCellComponent';
+import GridComponent from 'components/alexandria/GridComponent';
+import GridRowComponent from 'components/alexandria/GridRowComponent';
+import React from 'react';
 import TotalsComponent from 'components/alexandria/TotalsComponent';
 
 describe('TotalsComponent', () => {
-  const toSumRowsIndex = 0;
-  const totalsRowIndex = 1;
-
   it('should render with defaults', () => {
-    const component = createComponent(TotalsComponent);
-    expect(component.type.name).to.equal('GridComponent');
-    expect(component.props.children).to.have.length(2);
+    const component = shallow(<TotalsComponent />);
+    expect(component.type()).to.equal(GridComponent);
+    expect(component.children()).to.have.length(1);
 
-    expect(component.props.children[toSumRowsIndex]).to.deep.equal([]);
+    const totalRow = component.children().first();
+    expect(totalRow.type()).to.equal(GridRowComponent);
+    expect(totalRow.prop('short')).to.equal(true);
+    expect(totalRow.prop('horizontalBorder')).to.equal(false);
+    expect(totalRow.prop('type')).to.equal('footer');
 
-    const totalRow = component.props.children[totalsRowIndex];
-    expect(totalRow.type.name).to.equal('GridRowComponent');
-    expect(totalRow.props.short).to.equal(true);
-    expect(totalRow.props.horizontalBorder).to.equal(false);
-    expect(totalRow.props.type).to.equal('footer');
+    const totalLabelEl = totalRow.find(GridCellComponent).first();
+    expect(totalLabelEl.prop('stretch')).to.equal(true);
+    expect(totalLabelEl.children().text()).to.equal('Total');
 
-    expect(totalRow.props.children[0].props.stretch).to.equal(true);
-    expect(totalRow.props.children[0].props.children).to.equal('Total');
-
-    expect(totalRow.props.children[1].props.children).to.equal(0);
+    const totalValueEl = totalRow.find(GridCellComponent).last();
+    expect(totalValueEl.children().text()).to.equal('0');
   });
 
   it('should render with props', () => {
-    const component = createComponent(TotalsComponent, {
+    const props = {
       toSum: [
         { value: 100, isHidden: true },
         { label: 'Custom Paint for Yo Whip', value: 200000 },
         { label: 'Selected', value: 50000 },
       ],
       valueFormatter: (value) => `€${(value / 100).toFixed(2)}`,
-    });
-    expect(component.type.name).to.equal('GridComponent');
-    expect(component.props.children).to.have.length(2);
-    const rows = component.props.children[toSumRowsIndex];
+    };
+    const component = shallow(<TotalsComponent {...props} />);
 
-    const firstRow = rows[0];
-    expect(firstRow.type.name).to.equal('GridRowComponent');
-    expect(firstRow.props.short).to.equal(true);
-    expect(firstRow.props.horizontalBorder).to.equal(false);
+    expect(component.type()).to.equal(GridComponent);
+    const rows = component.find(GridRowComponent);
 
-    expect(firstRow.props.children[0].props.stretch).to.equal(true);
-    expect(firstRow.props.children[0].props.children).to.equal('Custom Paint for Yo Whip');
+    const firstRow = rows.at(0);
+    expect(firstRow.prop('short')).to.equal(true);
+    expect(firstRow.prop('horizontalBorder')).to.equal(false);
 
-    expect(firstRow.props.children[1].props.children).to.equal('€2000.00');
+    let labelEl = firstRow.find(GridCellComponent).first();
+    expect(labelEl.prop('stretch')).to.equal(true);
+    expect(labelEl.children().text()).to.equal('Custom Paint for Yo Whip');
 
-    const secondRow = rows[1];
-    expect(secondRow.type.name).to.equal('GridRowComponent');
-    expect(secondRow.props.short).to.equal(true);
-    expect(secondRow.props.horizontalBorder).to.equal(false);
+    let valueEl = firstRow.find(GridCellComponent).last();
+    expect(valueEl.children().text()).to.equal('€2000.00');
 
-    expect(secondRow.props.children[0].props.stretch).to.equal(true);
-    expect(secondRow.props.children[0].props.children).to.equal('Selected');
+    const secondRow = rows.at(1);
+    expect(secondRow.prop('short')).to.equal(true);
+    expect(secondRow.prop('horizontalBorder')).to.equal(false);
 
-    expect(secondRow.props.children[1].props.children).to.equal('€500.00');
+    labelEl = secondRow.find(GridCellComponent).first();
+    expect(labelEl.prop('stretch')).to.equal(true);
+    expect(labelEl.children().text()).to.equal('Selected');
 
-    const totalRow = component.props.children[totalsRowIndex];
-    expect(totalRow.type.name).to.equal('GridRowComponent');
-    expect(totalRow.props.short).to.equal(true);
-    expect(totalRow.props.horizontalBorder).to.equal(false);
-    expect(totalRow.props.type).to.equal('footer');
+    valueEl = secondRow.find(GridCellComponent).last();
+    expect(valueEl.children().text()).to.equal('€500.00');
 
-    expect(totalRow.props.children[0].props.stretch).to.equal(true);
-    expect(totalRow.props.children[0].props.children).to.equal('Total');
+    const totalRow = rows.at(2);
+    expect(totalRow.prop('short')).to.equal(true);
+    expect(totalRow.prop('horizontalBorder')).to.equal(false);
+    expect(totalRow.prop('type')).to.equal('footer');
 
-    expect(totalRow.props.children[1].props.children).to.equal('€2501.00');
+    labelEl = totalRow.find(GridCellComponent).first();
+    expect(labelEl.prop('stretch')).to.equal(true);
+    expect(labelEl.children().text()).to.equal('Total');
+
+    valueEl = totalRow.find(GridCellComponent).last();
+    expect(valueEl.children().text()).to.equal('€2501.00');
   });
 });

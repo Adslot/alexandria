@@ -1,12 +1,10 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import createComponent from 'helpers/shallowRenderHelper';
+import { shallow } from 'enzyme';
 import FlexSpacerComponent from 'components/alexandria/FlexSpacerComponent';
+import React from 'react';
 
 describe('FlexSpacerComponent', () => {
   it('should have its component name as className', () => {
-    const component = createComponent(FlexSpacerComponent);
-    expect(component.props.className).to.equal('flexspacer-component');
+    const component = shallow(<FlexSpacerComponent />);
+    expect(component.prop('className')).to.equal('flexspacer-component');
   });
 });

@@ -1,60 +1,54 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import createComponent from 'helpers/shallowRenderHelper';
+import classSuffixHelper from 'helpers/classSuffixHelper';
+import { shallow } from 'enzyme';
+import GridCellComponent from 'components/alexandria/GridCellComponent';
 import React from 'react';
 
-import GridCellComponent from '../../../src/components/alexandria/GridCellComponent';
-
 describe('GridCellComponent', () => {
+  const componentClass = 'grid-component-cell';
+  const getClassNames = (classSuffixes) => {
+    const classNames = classSuffixHelper({ classSuffixes, componentClass });
+    return `${componentClass}${classNames}`;
+  };
+
   it('should have its component name as default className', () => {
-    const component = createComponent(GridCellComponent);
-    expect(component.props.className).to.equal('grid-component-cell');
-    expect(component.props.children).to.be.an('undefined');
+    const component = shallow(<GridCellComponent />);
+    expect(component.prop('className')).to.equal(componentClass);
+    expect(component.children()).to.have.length(0);
   });
 
   it('should pass through children', () => {
     const children = <div className="test-class">Party town</div>;
-    const component = createComponent(GridCellComponent, {}, children);
-    expect(component.props.className).to.equal('grid-component-cell');
+    const component = shallow(<GridCellComponent>{children}</GridCellComponent>);
+    expect(component.prop('className')).to.equal(componentClass);
 
-    const childElement = component.props.children;
-    expect(childElement.props.className).to.equal('test-class');
-    expect(childElement.props.children).to.equal('Party town');
+    const childElement = component.children();
+    expect(childElement.prop('className')).to.equal('test-class');
+    expect(childElement.text()).to.equal('Party town');
   });
 
   it('should apply stretch class when stretch is true', () => {
-    const component = createComponent(GridCellComponent, { stretch: true });
-    expect(component.props.className).to.equal('grid-component-cell grid-component-cell-stretch');
+    const component = shallow(<GridCellComponent stretch />);
+    expect(component.prop('className')).to.equal(getClassNames(['stretch']));
   });
 
   it('should handle onClick when passed', () => {
     let called = 0;
     const onClick = () => {called += 1;};
 
-    const component = createComponent(GridCellComponent, { onClick });
-    expect(component.props.className).to.equal('grid-component-cell grid-component-cell-clickable');
-    expect(component.props.onClick).to.be.a('function');
-    component.props.onClick();
+    const component = shallow(<GridCellComponent onClick={onClick} />);
+    expect(component.prop('className')).to.equal(getClassNames(['clickable']));
+    expect(component.prop('onClick')).to.be.a('function');
+    component.simulate('click');
     expect(called).to.equal(1);
   });
 
   it('should apply extra classes when passed classSuffixes', () => {
-    const component = createComponent(GridCellComponent, { classSuffixes: ['foo', 'bar'] });
-    expect(component.props.className).to.equal([
-      'grid-component-cell',
-      'grid-component-cell-foo',
-      'grid-component-cell-bar',
-    ].join(' '));
+    const component = shallow(<GridCellComponent classSuffixes={['foo', 'bar']} />);
+    expect(component.prop('className')).to.equal(getClassNames(['foo', 'bar']));
   });
 
   it('should apply extra classes and stretch when passed classSuffixes and stretch', () => {
-    const component = createComponent(GridCellComponent, { stretch: true, classSuffixes: ['foo', 'bar'] });
-    expect(component.props.className).to.equal([
-      'grid-component-cell',
-      'grid-component-cell-foo',
-      'grid-component-cell-bar',
-      'grid-component-cell-stretch',
-    ].join(' '));
+    const component = shallow(<GridCellComponent stretch classSuffixes={['foo', 'bar']} />);
+    expect(component.prop('className')).to.equal(getClassNames(['foo', 'bar', 'stretch']));
   });
 });

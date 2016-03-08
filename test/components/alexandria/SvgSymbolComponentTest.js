@@ -1,26 +1,27 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import createComponent from 'helpers/shallowRenderHelper';
+import { shallow } from 'enzyme';
+import React from 'react';
 import SvgSymbolComponent from 'components/alexandria/SvgSymbolComponent';
 
 describe('SvgSymbolComponent', () => {
   it('should render with href', () => {
-    const component = createComponent(SvgSymbolComponent);
-    expect(component.props.className).to.equal('svg-symbol-component');
+    const component = shallow(<SvgSymbolComponent />);
+    expect(component.prop('className')).to.equal('svg-symbol-component');
+    expect(component.type()).to.equal('svg');
 
-    const useElement = component.props.children;
-    expect(useElement.props.xlinkHref).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
+    const useElement = component.find('use');
+    expect(useElement.prop('xlinkHref')).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
   });
 
   it('should render with props', () => {
-    const component = createComponent(SvgSymbolComponent, {
+    const props = {
       classSuffixes: ['16', 'red'],
       href: '/assets/other-svg-symbols.svg#checklist-incomplete',
-    });
-    expect(component.props.className).to.equal('svg-symbol-component svg-symbol-component-16 svg-symbol-component-red');
+    };
+    const component = shallow(<SvgSymbolComponent {...props} />);
+    expect(component.prop('className')).to
+      .equal('svg-symbol-component svg-symbol-component-16 svg-symbol-component-red');
 
-    const useElement = component.props.children;
-    expect(useElement.props.xlinkHref).to.equal('/assets/other-svg-symbols.svg#checklist-incomplete');
+    const useElement = component.find('use');
+    expect(useElement.prop('xlinkHref')).to.equal('/assets/other-svg-symbols.svg#checklist-incomplete');
   });
 });

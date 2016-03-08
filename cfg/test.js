@@ -33,7 +33,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      helpers: path.join(__dirname, '/../test/helpers'),
+      helpers: srcPath + 'helpers/',
       components: srcPath + 'components/',
       styles: srcPath + 'styles/',
     },
