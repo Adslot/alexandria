@@ -1,6 +1,3 @@
-/* eslint-env node, mocha */
-/* global expect */
-
 import { QUARTER, HALF, ROUND, getPointX, getPointY } from 'components/alexandria/slicey/dataProcessor';
 
 describe('DataProcessor', () => {

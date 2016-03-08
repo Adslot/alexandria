@@ -1,60 +1,54 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import createComponent from 'helpers/shallowRenderHelper';
 import AvatarComponent from 'components/alexandria/AvatarComponent';
+import { shallow } from 'enzyme';
+import React from 'react';
 
 describe('AvatarComponent', () => {
   it('should render with defaults', () => {
-    const component = createComponent(AvatarComponent);
-    expect(component.props.className).to.equal('avatar-component');
-    expect(component.props.title).to.equal(' ');
+    const component = shallow(<AvatarComponent />);
+    expect(component.prop('className')).to.equal('avatar-component');
+    expect(component.prop('title')).to.equal(' ');
 
-    const avatarElement = component.props.children[0];
-    expect(avatarElement).to.be.an('undefined');
+    const avatarElement = component.find('img');
+    expect(avatarElement).to.have.length(0);
 
-    const initialsElement = component.props.children[1];
-    expect(initialsElement.props.className).to.equal('avatar-component-initials');
-    expect(initialsElement.props.children).to.equal('');
+    const initialsElement = component.find('.avatar-component-initials');
+    expect(initialsElement.text()).to.equal('');
   });
 
   it('should render with names given', () => {
-    const component = createComponent(AvatarComponent, { givenName: 'John', surname: 'Doe' });
-    expect(component.props.className).to.equal('avatar-component');
-    expect(component.props.title).to.equal('John Doe');
+    const component = shallow(<AvatarComponent givenName="John" surname="Doe" />);
+    expect(component.prop('className')).to.equal('avatar-component');
+    expect(component.prop('title')).to.equal('John Doe');
 
-    const avatarElement = component.props.children[0];
-    expect(avatarElement).to.be.an('undefined');
+    const avatarElement = component.find('img');
+    expect(avatarElement).to.have.length(0);
 
-    const initialsElement = component.props.children[1];
-    expect(initialsElement.props.className).to.equal('avatar-component-initials');
-    expect(initialsElement.props.children).to.equal('JD');
+    const initialsElement = component.find('.avatar-component-initials');
+    expect(initialsElement.text()).to.equal('JD');
   });
 
   it('should render with different color', () => {
-    const component = createComponent(AvatarComponent, { givenName: 'John', surname: 'Doe', color: 'blue' });
-    expect(component.props.className).to.equal('avatar-component avatar-component-blue');
-    expect(component.props.title).to.equal('John Doe');
+    const component = shallow(<AvatarComponent givenName="John" surname="Doe" color="blue" />);
+    expect(component.prop('className')).to.equal('avatar-component avatar-component-blue');
+    expect(component.prop('title')).to.equal('John Doe');
 
-    const avatarElement = component.props.children[0];
-    expect(avatarElement).to.be.an('undefined');
+    const avatarElement = component.find('img');
+    expect(avatarElement).to.have.length(0);
 
-    const initialsElement = component.props.children[1];
-    expect(initialsElement.props.className).to.equal('avatar-component-initials');
-    expect(initialsElement.props.children).to.equal('JD');
+    const initialsElement = component.find('.avatar-component-initials');
+    expect(initialsElement.text()).to.equal('JD');
   });
 
   it('should render with avatar', () => {
-    const component = createComponent(AvatarComponent, { givenName: 'John', surname: 'Doe', image: '//avatar.com' });
-    expect(component.props.className).to.equal('avatar-component');
-    expect(component.props.title).to.equal('John Doe');
+    const component = shallow(<AvatarComponent givenName="John" surname="Doe" image="//avatar.com" />);
+    expect(component.prop('className')).to.equal('avatar-component');
+    expect(component.prop('title')).to.equal('John Doe');
 
-    const avatarElement = component.props.children[0];
-    expect(avatarElement.props.className).to.equal('avatar-component-image');
-    expect(avatarElement.props.src).to.equal('//avatar.com');
+    const avatarElement = component.find('img');
+    expect(avatarElement.prop('className')).to.equal('avatar-component-image');
+    expect(avatarElement.prop('src')).to.equal('//avatar.com');
 
-    const initialsElement = component.props.children[1];
-    expect(initialsElement.props.className).to.equal('avatar-component-initials');
-    expect(initialsElement.props.children).to.equal('JD');
+    const initialsElement = component.find('.avatar-component-initials');
+    expect(initialsElement.text()).to.equal('JD');
   });
 });

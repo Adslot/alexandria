@@ -1,23 +1,21 @@
-/* eslint-env node, mocha */
-/* global expect */
-import React from 'react';
-import createComponent from 'helpers/shallowRenderHelper';
+import { shallow } from 'enzyme';
 import GridComponent from '../../../src/components/alexandria/GridComponent';
+import React from 'react';
 
 describe('GridComponent', () => {
   it('should have its component name as default className', () => {
-    const component = createComponent(GridComponent);
-    expect(component.props.className).to.equal('grid-component');
-    expect(component.props.children).to.be.an('undefined');
+    const component = shallow(<GridComponent />);
+    expect(component.prop('className')).to.equal('grid-component');
+    expect(component.children()).to.have.length(0);
   });
 
   it('should pass through children', () => {
     const children = <div className="test-class">Party town</div>;
-    const component = createComponent(GridComponent, {}, children);
-    expect(component.props.className).to.equal('grid-component');
+    const component = shallow(<GridComponent>{children}</GridComponent>);
+    expect(component.prop('className')).to.equal('grid-component');
 
-    const childElement = component.props.children;
-    expect(childElement.props.className).to.equal('test-class');
-    expect(childElement.props.children).to.equal('Party town');
+    const childElement = component.children();
+    expect(childElement.prop('className')).to.equal('test-class');
+    expect(childElement.text()).to.equal('Party town');
   });
 });

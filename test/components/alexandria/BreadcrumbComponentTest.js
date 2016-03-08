@@ -1,9 +1,7 @@
-/* eslint-env node, mocha */
-/* global expect */
-
-import _ from 'lodash';
-import createComponent from 'helpers/shallowRenderHelper';
 import BreadcrumbComponent from 'components/alexandria/BreadcrumbComponent';
+import BreadcrumbNodeComponent from 'components/alexandria/BreadcrumbNodeComponent';
+import { shallow } from 'enzyme';
+import React from 'react';
 
 describe('BreadcrumbComponent', () => {
   let nodes;
@@ -17,42 +15,40 @@ describe('BreadcrumbComponent', () => {
   });
 
   it('should render empty with the component className when no nodes', () => {
-    const component = createComponent(BreadcrumbComponent);
-    expect(component.props.className).to.equal('breadcrumb-component');
-    expect(component.props.children).to.be.an('undefined');
+    const component = shallow(<BreadcrumbComponent />);
+    expect(component.prop('className')).to.equal('breadcrumb-component');
+    expect(component.find(BreadcrumbNodeComponent)).to.have.length(0);
   });
 
   it('should render nodes', () => {
-    const component = createComponent(BreadcrumbComponent, { nodes });
-    expect(component.props.className).to.equal('breadcrumb-component');
-    expect(component.props.children).to.have.length(2);
+    const component = shallow(<BreadcrumbComponent nodes={nodes} />);
+    expect(component.prop('className')).to.equal('breadcrumb-component');
+    expect(component.find(BreadcrumbNodeComponent)).to.have.length(4);
 
-    const allLink = component.props.children[0];
-    expect(allLink.props.isLast).to.equal(false);
-    expect(allLink.props.node).to.deep.equal({ id: 'all', label: 'All' });
-    expect(allLink.props.onClick).to.be.a('function');
+    const allLink = component.children().first();
+    expect(allLink.type()).to.equal(BreadcrumbNodeComponent);
+    expect(allLink.prop('isLast')).to.equal(false);
+    expect(allLink.prop('node')).to.deep.equal({ id: 'all', label: 'All' });
+    expect(allLink.prop('onClick')).to.be.a('function');
 
-    const nodeWrapperElements = component.props.children[1];
+    const nodeWrapperElements = component.find('.breadcrumb-component-node');
     expect(nodeWrapperElements).to.have.length(nodes.length);
-    _.forEach(nodeWrapperElements, (nodeWrapperElement, index) => {
-      expect(nodeWrapperElement.type).to.equal('span');
-      expect(nodeWrapperElement.key).to.equal(nodes[index].id);
+    nodeWrapperElements.forEach((nodeWrapperElement, index) => {
+      const dividerElement = nodeWrapperElement.find('.breadcrumb-component-node-divider');
+      expect(dividerElement.text()).to.equal(' > ');
 
-      const dividerElement = nodeWrapperElement.props.children[0];
-      expect(dividerElement.props.children).to.equal(' > ');
+      const nodeElement = nodeWrapperElement.find(BreadcrumbNodeComponent);
+      expect(nodeElement.prop('node')).to.equal(nodes[index]);
 
-      const nodeElement = nodeWrapperElement.props.children[1];
-      expect(nodeElement.props.node).to.equal(nodes[index]);
-
-      expect(nodeElement.props.isLast).to.equal(index === nodes.length - 1);
-      expect(nodeElement.props.onClick).to.be.a('function');
+      expect(nodeElement.prop('isLast')).to.equal(index === nodes.length - 1);
+      expect(nodeElement.prop('onClick')).to.be.a('function');
     });
   });
   it('should error when clicking a node with no onClick handler', () => {
-    const component = createComponent(BreadcrumbComponent, { nodes });
-    const allLinkElement = component.props.children[0];
+    const component = shallow(<BreadcrumbComponent nodes={nodes} />);
+    const allLinkElement = component.children().first();
     expect(() => {
-      allLinkElement.props.onClick('all');
+      allLinkElement.simulate('click', 'all');
     }).to.throw('Alexandria Breadcrumb needs an onClick handler to take all');
   });
 });
