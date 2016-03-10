@@ -1,0 +1,14 @@
+@import '../border';
+@import '../fontSize';
+@import '../variable';
+
+.pagetitle-component {
+  border-bottom: $border-lighter;
+  font-size: $font-size-header;
+  line-height: $spacing-etalon;
+  padding: ($spacing-etalon / 1.5) $spacing-etalon;
+
+  &-children {
+    float: right;
+  }
+}

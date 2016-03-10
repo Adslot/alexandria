@@ -35,10 +35,10 @@ Development
 Commands
 --------
 
-```
+```sh
 # Start for development
 
-npm start # or npm run serve
+npm start
 
 # Start the dev-server without automatic refresh
 
@@ -48,17 +48,17 @@ npm run start:cold
 
 npm run dist
 
-# Run unit tests
-
-npm test
-
 # Lint all files in src (also automatically run after tests)
 
 npm run lint
 
-# Clean up the dist directory
+# Run tests and posttest linting
 
-npm run clean
+npm run test
+
+# Run tests and rebuild on file changes.
+
+npm run test:watch
 ```
 
 Generating New Components

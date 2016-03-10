@@ -6,12 +6,14 @@ import React from 'react';
 import {
   Alert,
   Avatar,
+  BorderedWell,
   Breadcrumb,
   Empty,
   FlexSpacer,
   Grid,
   GridCell,
   GridRow,
+  PageTitle,
   Search,
   Slicey,
   SvgSymbol,
@@ -89,6 +91,16 @@ class AppComponent extends React.Component {
         <Avatar givenName="John" surname="Smith" color="cyan" />
         <Avatar givenName="John" surname="Smith" image="//lorempixel.com/35/35/people/7" />
 
+        <h1>BorderedWell</h1>
+        <BorderedWell>
+          <PageTitle title="PageTitle" />
+          <Empty
+            collection={[]}
+            text="Empty"
+            svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }}
+          />
+        </BorderedWell>
+
         <h1>Breadcrumb</h1>
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
@@ -140,6 +152,9 @@ class AppComponent extends React.Component {
           </GridRow>
         </Grid>
 
+        <h1>PageTitle</h1>
+        <PageTitle title="Alexandria"><Avatar givenName="A" surname="D" /></PageTitle>
+
         <h1>Search</h1>
         <Search
           onChange={this.searchOnChange}
@@ -150,6 +165,16 @@ class AppComponent extends React.Component {
 
         <h1>Slicey</h1>
         <Slicey dataset={sliceyDataset} diameter={150} marker={0.2} donut />
+
+        <h1>SvgSymbol</h1>
+
+        <SvgSymbol classSuffixes={['70']} />
+        <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" />
+
+        <h1>SvgSymbolCircle</h1>
+
+        <SvgSymbolCircle classSuffixes={['70']} />
+        <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" />
 
         <h1>Totals</h1>
         <Grid>
@@ -165,17 +190,6 @@ class AppComponent extends React.Component {
             { label: 'Selected', value: 36.80 },
           ]}
         />
-
-        <h1>SvgSymbol</h1>
-
-        <SvgSymbol classSuffixes={['70']} />
-        <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" />
-
-        <h1>SvgSymbolCircle</h1>
-
-        <SvgSymbolCircle classSuffixes={['70']} />
-        <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" />
-
       </div>
     );
   }
