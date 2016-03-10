@@ -3,22 +3,21 @@ import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Avatar.scss');
 
-const AvatarComponent = ({ color, givenName, image, surname }) => {
-  let imageEl;
-  if (image !== undefined) {imageEl = <img className="avatar-component-image" src={image} />;}
+const baseClass = 'avatar-component';
+const AvatarComponent = ({ color, givenName, image, surname }) => (
+  <div
+    className={color ? `${baseClass} ${baseClass}-${color}` : baseClass}
+    title={`${givenName || ''} ${surname || ''}`}
+  >
 
-  let className = 'avatar-component';
-  if (color !== undefined) {className = `${className} ${className}-${color}`;}
+    {image ? <img className={`${baseClass}-image`} src={image} /> : null}
 
-  const initials = `${_.first(givenName) || ''}${_.first(surname) || ''}`;
-
-  return (
-    <div className={className} title={`${givenName || ''} ${surname || ''}`}>
-      {imageEl}
-      <div className="avatar-component-initials">{initials}</div>
+    <div className="avatar-component-initials">
+      {`${_.first(givenName) || ''}${_.first(surname) || ''}`}
     </div>
-  );
-};
+
+  </div>
+);
 
 AvatarComponent.displayName = 'AlexandriaAvatarComponent';
 
