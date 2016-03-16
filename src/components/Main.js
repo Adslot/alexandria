@@ -99,6 +99,10 @@ class AppComponent extends React.Component {
             text="Empty"
             svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }}
           />
+          <PageTitle isFooter>
+            <SvgSymbol />
+          </PageTitle>
+
         </BorderedWell>
 
         <h1>Breadcrumb</h1>
