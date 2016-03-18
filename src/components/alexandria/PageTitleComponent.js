@@ -3,21 +3,26 @@ import React, { PropTypes } from 'react';
 require('styles/alexandria/PageTitle.scss');
 
 const baseClass = 'pagetitle-component';
-const PageTitleComponent = ({ title, children }) => (
-  <div className={baseClass}>
-    {title}
-    {children ? <div className={`${baseClass}-children`}>{children}</div> : null}
-  </div>
-);
+
+const PageTitleComponent = ({ children, isFooter, title }) => {
+  const className = isFooter ? `${baseClass} ${baseClass}-is-footer` : baseClass;
+  return (
+    <div className={className}>
+      {title}
+      {children ? <div className={`${baseClass}-children`}>{children}</div> : null}
+    </div>
+  );
+};
 
 PageTitleComponent.displayName = 'AlexandriaPageTitleComponent';
 
 PageTitleComponent.propTypes = {
-  title: PropTypes.string.isRequired,
   children: PropTypes.node,
+  isFooter: PropTypes.bool.isRequired,
+  title: PropTypes.string,
 };
 PageTitleComponent.defaultProps = {
-  title: 'Page Title',
+  isFooter: false,
 };
 
 export default PageTitleComponent;
