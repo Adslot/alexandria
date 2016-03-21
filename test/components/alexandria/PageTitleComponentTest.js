@@ -7,13 +7,13 @@ describe('PageTitleComponent', () => {
   it('should have its component name as default className', () => {
     const component = shallow(<PageTitleComponent />);
     expect(component.prop('className')).to.equal('pagetitle-component');
-    expect(component.children()).to.have.length(1);
+    expect(component.children()).to.have.length(0);
   });
 
   it('should render its title', () => {
     const component = shallow(<PageTitleComponent title="Foo" />);
     expect(component.prop('className')).to.equal('pagetitle-component');
-    expect(component.children()).to.have.length(2);
+    expect(component.children()).to.have.length(1);
     expect(component.text()).to.equal('Foo');
   });
 
@@ -29,6 +29,6 @@ describe('PageTitleComponent', () => {
   it('should be a footer when asked', () => {
     const component = shallow(<PageTitleComponent isFooter />);
     expect(component.prop('className')).to.equal('pagetitle-component pagetitle-component-is-footer');
-    expect(component.children()).to.have.length(1);
+    expect(component.children()).to.have.length(0);
   });
 });

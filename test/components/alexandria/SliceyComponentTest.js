@@ -1,9 +1,9 @@
-import { shallow } from 'enzyme';
-import React from 'react';
 import ArcComponent from 'components/alexandria/slicey/ArcComponent';
 import DonutComponent from 'components/alexandria/slicey/DonutComponent';
 import MarkerComponent from 'components/alexandria/slicey/MarkerComponent';
+import React from 'react';
 import SliceyComponent from 'components/alexandria/SliceyComponent';
+import { shallow } from 'enzyme';
 
 describe('SliceyComponent', () => {
   let dataset;
@@ -38,7 +38,7 @@ describe('SliceyComponent', () => {
     expect(component.prop('width')).to.equal(100);
     expect(component.type()).to.equal('svg');
 
-    expect(component.children()).to.have.length(4);
+    expect(component.children()).to.have.length(3);
 
     expect(component.find('.slicey-background')).to.have.length(1);
     expect(component.find('.slicey-empty')).to.have.length(0);
@@ -56,7 +56,7 @@ describe('SliceyComponent', () => {
     expect(component.prop('width')).to.equal(100);
     expect(component.type()).to.equal('svg');
 
-    expect(component.children()).to.have.length(3);
+    expect(component.children()).to.have.length(2);
 
     const arcCircle = component.find('circle').last();
     expect(arcCircle.prop('className')).to.equal('arc-component positive');
