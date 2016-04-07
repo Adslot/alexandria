@@ -48,7 +48,7 @@ class AppComponent extends React.Component {
   breadcrumbOnClick(newActiveId) {
     const { breadcrumbNodes } = this.state;
     this.setState({
-      breadcrumbNodes: breadcrumbNodes.slice(0, 1 + _.findIndex(breadcrumbNodes, { id: newActiveId })),
+      breadcrumbNodes: _.slice(breadcrumbNodes, 0, 1 + _.findIndex(breadcrumbNodes, { id: newActiveId })),
     });
   }
 
