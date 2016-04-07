@@ -1,8 +1,14 @@
 @import '../mixin';
 
+$cell-padding: 10px;
+
 .grid-component-cell {
   flex-grow: 1;
-  padding: 8px 10px;
+  padding: 8px 0 8px $cell-padding;
+
+  &:last-child {
+    padding-right: $cell-padding;
+  }
 
   &-stretch {
     @include ellipse;
@@ -11,5 +17,11 @@
 
   &-clickable {
     cursor: pointer;
+  }
+}
+
+.grid-component-row-vertical-cell-border {
+  .grid-component-cell {
+    padding-right: $cell-padding;
   }
 }
