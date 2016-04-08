@@ -9,6 +9,7 @@
   border-top: $border-lighter;
   box-sizing: border-box;
   display: inline-block;
+  flex-shrink: 0;
   font-size: $font-size-body;
   font-weight: $font-weight-medium;
   line-height: 1.5;
