@@ -52,7 +52,7 @@
     "eslint-config-airbnb": "^6.0.1",
     "eslint-loader": "^1.2.1",
     "eslint-plugin-lodash": "^1.6.3",
-    "eslint-plugin-react": "^4.0.0",
+    "eslint-plugin-react": "^5.0.0",
     "file-loader": "^0.8.5",
     "generator-react-webpack": "^3.2.2",
     "isparta-loader": "^2.0.0",
