@@ -88,7 +88,7 @@
   },
   "dependencies": {
     "lodash": "^3.10.1",
-    "react": "^15.0.1",
+    "react": "^15.0.2",
     "react-dom": "^15.0.0",
     "svg4everybody": "^2.0.3"
   }
