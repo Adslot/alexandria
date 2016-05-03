@@ -42,7 +42,9 @@ BreadcrumbComponent.propTypes = {
 };
 BreadcrumbComponent.defaultProps = {
   nodes: [],
-  onClick: (newActiveId) => {throw new Error(`Alexandria Breadcrumb needs an onClick handler to take ${newActiveId}`);},
+  onClick: (newActiveId) => {
+    throw new Error(`Alexandria Breadcrumb needs an onClick handler to take ${newActiveId}`);
+  },
 };
 
 export default BreadcrumbComponent;

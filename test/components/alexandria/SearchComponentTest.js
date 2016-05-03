@@ -61,7 +61,7 @@ describe('SearchComponent', () => {
 
   it('should fire onClear when the user clicks the icon', () => {
     let fireCount = 0;
-    const testFunction = () => {fireCount += 1;};
+    const testFunction = () => { fireCount += 1; };
 
     const component = shallow(<SearchComponent onClear={testFunction} value="a" />);
     const svgSymbolEl = component.find(SvgSymbolComponent);

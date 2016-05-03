@@ -6,6 +6,13 @@
   "globals": {
     "expect": false
   },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "cfg/test.js"
+      }
+    }
+  },
   "rules": {
     "lodash/prefer-lodash-method": 0
   }

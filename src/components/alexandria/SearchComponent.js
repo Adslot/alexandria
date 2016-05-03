@@ -45,9 +45,9 @@ SearchComponent.propTypes = {
 };
 
 SearchComponent.defaultProps = {
-  onChange: () => {throw new Error('Alexandria Search needs an onChange handler');},
+  onChange: () => { throw new Error('Alexandria Search needs an onChange handler'); },
 
-  onClear: () => {throw new Error('Alexandria Search needs an onClear handler');},
+  onClear: () => { throw new Error('Alexandria Search needs an onClear handler'); },
 
   placeholder: '',
   svgSymbolCancel: {
