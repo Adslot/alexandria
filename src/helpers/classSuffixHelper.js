@@ -11,9 +11,9 @@ import _ from 'lodash';
 const classSuffixHelper = ({ classSuffixes, suffixOptions, componentClass }) => {
   const internalSuffixes = _.compact(classSuffixes);
 
-  _.forEach(suffixOptions, (value, optionName) => { if (value) {internalSuffixes.push(_.kebabCase(optionName));} });
+  _.forEach(suffixOptions, (value, optionName) => { if (value) internalSuffixes.push(_.kebabCase(optionName)); });
 
-  if (_.isEmpty(internalSuffixes)) {return '';}
+  if (_.isEmpty(internalSuffixes)) return '';
 
   return _.map(internalSuffixes, (suffix) => ` ${componentClass}-${suffix}`).join('');
 };

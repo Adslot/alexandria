@@ -35,7 +35,7 @@ class AppComponent extends React.Component {
       'searchOnQuery',
       'searchOnChange',
       'searchOnClear',
-    ]) {this[methodName] = this[methodName].bind(this);}
+    ]) { this[methodName] = this[methodName].bind(this); }
 
     this.state = {
       breadcrumbNodes: defaultBreadcrumbNodes,

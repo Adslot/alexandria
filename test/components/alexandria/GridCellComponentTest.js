@@ -33,7 +33,7 @@ describe('GridCellComponent', () => {
 
   it('should handle onClick when passed', () => {
     let called = 0;
-    const onClick = () => {called += 1;};
+    const onClick = () => { called += 1; };
 
     const component = shallow(<GridCellComponent onClick={onClick} />);
     expect(component.prop('className')).to.equal(getClassNames(['clickable']));
