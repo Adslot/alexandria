@@ -4,7 +4,7 @@
   "main": "dist/alexandria-main.js",
   "dependencies": {
     "lodash": "^3.10.1",
-    "react": "^0.14.7",
+    "react": "^15.0.0",
     "svg4everybody": "^2.0.3"
   },
   "authors": [
