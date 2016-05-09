@@ -38,7 +38,7 @@
   "author": "Adslot",
   "devDependencies": {
     "autoprefixer": "^6.3.4",
-    "babel-core": "^6.5.2",
+    "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.0",
     "babel-loader": "^6.2.2",
     "babel-plugin-transform-strict-mode": "^6.6.4",
