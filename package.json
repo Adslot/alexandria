@@ -72,7 +72,7 @@
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "null-loader": "^0.1.1",
-    "object-assign": "^4.0.1",
+    "object-assign": "^4.1.0",
     "open": "^0.0.5",
     "phantomjs-prebuilt": "^2.1.4",
     "postcss-loader": "^0.8.2",
