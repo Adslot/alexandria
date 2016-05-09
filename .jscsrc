@@ -1,7 +1,5 @@
 {
   "preset": "airbnb",
-  "esnext": true,
-  "verbose": true,
   "maximumLineLength": 120,
   "requireSpacesInsideObjectBrackets": "all",
   "validateQuoteMarks": false
