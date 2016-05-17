@@ -22,6 +22,7 @@ describe('TotalsComponent', () => {
     expect(totalLabelEl.children().text()).to.equal('Total');
 
     const totalValueEl = totalRow.find(GridCellComponent).last();
+    expect(totalValueEl.prop('stretch')).to.equal(false);
     expect(totalValueEl.children().text()).to.equal('0');
   });
 
