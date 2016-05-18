@@ -10,10 +10,11 @@ describe('GridCellComponent', () => {
     return `${componentClass}${classNames}`;
   };
 
-  it('should have its component name as default className', () => {
+  it('should have its component name as default className and no data-test-selector', () => {
     const component = shallow(<GridCellComponent />);
     expect(component.prop('className')).to.equal(componentClass);
     expect(component.children()).to.have.length(0);
+    expect(component.prop('data-test-selector')).to.be.an('undefined');
   });
 
   it('should pass through children', () => {
@@ -50,5 +51,10 @@ describe('GridCellComponent', () => {
   it('should apply extra classes and stretch when passed classSuffixes and stretch', () => {
     const component = shallow(<GridCellComponent stretch classSuffixes={['foo', 'bar']} />);
     expect(component.prop('className')).to.equal(getClassNames(['foo', 'bar', 'stretch']));
+  });
+
+  it('should apply data-test-selector', () => {
+    const component = shallow(<GridCellComponent dts="this-has-data-test-selector" />);
+    expect(component.prop('data-test-selector')).to.equal(`${componentClass}-this-has-data-test-selector`);
   });
 });

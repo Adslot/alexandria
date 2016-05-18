@@ -4,7 +4,7 @@ import classSuffixHelper from '../../helpers/classSuffixHelper';
 
 require('styles/alexandria/GridCell.scss');
 
-const GridCellComponent = ({ children, classSuffixes, onClick, stretch }) => {
+const GridCellComponent = ({ children, classSuffixes, onClick, stretch, dts }) => {
   const componentClass = 'grid-component-cell';
   const classesList = classSuffixHelper({
     classSuffixes,
@@ -15,6 +15,9 @@ const GridCellComponent = ({ children, classSuffixes, onClick, stretch }) => {
     componentClass,
   });
   const extraProps = onClick ? { onClick } : {};
+  if (dts) {
+    extraProps['data-test-selector'] = `${componentClass}-${dts}`;
+  }
 
   return (
     <div className={`${componentClass}${classesList}`} {...extraProps} >
@@ -30,6 +33,7 @@ GridCellComponent.propTypes = {
   classSuffixes: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func,
   stretch: PropTypes.bool.isRequired,
+  dts: PropTypes.string,
 };
 
 GridCellComponent.defaultProps = {
