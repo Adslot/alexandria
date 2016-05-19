@@ -24,7 +24,7 @@ Development
 
 - Clone the repo: `git clone git@github.com:Adslot/alexandria.git`
 
-- Install [yeoman](http://yeoman.io) globally: `npm install -g yo`
+- Install [yeoman](http://yeoman.io) globally: `npm install -g yo` [OPTIONAL]
 
 - Install NPM dependencies: `npm i`
 
