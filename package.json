@@ -10,23 +10,23 @@
   },
   "main": "dist/alexandria-main.js",
   "scripts": {
+    "check-commit": "node scripts/commit-msg",
+    "clean": "rimraf dist/*",
+    "codecov": "cat coverage/coverage-final.json | codecov",
+    "dist": "webpack --bail --env=dist",
+    "jscs-lint": "jscs ./src ./test",
+    "jscs-fix": "jscs ./src ./test --fix",
+    "lint": "eslint ./src --rulesdir ./src && eslint ./test --rulesdir ./test",
+    "posttest": "npm run lint && npm run sass-lint && npm run jscs-lint && npm run check-commit",
+    "profile": "webpack --env=dist --profile --json > stats.json",
+    "release:major": "npm version major && npm publish && git push --follow-tags",
+    "release:minor": "npm version minor && npm publish && git push --follow-tags",
+    "release:patch": "npm version patch && npm publish && git push --follow-tags",
+    "sass-lint": "sass-lint './src/**/*.scss' -v",
     "start": "node server.js --env=dev",
     "start:cold": "node server.js --env=dev-cold",
     "test": "karma start",
-    "test:watch": "karma start --autoWatch=true --singleRun=false",
-    "codecov": "cat coverage/coverage-final.json | codecov",
-    "posttest": "npm run lint && npm run sass-lint && npm run jscs-lint && npm run check-commit",
-    "dist": "webpack --bail --env=dist",
-    "profile": "webpack --env=dist --profile --json > stats.json",
-    "lint": "eslint ./src --rulesdir ./src && eslint ./test --rulesdir ./test",
-    "sass-lint": "sass-lint './src/**/*.scss' -v",
-    "jscs-lint": "jscs ./src ./test",
-    "jscs-fix": "jscs ./src ./test --fix",
-    "clean": "rimraf dist/*",
-    "check-commit": "./scripts/commit-msg",
-    "release:major": "npm version major && npm publish && git push --follow-tags",
-    "release:minor": "npm version minor && npm publish && git push --follow-tags",
-    "release:patch": "npm version patch && npm publish && git push --follow-tags"
+    "test:watch": "karma start --autoWatch=true --singleRun=false"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -93,5 +93,8 @@
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "svg4everybody": "^2.0.3"
+  },
+  "engines": {
+    "node": "^4.4"
   }
 }
