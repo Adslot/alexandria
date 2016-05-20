@@ -11,6 +11,7 @@ import Grid from 'components/alexandria/GridComponent';
 import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
 import PageTitle from 'components/alexandria/PageTitleComponent';
+import PrettyDiff from 'components/alexandria/PrettyDiffComponent';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
@@ -30,6 +31,7 @@ module.exports = {
   GridCell,
   GridRow,
   PageTitle,
+  PrettyDiff,
   Search,
   Slicey,
   SvgSymbol,

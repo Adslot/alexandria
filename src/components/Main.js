@@ -14,6 +14,7 @@ import {
   GridCell,
   GridRow,
   PageTitle,
+  PrettyDiff,
   Search,
   Slicey,
   SvgSymbol,
@@ -25,6 +26,11 @@ const defaultBreadcrumbNodes = [
   { id: 'aaa-111', label: 'Australia' },
   { id: 'aaa-222', label: 'Victoria' },
   { id: 'aaa-333', label: 'Melbourne' },
+];
+
+const diffStrings = [
+  '<the\n quick fox>',
+  '<the\n slow fox jumped>',
 ];
 
 class AppComponent extends React.Component {
@@ -194,6 +200,9 @@ class AppComponent extends React.Component {
             { label: 'Selected', value: 36.80 },
           ]}
         />
+
+        <h1>Pretty Diff</h1>
+        <PrettyDiff newText={diffStrings[1]} oldText={diffStrings[0]} />
       </div>
     );
   }
