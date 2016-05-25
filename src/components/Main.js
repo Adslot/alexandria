@@ -18,6 +18,7 @@ import {
   PrettyDiff,
   Search,
   Slicey,
+  Statistic,
   SvgSymbol,
   SvgSymbolCircle,
   Totals,
@@ -207,8 +208,10 @@ class AppComponent extends React.Component {
         <h1>Slicey</h1>
         <Slicey dataset={sliceyDataset} diameter={150} marker={0.2} donut />
 
-        <h1>SvgSymbol</h1>
+        <h1>Statistic</h1>
+        <Statistic value="50 Million" label="Page Views" />
 
+        <h1>SvgSymbol</h1>
         <SvgSymbol classSuffixes={['70']} />
         <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" />
 

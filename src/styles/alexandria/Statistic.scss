@@ -1,0 +1,16 @@
+@import '../color';
+@import '../fontSize';
+@import '../fontWeight';
+
+.statistic-component {
+  &-value {
+    font-size: $font-size-header;
+    font-weight: $font-weight-bold;
+  }
+
+  &-label {
+    color: $color-text-sub;
+    font-size: $font-size-body;
+    font-weight: $font-weight-light;
+  }
+}
