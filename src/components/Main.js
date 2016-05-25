@@ -8,6 +8,7 @@ import {
   Avatar,
   BorderedWell,
   Breadcrumb,
+  Card,
   Empty,
   FlexSpacer,
   Grid,
@@ -114,6 +115,33 @@ class AppComponent extends React.Component {
         <h1>Breadcrumb</h1>
         <Breadcrumb nodes={this.state.breadcrumbNodes} onClick={this.breadcrumbOnClick} />
 
+        <h1>Cards</h1>
+        <Card.Container>
+          <Card.Content><small>I am Cardy McCardface.</small></Card.Content>
+          <Card.Content><em>I am Cardy McCardface.</em></Card.Content>
+          <Card.Content><strong>I am Cardy McCardface.</strong></Card.Content>
+        </Card.Container>
+        <Card.Container inline>
+          <Card.Content fill><PageTitle title="Card" /></Card.Content>
+          <Card.Content>I am a card.</Card.Content>
+          <Card.Content><Avatar givenName="Cardy" surname="McCardface" color="green" /></Card.Content>
+        </Card.Container>
+        <Card.Container inline>
+          <Card.Content fill><PageTitle title="Card" /></Card.Content>
+          <Card.Content>
+            <Avatar givenName="Cardy" surname="McCardface" color="red" />
+            <span>&nbsp;I am a card.</span>
+          </Card.Content>
+        </Card.Container>
+        <Card.Container inline>
+          <Card.Content stretch><Alert type="info">Card</Alert></Card.Content>
+          <Card.Content>I am a card.</Card.Content>
+        </Card.Container>
+        <Card.Container inline>
+          <Card.Content>I am a card.</Card.Content>
+        </Card.Container>
+
+
         <h1>Empty</h1>
         <Empty
           collection={[]}
@@ -165,6 +193,9 @@ class AppComponent extends React.Component {
         <h1>PageTitle</h1>
         <PageTitle title="Alexandria"><Avatar givenName="A" surname="D" /></PageTitle>
 
+        <h1>Pretty Diff</h1>
+        <PrettyDiff newText={diffStrings[1]} oldText={diffStrings[0]} />
+
         <h1>Search</h1>
         <Search
           onChange={this.searchOnChange}
@@ -200,9 +231,6 @@ class AppComponent extends React.Component {
             { label: 'Selected', value: 36.80 },
           ]}
         />
-
-        <h1>Pretty Diff</h1>
-        <PrettyDiff newText={diffStrings[1]} oldText={diffStrings[0]} />
       </div>
     );
   }

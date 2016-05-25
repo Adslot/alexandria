@@ -5,6 +5,7 @@ import Alert from 'components/alexandria/AlertComponent';
 import Avatar from 'components/alexandria/AvatarComponent';
 import BorderedWell from 'components/alexandria/BorderedWellComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
+import Card from 'components/alexandria/CardComponent';
 import Empty from 'components/alexandria/EmptyComponent';
 import FlexSpacer from 'components/alexandria/FlexSpacerComponent';
 import Grid from 'components/alexandria/GridComponent';
@@ -25,6 +26,7 @@ module.exports = {
   Avatar,
   BorderedWell,
   Breadcrumb,
+  Card,
   Empty,
   FlexSpacer,
   Grid,
