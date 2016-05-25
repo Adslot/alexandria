@@ -1,0 +1,40 @@
+@import '../color';
+@import '../border';
+@import '../fontSize';
+
+.card-component {
+  $card-padding-etalon: 16px;
+  $card-spacing-etalon: 28px;
+
+  background-color: $color-background;
+  border: $border-lighter;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 $color-shadow;
+  font-size: $font-size-body;
+  margin-bottom: $card-spacing-etalon;
+  min-height: 40px;
+  min-width: 205px;
+  vertical-align: top;
+
+  &.inline {
+    display: inline-block;
+    margin-right: $card-spacing-etalon;
+  }
+
+  &-content {
+    padding: $card-padding-etalon $card-padding-etalon 0;
+
+    &:last-child {
+      padding-bottom: $card-padding-etalon;
+    }
+
+    &.stretch {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &.fill {
+      padding: 0;
+    }
+  }
+}
