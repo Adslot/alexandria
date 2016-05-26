@@ -15,6 +15,7 @@ import PageTitle from 'components/alexandria/PageTitleComponent';
 import PrettyDiff from 'components/alexandria/PrettyDiffComponent';
 import Search from 'components/alexandria/SearchComponent';
 import Slicey from 'components/alexandria/SliceyComponent';
+import Statistic from 'components/alexandria/StatisticComponent';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
 import SvgSymbolCircle from 'components/alexandria/SvgSymbolCircleComponent';
 import Totals from 'components/alexandria/TotalsComponent';
@@ -36,6 +37,7 @@ module.exports = {
   PrettyDiff,
   Search,
   Slicey,
+  Statistic,
   SvgSymbol,
   SvgSymbolCircle,
   Totals,
