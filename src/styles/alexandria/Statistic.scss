@@ -13,4 +13,23 @@
     font-size: $font-size-body;
     font-weight: $font-weight-light;
   }
+
+  & + .statistic-component {
+    margin-top: 5px;
+  }
+
+  &.inline {
+    .statistic-component-label,
+    .statistic-component-value {
+      display: inline-block;
+    }
+
+    .statistic-component-label {
+      margin-left: 5px;
+    }
+
+    .statistic-component-value {
+      font-size: $font-size-subheader;
+    }
+  }
 }

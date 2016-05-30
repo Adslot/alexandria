@@ -2,12 +2,13 @@ import React, { PropTypes } from 'react';
 
 require('styles/alexandria/Card.scss');
 
-const CardContentComponent = ({ children, stretch, fill }) => {
+const CardContentComponent = ({ children, className, stretch, fill }) => {
   const baseClass = 'card-component-content';
   const contentClassNames = [baseClass];
 
   if (stretch) contentClassNames.push('stretch');
   if (fill) contentClassNames.push('fill');
+  if (className) contentClassNames.push(className);
 
   return (
     <div className={contentClassNames.join(' ')}>
@@ -20,6 +21,7 @@ CardContentComponent.displayName = 'AlexandriaCardContentComponent';
 
 CardContentComponent.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   fill: PropTypes.bool.isRequired,
   stretch: PropTypes.bool.isRequired,
 };
@@ -37,7 +39,7 @@ const CardComponent = ({ children, className, inline }) => {
 
   return (
     <div className={containerClassNames.join(' ')}>
-      {children}
+      <div className={`${baseClass}-content-container`}>{children}</div>
     </div>
   );
 };
