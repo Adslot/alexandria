@@ -134,9 +134,10 @@ class AppComponent extends React.Component {
             <span>&nbsp;I am a card.</span>
           </Card.Content>
         </Card.Container>
-        <Card.Container inline>
+        <Card.Container inline className="fixed-height-card">
           <Card.Content stretch><Alert type="info">Card</Alert></Card.Content>
-          <Card.Content>I am a card.</Card.Content>
+          <FlexSpacer />
+          <Card.Content>I have <code>flex</code> spacing.</Card.Content>
         </Card.Container>
         <Card.Container inline>
           <Card.Content>I am a card.</Card.Content>
@@ -210,6 +211,7 @@ class AppComponent extends React.Component {
 
         <h1>Statistic</h1>
         <Statistic value="50 Million" label="Page Views" />
+        <Statistic value="50 Million" label="Page Views" inline />
 
         <h1>SvgSymbol</h1>
         <SvgSymbol classSuffixes={['70']} />

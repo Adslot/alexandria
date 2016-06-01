@@ -21,4 +21,9 @@ describe('StatisticComponent', () => {
       </label>
     )).to.equal(true);
   });
+
+  it('should render inline', () => {
+    const component = shallow(<StatisticComponent label="Views" value="2 Million" inline />);
+    expect(component.prop('className')).to.equal('statistic-component inline');
+  });
 });

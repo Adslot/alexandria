@@ -45,4 +45,10 @@ describe('CardContentComponent', () => {
     expect(component.prop('className')).to.equal('card-component-content fill');
     expect(component.children()).to.have.length(1);
   });
+
+  it('should render with custom classNames', () => {
+    const component = shallow(<CardComponent.Content fill className="some classes">Test Text</CardComponent.Content>);
+    expect(component.prop('className')).to.equal('card-component-content fill some classes');
+    expect(component.children()).to.have.length(1);
+  });
 });

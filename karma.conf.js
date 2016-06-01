@@ -5,29 +5,30 @@ module.exports = function configureKarma(config) {
     basePath: '',
     browsers: ['PhantomJS'],
     files: [
-      'test/loadtests.js'
+      'test/loadtests.js',
     ],
     port: 8080,
     captureTimeout: 60000,
     frameworks: ['phantomjs-shim', 'mocha', 'chai'],
     client: {
-      mocha: {}
+      mocha: {},
     },
     singleRun: true,
     reporters: ['coverage', 'mocha'],
     preprocessors: {
-      'test/loadtests.js': ['webpack']
+      'test/loadtests.js': ['webpack'],
     },
     coverageReporter: {
       dir: 'coverage/',
       reporters: [
         { type: 'lcov', subdir: '.' },
-        { type: 'json', subdir: '.' }
-      ]
+        { type: 'json', subdir: '.' },
+        { type: 'text-summary', subdir: '.' },
+      ],
     },
     webpack: webpackCfg,
     webpackServer: {
-      noInfo: true
-    }
+      noInfo: true,
+    },
   });
 };

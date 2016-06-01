@@ -10,6 +10,8 @@
   border: $border-lighter;
   border-radius: 5px;
   box-shadow: 0 2px 0 $color-shadow;
+  display: flex;
+  flex-direction: row;
   font-size: $font-size-body;
   margin-bottom: $card-spacing-etalon;
   min-height: 40px;
@@ -17,8 +19,19 @@
   vertical-align: top;
 
   &.inline {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     margin-right: $card-spacing-etalon;
+  }
+
+  .flexspacer-component {
+    border: 0;
+  }
+
+  &-content-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   &-content {
