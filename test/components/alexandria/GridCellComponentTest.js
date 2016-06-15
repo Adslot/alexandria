@@ -55,6 +55,6 @@ describe('GridCellComponent', () => {
 
   it('should apply data-test-selector', () => {
     const component = shallow(<GridCellComponent dts="this-has-data-test-selector" />);
-    expect(component.prop('data-test-selector')).to.equal(`${componentClass}-this-has-data-test-selector`);
+    expect(component.prop('data-test-selector')).to.equal('this-has-data-test-selector');
   });
 });
