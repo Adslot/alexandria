@@ -14,6 +14,7 @@ describe('GridRowComponent', () => {
     const component = shallow(<GridRowComponent />);
     expect(component.prop('className')).to.equal(getClassNames(['body', 'horizontal-border']));
     expect(component.children()).to.have.length(0);
+    expect(component.prop('data-test-selector')).to.be.an('undefined');
   });
 
   it('should pass through children', () => {
@@ -54,5 +55,10 @@ describe('GridRowComponent', () => {
   it('should apply vertical-cell-border class when verticalCellBorder is true', () => {
     const component = shallow(<GridRowComponent verticalCellBorder />);
     expect(component.prop('className')).to.equal(getClassNames(['body', 'horizontal-border', 'vertical-cell-border']));
+  });
+
+  it('should apply data-test-selector', () => {
+    const component = shallow(<GridRowComponent dts="this-has-data-test-selector" />);
+    expect(component.prop('data-test-selector')).to.equal('this-has-data-test-selector');
   });
 });

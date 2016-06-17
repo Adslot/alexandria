@@ -15,12 +15,9 @@ const GridCellComponent = ({ children, classSuffixes, onClick, stretch, dts }) =
     componentClass,
   });
   const extraProps = onClick ? { onClick } : {};
-  if (dts) {
-    extraProps['data-test-selector'] = `${componentClass}-${dts}`;
-  }
 
   return (
-    <div className={`${componentClass}${classesList}`} {...extraProps} >
+    <div className={`${componentClass}${classesList}`} {...extraProps} if dts data-test-selector={dts}>
       {children}
     </div>
   );

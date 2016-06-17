@@ -4,7 +4,7 @@ import classSuffixHelper from '../../helpers/classSuffixHelper';
 
 require('styles/alexandria/GridRow.scss');
 
-const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, children }) => {
+const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, children, dts }) => {
   const componentClass = 'grid-component-row';
   const classesList = classSuffixHelper({
     classSuffixes: [type],
@@ -13,7 +13,7 @@ const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, c
   });
 
   return (
-    <div className={`${componentClass}${classesList}`}>
+    <div className={`${componentClass}${classesList}`} if dts data-test-selector={dts}>
       {children}
     </div>
   );
@@ -27,6 +27,7 @@ GridRowComponent.propTypes = {
   short: PropTypes.bool.isRequired,
   type: PropTypes.oneOf(['body', 'header', 'subfooter', 'footer']).isRequired,
   verticalCellBorder: PropTypes.bool.isRequired,
+  dts: PropTypes.string,
 };
 
 GridRowComponent.defaultProps = {
