@@ -10,7 +10,7 @@ import {
   Breadcrumb,
   Card,
   Empty,
-  FlexSpacer,
+  FlexibleSpacer,
   Grid,
   GridCell,
   GridRow,
@@ -136,7 +136,7 @@ class AppComponent extends React.Component {
         </Card.Container>
         <Card.Container inline className="fixed-height-card">
           <Card.Content stretch><Alert type="info">Card</Alert></Card.Content>
-          <FlexSpacer />
+          <FlexibleSpacer />
           <Card.Content>I have <code>flex</code> spacing.</Card.Content>
         </Card.Container>
         <Card.Container inline>
@@ -151,9 +151,9 @@ class AppComponent extends React.Component {
           svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }}
         />
 
-        <h1>FlexSpacer</h1>
+        <h1>FlexibleSpacer</h1>
         <small>Expands to fill leftover space in a <code>display: flex;</code> container:</small>
-        <FlexSpacer />
+        <FlexibleSpacer />
 
         <h1>Grid</h1>
         <Grid>
@@ -193,7 +193,9 @@ class AppComponent extends React.Component {
         </Grid>
 
         <h1>PageTitle</h1>
-        <PageTitle title="Alexandria"><Avatar givenName="A" surname="D" /></PageTitle>
+        <PageTitle title="Alexandria">
+          <Avatar givenName="A" surname="D" />
+        </PageTitle>
 
         <h1>Pretty Diff</h1>
         <PrettyDiff newText={diffStrings[1]} oldText={diffStrings[0]} />

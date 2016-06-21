@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
+import FlexibleSpacer from 'components/alexandria/FlexibleSpacerComponent';
 
 require('styles/alexandria/PageTitle.scss');
+require('styles/helpers.scss');
 
 const baseClass = 'pagetitle-component';
 
@@ -8,8 +10,7 @@ const PageTitleComponent = ({ children, isFooter, title }) => {
   const className = isFooter ? `${baseClass} ${baseClass}-is-footer` : baseClass;
   return (
     <div className={className}>
-      {title}
-      {children ? <div className={`${baseClass}-children`}>{children}</div> : null}
+      {children ? <span className="flexible-wrapper-inline">{title}<FlexibleSpacer />{children}</span> : title}
     </div>
   );
 };

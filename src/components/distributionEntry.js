@@ -1,5 +1,7 @@
 // Export all the components that are consumable.
 
+require('styles/helpers.scss');
+
 import svg4everybody from 'svg4everybody';
 import Alert from 'components/alexandria/AlertComponent';
 import Avatar from 'components/alexandria/AvatarComponent';
@@ -7,7 +9,7 @@ import BorderedWell from 'components/alexandria/BorderedWellComponent';
 import Breadcrumb from 'components/alexandria/BreadcrumbComponent';
 import Card from 'components/alexandria/CardComponent';
 import Empty from 'components/alexandria/EmptyComponent';
-import FlexSpacer from 'components/alexandria/FlexSpacerComponent';
+import FlexibleSpacer from 'components/alexandria/FlexibleSpacerComponent';
 import Grid from 'components/alexandria/GridComponent';
 import GridCell from 'components/alexandria/GridCellComponent';
 import GridRow from 'components/alexandria/GridRowComponent';
@@ -29,7 +31,7 @@ module.exports = {
   Breadcrumb,
   Card,
   Empty,
-  FlexSpacer,
+  FlexibleSpacer,
   Grid,
   GridCell,
   GridRow,
