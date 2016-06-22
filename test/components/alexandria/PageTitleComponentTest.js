@@ -19,9 +19,10 @@ describe('PageTitleComponent', () => {
 
   it('should pass through children', () => {
     const children = <div className="test-class">Party town</div>;
-    const component = shallow(<PageTitleComponent>{children}</PageTitleComponent>);
+    const component = shallow(<PageTitleComponent title="Foo">{children}</PageTitleComponent>);
     expect(component.prop('className')).to.equal('pagetitle-component');
-    expect(component.find('.pagetitle-component-children')).to.have.length(1);
+    expect(component.childAt(0).prop('className')).to.equal('flexible-wrapper-inline');
+    expect(component.childAt(0).children()).to.have.length(3);
 
     expect(component.find('.test-class').text()).to.equal('Party town');
   });
@@ -29,6 +30,6 @@ describe('PageTitleComponent', () => {
   it('should be a footer when asked', () => {
     const component = shallow(<PageTitleComponent isFooter />);
     expect(component.prop('className')).to.equal('pagetitle-component pagetitle-component-is-footer');
-    expect(component.children()).to.have.length(0);
+    expect(component.childAt(0).children()).to.have.length(0);
   });
 });

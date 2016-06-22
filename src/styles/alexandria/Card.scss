@@ -1,6 +1,6 @@
 @import '../color';
 @import '../border';
-@import '../fontSize';
+@import '../font-size';
 
 .card-component {
   $card-padding-etalon: 16px;
@@ -24,7 +24,7 @@
     margin-right: $card-spacing-etalon;
   }
 
-  .flexspacer-component {
+  .flexible-spacer-component {
     border: 0;
   }
 
