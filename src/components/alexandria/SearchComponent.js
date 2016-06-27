@@ -5,6 +5,7 @@ import React, { PropTypes } from 'react';
 require('styles/alexandria/Search.scss');
 
 const SearchComponent = ({
+  disabled,
   onChange,
   onClear,
   placeholder,
@@ -12,13 +13,17 @@ const SearchComponent = ({
   svgSymbolSearch,
   value,
 }) => {
-  const onChangeBound = (event) => onChange(_.get(event, 'target.value'));
+  const searchClassSuffixes = !disabled ? svgSymbolSearch.classSuffixes : ['color-disabled'];
+  const cancelClassSuffixes = !disabled ? svgSymbolCancel.classSuffixes : ['color-disabled'];
+  const onChangeBound = !disabled ? (event) => onChange(_.get(event, 'target.value')) : null;
+  const mappedOnClear = !disabled ? onClear : null;
 
   return (
     <div className="search-component">
       <input
         autoComplete="off"
         className="search-component-input"
+        disabled={disabled}
         name="search"
         onChange={onChangeBound}
         placeholder={`Search ${placeholder}`}
@@ -26,8 +31,8 @@ const SearchComponent = ({
         value={value}
       />
       {_.isEmpty(value) ?
-        <SvgSymbol href={svgSymbolSearch.href} classSuffixes={svgSymbolSearch.classSuffixes} /> :
-        <SvgSymbol href={svgSymbolCancel.href} classSuffixes={svgSymbolCancel.classSuffixes} onClick={onClear} />
+        <SvgSymbol href={svgSymbolSearch.href} classSuffixes={searchClassSuffixes} /> :
+        <SvgSymbol href={svgSymbolCancel.href} classSuffixes={cancelClassSuffixes} onClick={mappedOnClear} />
       }
     </div>
   );
@@ -36,6 +41,7 @@ const SearchComponent = ({
 SearchComponent.displayName = 'AlexandriaSearchComponent';
 
 SearchComponent.propTypes = {
+  disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
@@ -45,6 +51,8 @@ SearchComponent.propTypes = {
 };
 
 SearchComponent.defaultProps = {
+  disabled: false,
+
   onChange: () => { throw new Error('Alexandria Search needs an onChange handler'); },
 
   onClear: () => { throw new Error('Alexandria Search needs an onClear handler'); },

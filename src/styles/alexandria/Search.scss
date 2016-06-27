@@ -36,6 +36,11 @@
       border-color: $color-border;
       outline: 0; // Override UA
     }
+
+    &:disabled {
+      border: $border-lighter;
+      color: $color-text-disabled;
+    }
   }
 
   .svg-symbol-component {

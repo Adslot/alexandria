@@ -21,6 +21,7 @@
   // Colours. Classes look like `.svg-symbol-component-gray-light`.
   @include fill('gray-light', $color-gray-light);
   @include fill('gray-darker', $color-gray-darker);
+  @include fill('color-disabled', $color-gray-light);
 
   display: inline-block;
   height: $svg-icon-size;

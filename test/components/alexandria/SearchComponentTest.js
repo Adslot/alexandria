@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { shallow } from 'enzyme';
 import React from 'react';
 import SearchComponent from 'components/alexandria/SearchComponent';
@@ -10,6 +11,7 @@ describe('SearchComponent', () => {
 
     const inputEl = component.find('input');
     expect(inputEl.prop('className')).to.equal('search-component-input');
+    expect(inputEl.prop('disabled')).to.equal(false);
     expect(inputEl.prop('name')).to.equal('search');
     expect(inputEl.prop('onChange')).to.be.a('function');
     expect(inputEl.prop('placeholder')).to.equal('Search ');
@@ -50,6 +52,14 @@ describe('SearchComponent', () => {
     expect(values).to.deep.equal(['needle']);
   });
 
+  it('should not bind onChange when disabled', () => {
+    const testFunction = _.noop;
+
+    const component = shallow(<SearchComponent onChange={testFunction} disabled />);
+    const inputEl = component.find('input');
+    expect(inputEl.prop('onChange')).to.equal(null);
+  });
+
   it('should error when the user changes the value with no onChange handler', () => {
     const component = shallow(<SearchComponent />);
 
@@ -67,6 +77,14 @@ describe('SearchComponent', () => {
     const svgSymbolEl = component.find(SvgSymbolComponent);
     svgSymbolEl.simulate('click');
     expect(fireCount).to.equal(1);
+  });
+
+  it('should not bind onClear when disabled', () => {
+    const testFunction = _.noop;
+
+    const component = shallow(<SearchComponent onClear={testFunction} value="a" disabled />);
+    const svgSymbolEl = component.find(SvgSymbolComponent);
+    expect(svgSymbolEl.prop('onClick')).to.equal(null);
   });
 
   it('should error when the user clicks the icon with no onClear handler', () => {
