@@ -1,7 +1,5 @@
 // Export all the components that are consumable.
 
-require('styles/helpers.scss');
-
 import svg4everybody from 'svg4everybody';
 import Alert from 'components/alexandria/AlertComponent';
 import Avatar from 'components/alexandria/AvatarComponent';
