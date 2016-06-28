@@ -31,11 +31,10 @@ CardContentComponent.defaultProps = {
   stretch: false,
 };
 
-const CardComponent = ({ children, className, inline }) => {
+const CardComponent = ({ children, className }) => {
   const baseClass = 'card-component';
   const containerClassNames = [baseClass];
   if (className) containerClassNames.push(className);
-  if (inline) containerClassNames.push('inline');
 
   return (
     <div className={containerClassNames.join(' ')}>
@@ -49,11 +48,6 @@ CardComponent.displayName = 'AlexandriaCardComponent';
 CardComponent.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  inline: PropTypes.bool.isRequired,
-};
-
-CardComponent.defaultProps = {
-  inline: false,
 };
 
 export default {

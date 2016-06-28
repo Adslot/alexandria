@@ -122,26 +122,28 @@ class AppComponent extends React.Component {
           <Card.Content><em>I am Cardy McCardface.</em></Card.Content>
           <Card.Content><strong>I am Cardy McCardface.</strong></Card.Content>
         </Card.Container>
-        <Card.Container inline>
-          <Card.Content fill><PageTitle title="Card" /></Card.Content>
-          <Card.Content>I am a card.</Card.Content>
-          <Card.Content><Avatar givenName="Cardy" surname="McCardface" color="green" /></Card.Content>
-        </Card.Container>
-        <Card.Container inline>
-          <Card.Content fill><PageTitle title="Card" /></Card.Content>
-          <Card.Content>
-            <Avatar givenName="Cardy" surname="McCardface" color="red" />
-            <span>&nbsp;I am a card.</span>
-          </Card.Content>
-        </Card.Container>
-        <Card.Container inline className="fixed-height-card">
-          <Card.Content stretch><Alert type="info">Card</Alert></Card.Content>
-          <FlexibleSpacer />
-          <Card.Content>I have <code>flex</code> spacing.</Card.Content>
-        </Card.Container>
-        <Card.Container inline>
-          <Card.Content>I am a card.</Card.Content>
-        </Card.Container>
+        <div className="card-component-grid-container">
+          <Card.Container>
+            <Card.Content fill><PageTitle title="Card" /></Card.Content>
+            <Card.Content>I am a card.</Card.Content>
+            <Card.Content><Avatar givenName="Cardy" surname="McCardface" color="green" /></Card.Content>
+          </Card.Container>
+          <Card.Container>
+            <Card.Content fill><PageTitle title="Card" /></Card.Content>
+            <Card.Content>
+              <Avatar givenName="Cardy" surname="McCardface" color="red" />
+              <span>&nbsp;I am a card.</span>
+            </Card.Content>
+          </Card.Container>
+          <Card.Container className="fixed-height-card">
+            <Card.Content stretch><Alert type="info">Fixed height card</Alert></Card.Content>
+            <FlexibleSpacer />
+            <Card.Content>I have <code>flex</code> spacing.</Card.Content>
+          </Card.Container>
+          <Card.Container>
+            <Card.Content>I am a card.</Card.Content>
+          </Card.Container>
+        </div>
 
 
         <h1>Empty</h1>

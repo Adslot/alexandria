@@ -18,10 +18,15 @@
   min-width: 205px;
   vertical-align: top;
 
-  &.inline {
-    display: inline-flex;
-    flex-direction: column;
-    margin-right: $card-spacing-etalon;
+  &-grid-container {
+    align-items: stretch;
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -$card-spacing-etalon;
+
+    .card-component {
+      margin-right: $card-spacing-etalon;
+    }
   }
 
   .flexible-spacer-component {
@@ -30,6 +35,7 @@
 
   &-content-container {
     display: flex;
+    flex-basis: 100%;
     flex-direction: column;
     height: 100%;
   }

@@ -12,12 +12,6 @@ describe('CardContainerComponent', () => {
     expect(component.find('.test-class').text()).to.equal('Test Text');
   });
 
-  it('should render with "inline" class', () => {
-    const component = shallow(<CardComponent.Container inline>Test Text</CardComponent.Container>);
-    expect(component.prop('className')).to.equal('card-component inline');
-    expect(component.children()).to.have.length(1);
-  });
-
   it('should render with classNames', () => {
     const component = shallow(<CardComponent.Container className="red blue">Test Text</CardComponent.Container>);
     expect(component.prop('className')).to.equal('card-component red blue');
