@@ -29,7 +29,7 @@ EmptyComponent.displayName = 'AlexandriaEmptyComponent';
 EmptyComponent.propTypes = {
   collection: PropTypes.any,
   svgSymbol: PropTypes.shape(SvgSymbolCircle.propTypes),
-  text: PropTypes.string,
+  text: PropTypes.any, // can be string or, if you want rich formatting, a node
 };
 EmptyComponent.defaultProps = {
   collection: null,
