@@ -18,6 +18,10 @@
   height: $svg-icon-size;
   width: $svg-icon-size;
 
+  &-inverse {
+    background-color: $color-inverse;
+  }
+
   .svg-symbol-component {
     @include svg-size($svg-icon-size);
   }
