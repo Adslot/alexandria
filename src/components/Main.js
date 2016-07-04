@@ -225,6 +225,7 @@ class AppComponent extends React.Component {
 
         <SvgSymbolCircle classSuffixes={['70']} />
         <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" />
+        <SvgSymbolCircle classSuffixes={['70', 'inverse']} />
 
         <h1>Totals</h1>
         <Grid>
