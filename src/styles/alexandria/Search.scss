@@ -1,6 +1,7 @@
 @import '../border';
 @import '../color';
 @import '../font-size';
+@import '../font-weight';
 
 .search-component {
   $search-height: 26px;
@@ -9,10 +10,6 @@
   line-height: $search-height;
   position: relative;
   width: 100%;
-
-  ::placeholder {
-    color: $color-text-placeholder;
-  }
 
   ::-webkit-search-cancel-button,
   ::-webkit-search-decoration {
@@ -30,6 +27,11 @@
     margin: 0;
     padding: 0 0 0 10px;
     width: inherit;
+
+    &::placeholder {
+      color: $color-text-placeholder;
+      font-weight: $font-weight-light;
+    }
 
     &:active,
     &:focus {
