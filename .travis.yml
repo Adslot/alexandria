@@ -1,8 +1,11 @@
 language: node_js
-
 node_js:
-  - "6"
-  - "4"
-
+- '6'
+- '4'
 after_success:
 - npm run codecov
+notifications:
+  hipchat:
+    on_pull_requests: false
+    rooms:
+      secure: gYj7Vm43r1r3RqxG/5kxFyEgJXDb9mh9YEiHR/eAq67Pu1cGH0FCviozJuZ3Ec3/tr5PWckEpz+ZCt48dJAfVB+IeB9EL7rL2j5n8kKrXshRkdsehlgU4AQIEC+3+2YzBdRlWHX6o0ZJjWxsOAWdfTOKVBVdi/2UZ4TE3AF+tVFsYbL/yAECUgSDrWJPqt3WeKVOkdgNXUKqi4jtJdja5BcIDrUI2ZmJsZaYzGqyI+dUMTgdghk4pAVUkVICJvSYHIncoE8MJbNqQuOQR9rxtN5lWg1GCAHm+OaffiUQzv/tt0OjTQLtxuw0Ws8zq1VXI09csN3miELDDr35UldsHQo8g43jQZTm7MKLuhxJWXdJz8UVc2YOKOdT9BXGsJFzfDZqPaftFNWh08n3/m0PCGf7I9llO55s0dBEvNyqBI013C6/+MjqEpw9SaDbLV0dm0tVpuHhKurQu90UeL6Jeqncx5N9dZdbg1eH1j4lfltMGstbOK9+aWLyK93RAyP5wqeN70t+EjwzPMw0juXUKclOZEagVgoxTpt7pG1eTJSRQmQtS0Qh2wksAiIL1oInmdSfJG+pOjPPhniCq6aZCTckZhHv1SDzmt0vRoMYU9oPlBKlMC3locUqprqmFmeyJKOyZHVw/x5KGIyFb4n+cIhKjd6x7SOIluRJYCLeqaw=

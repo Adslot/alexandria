@@ -1,5 +1,9 @@
-alexandria [![codecov.io](https://codecov.io/github/Adslot/alexandria/coverage.svg?branch=master)](https://codecov.io/github/Adslot/alexandria?branch=master)
+alexandria
 ==========
+
+[![npm version](https://badge.fury.io/js/alexandria.svg)](https://badge.fury.io/js/alexandria)
+[![Build Status](https://travis-ci.org/Adslot/alexandria.svg?branch=master)](https://travis-ci.org/Adslot/alexandria)
+[![codecov](https://codecov.io/gh/Adslot/alexandria/branch/master/graph/badge.svg)](https://codecov.io/gh/Adslot/alexandria)
 
 A UI component library. By Adslot
 ---------------------------------
