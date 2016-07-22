@@ -11,7 +11,7 @@ const SvgSymbolComponent = (props) => {
   const classesList = classSuffixHelper({ classSuffixes, suffixOptions, componentClass });
 
   return (
-    <svg className={`${componentClass}${classesList}`} {...props}>
+    <svg className={`${componentClass}${classesList}`}>
       <use xlinkHref={href} />
     </svg>
   );
@@ -21,13 +21,12 @@ SvgSymbolComponent.displayName = 'AlexandriaSvgSymbolComponent';
 
 SvgSymbolComponent.propTypes = {
   classSuffixes: PropTypes.arrayOf(PropTypes.string.isRequired),
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   onClick: PropTypes.func,
 };
 
 SvgSymbolComponent.defaultProps = {
   classSuffixes: [],
-  href: '/assets/svg-symbols.svg#checklist-incomplete',
 };
 
 export default SvgSymbolComponent;

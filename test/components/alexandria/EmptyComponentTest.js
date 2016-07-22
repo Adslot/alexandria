@@ -9,7 +9,7 @@ describe('EmptyComponent', () => {
     expect(component.prop('className')).to.equal('empty-component');
 
     const svgSymbolEl = component.find(SvgSymbolCircleComponent);
-    expect(svgSymbolEl.prop('href')).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
+    expect(svgSymbolEl.prop('href')).to.equal(undefined);
     expect(svgSymbolEl.prop('classSuffixes')).to.deep.equal(['gray-darker', '70', 'circle']);
 
     const textElement = component.find('.empty-component-text');
