@@ -21,6 +21,7 @@ import {
   Statistic,
   SvgSymbol,
   SvgSymbolCircle,
+  Tag,
   Totals,
 } from './distributionEntry';
 
@@ -226,6 +227,22 @@ class AppComponent extends React.Component {
         <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" classSuffixes={['70']} />
         <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" />
         <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" classSuffixes={['70', 'inverse']} />
+
+        <h1>Tag</h1>
+        <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel">You are it!</Tag>
+        <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel" inverse>Inverse</Tag>
+        <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel" accent="2" inverse onAction={_.noop} id="foo">
+          Inverse Clearable
+        </Tag>
+        <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel" accent="1">Custom Colour</Tag>
+        <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel" inverse accent="1">Inverse Custom Colour</Tag>
+        <Tag accent="2" onAction={_.noop} id="bar" actionIconSvgHref="/assets/svg-symbols.svg#cancel">Clearable</Tag>
+
+        <p>
+          <label className="accent-0">Example</label>
+          <label className="accent-1"> accent </label>
+          <label className="accent-2">sharing</label>
+        </p>
 
         <h1>Totals</h1>
         <Grid>
