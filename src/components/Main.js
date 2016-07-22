@@ -218,14 +218,14 @@ class AppComponent extends React.Component {
         <Statistic value="50 Million" label="Page Views" inline />
 
         <h1>SvgSymbol</h1>
-        <SvgSymbol classSuffixes={['70']} />
+        <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" classSuffixes={['70']} />
         <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" />
 
         <h1>SvgSymbolCircle</h1>
 
-        <SvgSymbolCircle classSuffixes={['70']} />
+        <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" classSuffixes={['70']} />
         <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" />
-        <SvgSymbolCircle classSuffixes={['70', 'inverse']} />
+        <SvgSymbolCircle href="/assets/svg-symbols.svg#checklist-incomplete" classSuffixes={['70', 'inverse']} />
 
         <h1>Totals</h1>
         <Grid>

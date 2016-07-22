@@ -34,7 +34,6 @@ EmptyComponent.propTypes = {
 EmptyComponent.defaultProps = {
   collection: null,
   svgSymbol: {
-    href: '/assets/svg-symbols.svg#checklist-incomplete',
     classSuffixes: ['gray-darker', '70', 'circle'],
   },
   text: 'Nothing to show.',

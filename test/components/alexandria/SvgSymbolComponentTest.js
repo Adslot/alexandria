@@ -9,7 +9,7 @@ describe('SvgSymbolComponent', () => {
     expect(component.type()).to.equal('svg');
 
     const useElement = component.find('use');
-    expect(useElement.prop('xlinkHref')).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
+    expect(useElement.prop('xlinkHref')).to.equal(undefined);
   });
 
   it('should render with props', () => {

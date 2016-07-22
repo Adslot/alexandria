@@ -10,7 +10,7 @@ describe('SvgSymbolCircleComponent', () => {
 
     const svgSymbolEl = component.find(SvgSymbolComponent);
     expect(svgSymbolEl.prop('classSuffixes')).to.have.length(0);
-    expect(svgSymbolEl.prop('href')).to.equal('/assets/svg-symbols.svg#checklist-incomplete');
+    expect(svgSymbolEl.prop('href')).to.equal(undefined);
   });
 
   it('should render with props', () => {
