@@ -1,4 +1,3 @@
-@import '../border';
 @import '../color';
 @import '../font-size';
 @import '../font-weight';
@@ -7,7 +6,7 @@ $diameter: 35px;
 
 .avatar-component {
   background-color: $color-gray;
-  border-radius: $border-radius-circle;
+  border-radius: 50%;
   color: $color-text-inverse;
   cursor: default;
   display: inline-block;
@@ -22,7 +21,7 @@ $diameter: 35px;
   width: $diameter;
 
   &-image {
-    border-radius: $border-radius-circle;
+    border-radius: 50%;
     height: 100%;
     left: 0;
     position: absolute;

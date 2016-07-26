@@ -1,4 +1,3 @@
-@import '../border';
 @import '../color';
 @import '../function';
 @import '../variable';
@@ -12,7 +11,7 @@
   }
 
   background-color: $color-gray-lighter;
-  border-radius: $border-radius-circle;
+  border-radius: 50%;
   display: inline-block;
 
   // Default size
