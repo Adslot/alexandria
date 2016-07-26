@@ -18,6 +18,7 @@ import Slicey from 'components/alexandria/SliceyComponent';
 import Statistic from 'components/alexandria/StatisticComponent';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
 import SvgSymbolCircle from 'components/alexandria/SvgSymbolCircleComponent';
+import Tag from 'components/alexandria/TagComponent';
 import Totals from 'components/alexandria/TotalsComponent';
 
 svg4everybody();
@@ -40,5 +41,6 @@ module.exports = {
   Statistic,
   SvgSymbol,
   SvgSymbolCircle,
+  Tag,
   Totals,
 };

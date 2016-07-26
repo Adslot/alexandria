@@ -1,5 +1,6 @@
 // For display of components during development.
 // This is not distributed.
+@import 'color';
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -24,3 +25,31 @@ body {
     height: 150px;
   }
 }
+
+// A re-usable example for creating custom accent colours for the <Tag> component
+@mixin accent($id, $color-accent) {
+  label {
+    &.accent-#{$id} {
+      color: $color-accent;
+    }
+  }
+
+  .tag-component-accent {
+    &.accent-#{$id} {
+      border-color: $color-accent;
+
+      &:not(.tag-component-inverse) {
+        background-color: $color-accent;
+      }
+
+      &.tag-component-inverse {
+        color: $color-accent;
+        fill: $color-accent;
+      }
+    }
+  }
+}
+
+@include accent(0, $color-positive)
+@include accent(1, $color-pending)
+@include accent(2, $color-negative)
