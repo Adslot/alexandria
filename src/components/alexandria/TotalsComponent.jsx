@@ -11,13 +11,13 @@ const TotalsComponent = ({ toSum, valueFormatter }) => (
       .map((item, index) =>
         <GridRow short horizontalBorder={false} key={index}>
           <GridCell stretch>{item.label}</GridCell>
-          <GridCell>{valueFormatter(item.value)}</GridCell>
+          <GridCell dts={`${_.kebabCase(item.label)}-value`}>{valueFormatter(item.value)}</GridCell>
         </GridRow>
       )
       .value()}
     <GridRow short horizontalBorder={false} type="footer">
       <GridCell stretch>Total</GridCell>
-      <GridCell>{valueFormatter(_.sum(toSum, 'value'))}</GridCell>
+      <GridCell dts="total-value">{valueFormatter(_.sum(toSum, 'value'))}</GridCell>
     </GridRow>
   </Grid>
 );
