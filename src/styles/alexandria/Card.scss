@@ -1,17 +1,14 @@
 @import '../color';
 @import '../border';
 @import '../font-size';
+@import '../font-weight';
 
 .card-component {
   $card-padding-etalon: 16px;
   $card-spacing-etalon: 28px;
 
-  background-color: $color-background;
-  border: $border-lighter;
-  border-radius: $border-radius-heavy;
-  box-shadow: 0 2px 0 $color-shadow;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-size: $font-size-body;
   margin-bottom: $card-spacing-etalon;
   min-height: 40px;
@@ -34,17 +31,35 @@
   }
 
   &-content-container {
+    background-color: $color-background;
+    border: $border-lighter;
+    border-radius: $border-radius-heavy;
+    box-shadow: 0 2px 0 $color-shadow;
     display: flex;
     flex-basis: 100%;
     flex-direction: column;
     height: 100%;
+
+    .card-component-content {
+      :not(.fill):last-child {
+        padding-bottom: $card-padding-etalon;
+      }
+    }
+  }
+
+  &.accent {
+    .card-component-content-container {
+      border-bottom-width: 5px;
+    }
   }
 
   &-content {
     padding: $card-padding-etalon $card-padding-etalon 0;
 
-    &:last-child {
-      padding-bottom: $card-padding-etalon;
+    &.append {
+      color: $color-text-placeholder;
+      font-weight: $font-weight-light;
+      padding: 5px 1px 0;
     }
 
     &.stretch {

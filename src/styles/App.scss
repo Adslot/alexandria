@@ -34,6 +34,14 @@ body {
     }
   }
 
+  .card-component {
+    &.accent-#{$id} {
+      .card-component-content-container {
+        border-bottom-color: $color-accent;
+      }
+    }
+  }
+
   .tag-component-accent {
     &.accent-#{$id} {
       border-color: $color-accent;

@@ -39,7 +39,7 @@ rules:
   # Nesting
   force-attribute-nesting: 2
   force-element-nesting: 2
-  force-pseudo-nesting: 2
+  force-pseudo-nesting: 1
 
   # Name Formats
   function-name-format: 2
