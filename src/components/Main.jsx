@@ -1,8 +1,5 @@
-require('styles/App.scss');
-
 import _ from 'lodash';
 import React from 'react';
-
 import {
   Alert,
   Avatar,
@@ -24,6 +21,8 @@ import {
   Tag,
   Totals,
 } from './distributionEntry';
+
+require('styles/App.scss');
 
 const defaultBreadcrumbNodes = [
   { id: 'aaa-111', label: 'Australia' },
