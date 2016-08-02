@@ -17,6 +17,26 @@ describe('CardContainerComponent', () => {
     expect(component.prop('className')).to.equal('card-component red blue');
     expect(component.children()).to.have.length(1);
   });
+
+  it('should render with accent', () => {
+    const component = shallow(<CardComponent.Container accent="foo">Test Text</CardComponent.Container>);
+    expect(component.prop('className')).to.equal('card-component accent accent-foo');
+  });
+
+  it('should render with appended and nested children', () => {
+    const component = shallow(<CardComponent.Container accent="foo">
+      <CardComponent.Content>Nested</CardComponent.Content>
+      <CardComponent.Content append>Appended</CardComponent.Content>
+    </CardComponent.Container>);
+
+    expect(component.find(CardComponent.Content)).to.have.length(2); // Should have two card contents
+
+    const nestedChild = component.find('.card-component-content-container').find(CardComponent.Content);
+    expect(nestedChild).to.have.length(1);
+    expect(nestedChild.children().text()).to.equal('Nested');
+    expect(component.children(CardComponent.Content)).to.have.length(1);
+    expect(component.children(CardComponent.Content).children().text()).to.equal('Appended');
+  });
 });
 
 describe('CardContentComponent', () => {
@@ -37,6 +57,12 @@ describe('CardContentComponent', () => {
   it('should render with "fill" class', () => {
     const component = shallow(<CardComponent.Content fill>Test Text</CardComponent.Content>);
     expect(component.prop('className')).to.equal('card-component-content fill');
+    expect(component.children()).to.have.length(1);
+  });
+
+  it('should render with appended content', () => {
+    const component = shallow(<CardComponent.Content append>Test Text</CardComponent.Content>);
+    expect(component.prop('className')).to.equal('card-component-content append');
     expect(component.children()).to.have.length(1);
   });
 

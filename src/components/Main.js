@@ -124,9 +124,9 @@ class AppComponent extends React.Component {
           <Card.Content><strong>I am Cardy McCardface.</strong></Card.Content>
         </Card.Container>
         <div className="card-component-grid-container">
-          <Card.Container>
+          <Card.Container accent="0">
             <Card.Content fill><PageTitle title="Card" /></Card.Content>
-            <Card.Content>I am a card.</Card.Content>
+            <Card.Content>I am a card with an accent.</Card.Content>
             <Card.Content><Avatar givenName="Cardy" surname="McCardface" color="green" /></Card.Content>
           </Card.Container>
           <Card.Container>
@@ -137,12 +137,15 @@ class AppComponent extends React.Component {
             </Card.Content>
           </Card.Container>
           <Card.Container className="fixed-height-card">
-            <Card.Content stretch><Alert type="info">Fixed height card</Alert></Card.Content>
+            <Card.Content stretch><Alert type="info">I am a fixed height card.</Alert></Card.Content>
             <FlexibleSpacer />
             <Card.Content>I have <code>flex</code> spacing.</Card.Content>
           </Card.Container>
           <Card.Container>
-            <Card.Content>I am a card.</Card.Content>
+            <Card.Content>I am a card with a sub-note.</Card.Content>
+            <Card.Content append>
+              <span>Append me.</span>
+            </Card.Content>
           </Card.Container>
         </div>
 
@@ -216,7 +219,8 @@ class AppComponent extends React.Component {
 
         <h1>Statistic</h1>
         <Statistic value="50 Million" label="Page Views" />
-        <Statistic value="50 Million" label="Page Views" inline />
+        <br />
+        <Statistic value="1" label="Inline Statistic" inline />
 
         <h1>SvgSymbol</h1>
         <SvgSymbol href="/assets/svg-symbols.svg#checklist-incomplete" classSuffixes={['70']} />

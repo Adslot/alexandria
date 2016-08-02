@@ -3,14 +3,14 @@
 @import '../font-weight';
 
 .statistic-component {
+  font-size: $font-size-subheader;
+
   &-value {
-    font-size: $font-size-header;
     font-weight: $font-weight-bold;
   }
 
   &-label {
     color: $color-text-sub;
-    font-size: $font-size-body;
     font-weight: $font-weight-light;
   }
 
@@ -26,10 +26,6 @@
 
     .statistic-component-label {
       margin-left: 5px;
-    }
-
-    .statistic-component-value {
-      font-size: $font-size-subheader;
     }
   }
 }
