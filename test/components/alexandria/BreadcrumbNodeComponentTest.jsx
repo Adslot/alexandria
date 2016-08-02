@@ -1,4 +1,4 @@
-import BreadcrumbNodeComponent from 'components/alexandria/BreadcrumbNodeComponent.js';
+import BreadcrumbNodeComponent from 'components/alexandria/BreadcrumbNodeComponent';
 import { shallow } from 'enzyme';
 import React from 'react';
 

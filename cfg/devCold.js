@@ -6,7 +6,7 @@ const baseConfig = require('./base');
 
 const config = _.merge({
   entry: [
-    './src/components/run',
+    './src/components/run.jsx',
   ],
   cache: true,
   devtool: 'eval',

@@ -23,7 +23,7 @@ const config = _.merge(baseConfig, {
     },
   },
   entry: {
-    main: path.join(componentsPath, '/distributionEntry.js'),
+    main: path.join(componentsPath, '/distributionEntry.jsx'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
