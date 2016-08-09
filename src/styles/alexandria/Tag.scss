@@ -37,7 +37,9 @@
   }
 
   &-accent {
-    font-weight: $font-weight-bold;
+    label {
+      font-weight: $font-weight-bold;
+    }
   }
 
   .action-button {
@@ -57,6 +59,7 @@
   }
 
   label {
+    margin-bottom: 0;
     max-width: 105px; // Fits ~18 characters
     overflow: hidden;
     text-overflow: ellipsis;
