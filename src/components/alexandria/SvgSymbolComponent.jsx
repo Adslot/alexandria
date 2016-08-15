@@ -5,13 +5,13 @@ import classSuffixHelper from '../../helpers/classSuffixHelper';
 require('styles/alexandria/SvgSymbol.scss');
 
 const SvgSymbolComponent = (props) => {
-  const { classSuffixes, href } = props;
+  const { classSuffixes, href, onClick } = props;
   const componentClass = 'svg-symbol-component';
   const suffixOptions = { clickable: props.onClick };
   const classesList = classSuffixHelper({ classSuffixes, suffixOptions, componentClass });
 
   return (
-    <svg className={`${componentClass}${classesList}`}>
+    <svg className={`${componentClass}${classesList}`} onClick={onClick}>
       <use xlinkHref={href} />
     </svg>
   );
