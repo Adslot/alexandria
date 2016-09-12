@@ -7,13 +7,10 @@
   $card-padding-etalon: 20px;
   $card-spacing-etalon: 28px;
 
-  display: flex;
-  flex-direction: column;
   font-size: $font-size-body;
   margin-bottom: $card-spacing-etalon;
   min-height: 40px;
   min-width: 205px;
-  vertical-align: top;
 
   &-grid-container {
     align-items: stretch;
