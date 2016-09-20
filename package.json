@@ -93,7 +93,7 @@
     "diff-match-patch": "^1.0.0",
     "lodash": "^3.10.1",
     "react": "=15.1.0",
-    "react-dom": "=15.1.0",
+    "react-dom": "15.3.2",
     "svg4everybody": "^2.1.0"
   },
   "engines": {
