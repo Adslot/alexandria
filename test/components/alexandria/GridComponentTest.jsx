@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
-import GridComponent from '../../../src/components/alexandria/GridComponent';
 import React from 'react';
+import GridComponent from '../../../src/components/alexandria/GridComponent';
 
 describe('GridComponent', () => {
   it('should have its component name as default className', () => {

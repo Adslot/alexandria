@@ -16,8 +16,9 @@
     "dist": "webpack --bail --env=dist",
     "jscs-lint": "jscs ./src ./test",
     "jscs-fix": "jscs ./src ./test --fix",
-    "lint": "eslint ./src --rulesdir ./src && eslint ./test --rulesdir ./test",
-    "posttest": "npm run lint && npm run sass-lint && npm run jscs-lint && npm run check-commit",
+    "eslint": "eslint --ext .jsx,.js --rulesdir ./src ./src && eslint  --ext .jsx,.js --rulesdir ./test ./test",
+    "lint": "npm run eslint && npm run sass-lint && npm run jscs-lint && npm run check-commit",
+    "posttest": "npm run lint",
     "profile": "webpack --env=dist --profile --json > stats.json",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
@@ -97,6 +98,6 @@
     "svg4everybody": "^2.1.0"
   },
   "engines": {
-    "node": "^4.4"
+    "node": "^4.6"
   }
 }

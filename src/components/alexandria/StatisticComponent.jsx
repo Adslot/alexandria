@@ -8,10 +8,10 @@ const StatisticComponent = ({ label, value, inline }) => {
   if (inline) statisticClassNames.push('inline');
 
   return (
-    <div className={statisticClassNames.join(' ')}>
+    <label className={statisticClassNames.join(' ')}>
       <div className={`${baseClass}-value`}>{value}</div>
-      <label className={`${baseClass}-label`}>{label}</label>
-    </div>
+      <div className={`${baseClass}-label`}>{label}</div>
+    </label>
   );
 };
 

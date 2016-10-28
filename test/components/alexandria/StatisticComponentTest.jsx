@@ -9,17 +9,13 @@ describe('StatisticComponent', () => {
     expect(component.prop('className')).to.equal('statistic-component');
     expect(component.children()).to.have.length(2);
 
-    expect(component.children().first().equals(
-      <div className="statistic-component-value">
-        2 Million
-      </div>
-    )).to.equal(true);
+    const statisticValue = component.children().first();
+    expect(statisticValue.prop('className')).to.equal('statistic-component-value');
+    expect(statisticValue.text()).to.equal('2 Million');
 
-    expect(component.children().last().equals(
-      <label className="statistic-component-label">
-        Views
-      </label>
-    )).to.equal(true);
+    const statisticLabel = component.children().last();
+    expect(statisticLabel.prop('className')).to.equal('statistic-component-label');
+    expect(statisticLabel.text()).to.equal('Views');
   });
 
   it('should render inline', () => {
