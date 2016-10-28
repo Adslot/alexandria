@@ -26,7 +26,13 @@
     "id-length": [2, {"min": 3, "max": 30, "properties": "never", "exceptions": ["_", "cb"]}],
     "max-len": [1, 120, 2],
     "no-cond-assign": [2, "except-parens"],
+    "no-mixed-operators": ["error", {"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]}],
     "quote-props": 0,
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": false
+    }],
+    "jsx-a11y/label-has-for": 0,
     "lodash/callback-binding": 2,
     "lodash/chain-style": [2, "as-needed"],
     "lodash/collection-return": 2,

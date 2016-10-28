@@ -31,7 +31,8 @@ const SearchComponent = ({
         value={value}
       />
       {_.isEmpty(value) ?
-        <SvgSymbol href={svgSymbolSearch.href} classSuffixes={searchClassSuffixes} /> :
+        <SvgSymbol href={svgSymbolSearch.href} classSuffixes={searchClassSuffixes} />
+      :
         <SvgSymbol href={svgSymbolCancel.href} classSuffixes={cancelClassSuffixes} onClick={mappedOnClear} />
       }
     </div>

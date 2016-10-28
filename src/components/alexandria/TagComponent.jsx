@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import classSuffixHelper from '../../helpers/classSuffixHelper';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
+import classSuffixHelper from '../../helpers/classSuffixHelper';
 
 require('styles/alexandria/Tag.scss');
 
