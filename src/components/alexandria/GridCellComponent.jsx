@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import classSuffixHelper from '../../helpers/classSuffixHelper';
+import expandDts from '../../helpers/expandDtsHelper';
 
 require('styles/alexandria/GridCell.scss');
 
@@ -17,7 +18,7 @@ const GridCellComponent = ({ children, classSuffixes, onClick, stretch, dts }) =
   const extraProps = onClick ? { onClick } : {};
 
   return (
-    <div className={`${componentClass}${classesList}`} {...extraProps} if dts data-test-selector={dts}>
+    <div className={`${componentClass}${classesList}`} {...extraProps} {...expandDts(dts)}>
       {children}
     </div>
   );

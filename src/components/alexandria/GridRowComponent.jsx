@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import classSuffixHelper from '../../helpers/classSuffixHelper';
+import expandDts from '../../helpers/expandDtsHelper';
 
 require('styles/alexandria/GridRow.scss');
 
@@ -13,7 +14,7 @@ const GridRowComponent = ({ horizontalBorder, short, type, verticalCellBorder, c
   });
 
   return (
-    <div className={`${componentClass}${classesList}`} if dts data-test-selector={dts}>
+    <div className={`${componentClass}${classesList}`} {...expandDts(dts)}>
       {children}
     </div>
   );
