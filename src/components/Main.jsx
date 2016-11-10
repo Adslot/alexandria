@@ -89,6 +89,7 @@ class AppComponent extends React.Component {
 
         <h1>Alert</h1>
         <Alert type="success">You did it!</Alert>
+        <Alert type="info" dts="yay">Alert with DTS</Alert>
 
         <h1>Avatar</h1>
         <Avatar givenName="John" surname="Smith" />

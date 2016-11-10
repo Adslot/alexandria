@@ -16,7 +16,7 @@ const CardContentComponent = ({ children, className, stretch, fill, append }) =>
     <div className={contentClassNames.join(' ')}>
       {children}
     </div>
-    );
+  );
 };
 
 CardContentComponent.displayName = 'AlexandriaCardContentComponent';
