@@ -51,4 +51,12 @@ describe('EmptyComponent', () => {
     expect(svgSymbolEl.prop('href')).to.equal('//wherever.svg#id');
     expect(svgSymbolEl.prop('classSuffixes')).to.deep.equal(['gray-darker', '70', 'circle']);
   });
+
+  it('should not render with SVG symbol, when hideIcon is set to true', () => {
+    const svgSymbol = { href: '//wherever.svg#id' };
+    const component = shallow(<EmptyComponent {...{ svgSymbol, hideIcon: true }} />);
+    expect(component.prop('className')).to.equal('empty-component');
+    const svgSymbolEl = component.find(SvgSymbolCircleComponent);
+    expect(svgSymbolEl).to.have.length(0);
+  });
 });
