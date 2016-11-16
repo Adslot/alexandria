@@ -157,6 +157,13 @@ class AppComponent extends React.Component {
           svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }}
         />
 
+        <Empty
+          collection={[]}
+          text="Don't show the icon"
+          svgSymbol={{ href: '/assets/svg-symbols.svg#checklist-incomplete' }}
+          hideIcon
+        />
+
         <h1>FlexibleSpacer</h1>
         <small>Expands to fill leftover space in a <code>display: flex;</code> container:</small>
         <FlexibleSpacer />
