@@ -15,6 +15,7 @@ import {
   PrettyDiff,
   Search,
   Slicey,
+  Spinner,
   Statistic,
   SvgSymbol,
   SvgSymbolCircle,
@@ -204,6 +205,12 @@ class AppComponent extends React.Component {
             </GridCell>
           </GridRow>
         </Grid>
+
+        <h1>Spinner</h1>
+        <Spinner />
+        { /* Custom sizes and colour style */ }
+        <Spinner size="medium" colourStyle="warning" />
+        <Spinner size="small" />
 
         <h1>PageTitle</h1>
         <PageTitle title="Alexandria">
