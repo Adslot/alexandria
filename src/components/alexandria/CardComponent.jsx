@@ -1,9 +1,10 @@
 import _ from 'lodash';
 import React, { PropTypes } from 'react';
+import expandDts from '../../helpers/expandDtsHelper';
 
 require('styles/alexandria/Card.scss');
 
-const CardContentComponent = ({ children, className, stretch, fill, append }) => {
+const CardContentComponent = ({ children, className, stretch, fill, append, dts }) => {
   const baseClass = 'card-component-content';
   const contentClassNames = [baseClass];
 
@@ -13,7 +14,7 @@ const CardContentComponent = ({ children, className, stretch, fill, append }) =>
   if (className) contentClassNames.push(className);
 
   return (
-    <div className={contentClassNames.join(' ')}>
+    <div className={contentClassNames.join(' ')} {...expandDts(dts)}>
       {children}
     </div>
   );
@@ -27,6 +28,7 @@ CardContentComponent.propTypes = {
   fill: PropTypes.bool.isRequired,
   stretch: PropTypes.bool.isRequired,
   append: PropTypes.bool,
+  dts: PropTypes.string,
 };
 
 CardContentComponent.defaultProps = {
@@ -35,7 +37,7 @@ CardContentComponent.defaultProps = {
   append: false,
 };
 
-const CardComponent = ({ children, className, accent }) => {
+const CardComponent = ({ children, className, accent, dts }) => {
   const baseClass = 'card-component';
   const containerClassNames = [baseClass];
   if (accent) containerClassNames.push(`accent accent-${accent}`);
@@ -49,7 +51,7 @@ const CardComponent = ({ children, className, accent }) => {
   ));
 
   return (
-    <div className={containerClassNames.join(' ')}>
+    <div className={containerClassNames.join(' ')} {...expandDts(dts)}>
       <div className={`${baseClass}-content-container`}>{nestedChildren}</div>
       {appendedChildren}
     </div>
@@ -62,6 +64,7 @@ CardComponent.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   accent: PropTypes.string,
+  dts: PropTypes.string,
 };
 
 export default {

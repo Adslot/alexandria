@@ -37,6 +37,11 @@ describe('CardContainerComponent', () => {
     expect(component.children(CardComponent.Content)).to.have.length(1);
     expect(component.children(CardComponent.Content).children().text()).to.equal('Appended');
   });
+
+  it('should apply data-test-selector', () => {
+    const component = shallow(<CardComponent.Container dts="card-component-container">Test</CardComponent.Container>);
+    expect(component.prop('data-test-selector')).to.equal('card-component-container');
+  });
 });
 
 describe('CardContentComponent', () => {
@@ -70,5 +75,10 @@ describe('CardContentComponent', () => {
     const component = shallow(<CardComponent.Content fill className="some classes">Test Text</CardComponent.Content>);
     expect(component.prop('className')).to.equal('card-component-content fill some classes');
     expect(component.children()).to.have.length(1);
+  });
+
+  it('should apply data-test-selector', () => {
+    const component = shallow(<CardComponent.Content dts="card-component-content">Test</CardComponent.Content>);
+    expect(component.prop('data-test-selector')).to.equal('card-component-content');
   });
 });
