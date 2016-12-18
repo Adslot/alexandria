@@ -1,6 +1,7 @@
 @import '../color';
 @import '../font-weight';
 @import '../font-size';
+@import '../variables';
 
 .spinner-component {
   $color-spinner-light: $color-gray-light;
@@ -14,14 +15,14 @@
 
     &-small {
       border-width: 2px;
-      height: $font-size-body;
-      width: $font-size-body;
+      height: $svg-icon-size;
+      width: $svg-icon-size;
     }
 
     &-medium {
       border-width: 3px;
-      height: 30px;
-      width: 30px;
+      height: 24px;
+      width: 24px;
     }
 
     &-large {
