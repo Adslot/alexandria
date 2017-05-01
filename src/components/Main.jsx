@@ -256,6 +256,14 @@ class AppComponent extends React.Component {
         <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel" accent="1">Custom Colour</Tag>
         <Tag actionIconSvgHref="/assets/svg-symbols.svg#cancel" inverse accent="1">Inverse Custom Colour</Tag>
         <Tag accent="2" onAction={_.noop} id="bar" actionIconSvgHref="/assets/svg-symbols.svg#cancel">Clearable</Tag>
+        <Tag accent="2" onAction={_.noop} id="bar" actionIconSvgHref="/assets/svg-symbols.svg#cancel">
+          <div style={{ width: '100px' }}>Column 1</div>
+          <div style={{ width: '100px' }}>Column 2</div>
+          <div style={{ width: '100px' }}>
+            Column 3
+            <p>multiline<br />content</p>
+          </div>
+        </Tag>
 
         <p>
           <label className="accent-0">Example</label>

@@ -30,7 +30,7 @@ const TagComponent = ({ children, inverse, id, onAction, accent, actionIconSvgHr
 
   return (
     <span className={`${componentClass}${classes}`} data-test-selector={`tag-${id}`}>
-      <label title={children}>{children}</label>
+      {children}
       {onAction ? <ActionButton {...{ onAction, id, actionIconSvgHref }} /> : null}
     </span>
   );
@@ -39,7 +39,7 @@ const TagComponent = ({ children, inverse, id, onAction, accent, actionIconSvgHr
 TagComponent.displayName = 'AlexandriaTagComponent';
 
 TagComponent.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   id: PropTypes.string,
   accent: PropTypes.string,
   inverse: PropTypes.bool,

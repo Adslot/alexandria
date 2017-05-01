@@ -18,8 +18,8 @@
   display: inline-flex;
   font-size: $font-size-body;
   font-weight: $font-weight-light;
-  height: $tag-height;
   margin-right: $tag-spacing-etalon;
+  min-height: $tag-height;
   padding: 0 $tag-spacing-etalon;
 
   &.tag-component-inverse { // explicit .tag-component to force override of `.accent-n` inverse bg/fill colours
