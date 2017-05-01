@@ -27,7 +27,8 @@
     "start": "node server.js --env=dev",
     "start:cold": "node server.js --env=dev-cold",
     "test": "karma start",
-    "test:watch": "karma start --autoWatch=true --singleRun=false"
+    "test:watch": "karma start --autoWatch=true --singleRun=false",
+    "version": "./scripts/git-hooks/pre-commit"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
