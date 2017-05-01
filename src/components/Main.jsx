@@ -20,6 +20,7 @@ import {
   SvgSymbol,
   SvgSymbolCircle,
   Tag,
+  TileGrid,
   Totals,
 } from './distributionEntry';
 
@@ -261,6 +262,18 @@ class AppComponent extends React.Component {
           <label className="accent-1"> accent </label>
           <label className="accent-2">sharing</label>
         </p>
+
+        <h1>TileGrid</h1>
+        <TileGrid
+          title="Browse by category"
+          items={[
+            { id: 'news', title: 'News' },
+            { id: 'sport', title: 'Sport' },
+            { id: 'health', title: 'Health & Fitness' },
+            { id: 'tech', title: 'Technology & Computing' },
+          ]}
+          onItemClick={_.noop}
+        />
 
         <h1>Totals</h1>
         <Grid>

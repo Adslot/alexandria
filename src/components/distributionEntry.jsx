@@ -20,6 +20,7 @@ import Statistic from 'components/alexandria/StatisticComponent';
 import SvgSymbol from 'components/alexandria/SvgSymbolComponent';
 import SvgSymbolCircle from 'components/alexandria/SvgSymbolCircleComponent';
 import Tag from 'components/alexandria/TagComponent';
+import TileGrid from 'components/alexandria/TileGridComponent';
 import Totals from 'components/alexandria/TotalsComponent';
 
 svg4everybody();
@@ -44,5 +45,6 @@ module.exports = {
   SvgSymbol,
   SvgSymbolCircle,
   Tag,
+  TileGrid,
   Totals,
 };
