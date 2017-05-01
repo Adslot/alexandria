@@ -1,7 +1,7 @@
 {
   "name": "alexandria-adslot",
   "description": "A UI component library. By Adslot",
-  "version": "4.2.5",
+  "version": "4.2.6",
   "license": "MIT",
   "private": false,
   "repository": {
@@ -28,7 +28,7 @@
     "start:cold": "node server.js --env=dev-cold",
     "test": "karma start",
     "test:watch": "karma start --autoWatch=true --singleRun=false",
-    "version": "./scripts/git-hooks/pre-commit"
+    "version": "./scripts/git-hooks/pre-version"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
