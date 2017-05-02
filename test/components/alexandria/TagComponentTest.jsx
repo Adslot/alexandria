@@ -51,4 +51,12 @@ describe('TagComponent', () => {
     expect(onAction.calledWith('Bar')).to.equal(true);
     expect(component.find(SvgSymbol).prop('href')).to.equal('foo');
   });
+
+  it('should render children nodes', () => {
+    const component = shallow(<Tag onAction={_.noop} actionIconSvgHref="foo">
+      <div className="child" />
+      <div className="child" />
+    </Tag>);
+    expect(component.find('.child')).to.have.length(2);
+  });
 });
