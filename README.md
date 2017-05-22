@@ -1,6 +1,11 @@
-alexandria
+<span style="color:red">__DEPRECATED__</span>
+
+<span style="color:red">This package is deprecated. All Alexandria components have been moved to [Adslot UI](https://github.com/Adslot/adslot-ui)</span>
+
+Alexandria
 ==========
 
+[![Project Status](https://img.shields.io/badge/status-deprecated-red.svg)]()
 [![npm version](https://badge.fury.io/js/alexandria.svg)](https://badge.fury.io/js/alexandria)
 [![Build Status](https://travis-ci.org/Adslot/alexandria.svg?branch=master)](https://travis-ci.org/Adslot/alexandria)
 [![codecov](https://codecov.io/gh/Adslot/alexandria/branch/master/graph/badge.svg)](https://codecov.io/gh/Adslot/alexandria)
